@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@color/background_color"
+android:orientation="vertical"
+android:clickable="false"
+tools:context=".MainPage">
+<FrameLayout
+    android:id="@+id/frame"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainPage">
+    android:layout_height="0dp"
+    android:layout_weight="2"
+    android:clickable="false"
+    android:touchscreenBlocksFocus="false"
+    >
+</FrameLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:id="@+id/bottom_navigationBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/top_rounded_background"
+    app:labelVisibilityMode="labeled"
+    app:menu="@menu/menu"
+    tools:ignore="VisualLintBottomNav" />
+
+
+
+</LinearLayout>

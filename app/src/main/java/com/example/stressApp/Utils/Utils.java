@@ -3,6 +3,8 @@ package com.example.stressApp.Utils;
 import android.app.Activity;
 import android.app.AlertDialog;
 
+import com.example.stressApp.LoadingDialog;
+
 public class Utils {
     private static AlertDialog alertDialog;
 
@@ -24,4 +26,15 @@ public class Utils {
             alertDialog.show();
         });
     }
+
+    public static void dismissDialog(LoadingDialog loadingDialog) {
+        if (loadingDialog!= null && loadingDialog.isShowing()) {
+            loadingDialog.dismiss();
+        }
+
+        if (alertDialog != null && alertDialog.isShowing()) {
+            alertDialog.dismiss();
+        }
+    }
+
 }
