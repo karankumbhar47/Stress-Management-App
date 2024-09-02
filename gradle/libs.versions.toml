@@ -1,0 +1,40 @@
+[versions]
+agp = "8.5.0"
+appcompatV7 = "28.0.0"
+constraintLayoutVersion = "2.0.4"
+espressoCoreVersion = "3.0.2"
+firebaseBom = "33.2.0"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+lottie = "4.0.0"
+material = "1.12.0"
+activity = "1.9.1"
+constraintlayout = "2.1.4"
+runner = "1.0.2"
+firebaseDatabase = "21.0.0"
+
+[libraries]
+android-espresso-core = { module = "com.android.support.test.espresso:espresso-core", version.ref = "espressoCoreVersion" }
+appcompat-v7 = { module = "com.android.support:appcompat-v7", version.ref = "appcompatV7" }
+constraint-layout = { module = "com.android.support.constraint:constraint-layout", version.ref = "constraintLayoutVersion" }
+design = { module = "com.android.support:design", version.ref = "appcompatV7" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-auth = { module = "com.google.firebase:firebase-auth" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+google-firebase-database = { module = "com.google.firebase:firebase-database" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+lottie = { module = "com.airbnb.android:lottie", version.ref = "lottie" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+runner = { module = "com.android.support.test:runner", version.ref = "runner" }
+firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+

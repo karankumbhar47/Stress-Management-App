@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "358775589918",
+    "project_id": "stress-management-app-7a8f9",
+    "storage_bucket": "stress-management-app-7a8f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:358775589918:android:5883af0832cbd6e97f320f",
+        "android_client_info": {
+          "package_name": "com.example.stressApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeSaQaep5ccgWTp_AtGZYvC5va5De5K-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
