@@ -45,3 +45,8 @@
 #### Tips:
 Random tips popuping in the app. reminding the user of the ....
 
+### App Progress
+![First Image](./images/p1.jpeg)
+![Second Image](./images/p2.jpeg)
+![Third Image](./images/p3.jpeg)
+
