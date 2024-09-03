@@ -7,8 +7,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
-import com.example.stressApp.LoadingDialog;
-
 public class Utils {
     private static AlertDialog alertDialog;
 

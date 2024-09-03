@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.stressApp.Utils.FirebaseUtils;
+import com.example.stressApp.Utils.LoadingDialog;
 
 public class CreateAccount extends AppCompatActivity {
     private EditText editTextName, editTextMobile, editTextEmail, editTextPassword, editTextCnfPassword;

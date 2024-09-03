@@ -1,5 +1,8 @@
-package com.example.stressApp;
+package com.example.stressApp.Utils;
 
+import com.example.stressApp.R;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -55,6 +58,11 @@ public class AppConstants {
         drawableMap.put("seat", R.drawable.seat);
         drawableMap.put("standing", R.drawable.standing);
         drawableMap.put("eagle", R.drawable.eagle);
+    }
+
+    public static final ArrayList<String> PREF_LIST = new ArrayList<>();
+    static {
+        PREF_LIST.add(PREF_CREDENTIALS);
     }
 
 }

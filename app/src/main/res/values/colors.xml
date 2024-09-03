@@ -8,9 +8,13 @@
     <color name="textColor">#7977C1</color>
     <color name="loginBkColor">#f0f0f0</color>
 
-    <!--colros for card-->
+    <!--colors for card-->
     <color name="whiteCardColor">#fff</color>
 
     <color name="background_color">#F4F4F4</color>
     <color name="blue">#00BCD4</color>
+
+    <color name="gray">#808080</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="new_blue">#0000FF</color>
 </resources>

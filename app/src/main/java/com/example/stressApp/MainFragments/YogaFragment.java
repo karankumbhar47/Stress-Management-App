@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -11,9 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.util.Util;
 import com.example.stressApp.Adapter.YogaAdapter;
-import com.example.stressApp.LoadingDialog;
+import com.example.stressApp.Utils.AppConstants;
+import com.example.stressApp.Utils.LoadingDialog;
 import com.example.stressApp.MainPage;
 import com.example.stressApp.R;
 import com.example.stressApp.Utils.FirebaseUtils;
@@ -21,7 +22,6 @@ import com.example.stressApp.Utils.Utils;
 import com.example.stressApp.YogaDetails;
 import com.example.stressApp.YogaModel;
 
-import java.lang.reflect.UndeclaredThrowableException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,7 +65,7 @@ public class YogaFragment extends Fragment {
                 yogaAdapter.setOnItemClickListener(new YogaAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(int position) {
-                        MainPage.load(new YogaDetails(position+1),fragmentManager,false);
+                        load(new YogaDetails(position+1));
                     }
                 });
                 yoga_recyclerView.setAdapter(yogaAdapter);
@@ -79,5 +79,18 @@ public class YogaFragment extends Fragment {
             }
         });
     }
+
+    private void load(Fragment fragment) {
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.replace(R.id.frame, fragment);
+        ft.commit();
+    }
+
+    @Override
+    public void onResume() {
+        MainPage.updateBottomNavigationBar(AppConstants.FRAGMENT_YOGA);
+        super.onResume();
+    }
+
 
 }
