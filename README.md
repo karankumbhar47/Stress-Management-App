@@ -1,10 +1,10 @@
-Footer based UI 
-Footer element 1: Manual
-Footer element 2: Fidgeting
-Footer element 3: Yoga/Excercise
-Footer element 4: Concentration Music
-Footer element 5: Stress Meter
-Footer element 6: user
+## Footer based UI 
+- Footer element 1: Manual
+- Footer element 2: Fidgeting
+- Footer element 3: Yoga/Excercise
+- Footer element 4: Concentration Music
+- Footer element 5: Stress Meter
+- Footer element 6: user
 
 
 ## Manual (Icon 1 @footer)
