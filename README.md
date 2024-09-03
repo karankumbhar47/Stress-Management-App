@@ -46,7 +46,10 @@
 Random tips popuping in the app. reminding the user of the ....
 
 ### App Progress
-![First Image](./images/p1.jpeg)
-![Second Image](./images/p2.jpeg)
-![Third Image](./images/p3.jpeg)
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="./images/p1.jpeg" alt="First Image" style="width:33%;"/>
+  <img src="./images/p2.jpeg" alt="Second Image" style="width:33%;"/>
+  <img src="./images/p3.jpeg" alt="Third Image" style="width:33%;"/>
+</div>
 
