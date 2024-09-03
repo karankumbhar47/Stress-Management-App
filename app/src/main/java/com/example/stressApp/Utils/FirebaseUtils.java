@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.stressApp.YogaModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -21,7 +22,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -33,7 +36,8 @@ public class FirebaseUtils {
     }
 
     private static final DatabaseReference databaseReference = FirebaseDatabase.getInstance(AppConstants.FIREBASE_URL).getReference().child(AppConstants.DATABASE_TEST);
-    private static final DatabaseReference dataRefUsersInfo = databaseReference.child(AppConstants.DATA_USER_INFO);
+    private static final DatabaseReference dataRefUsersInfo  = databaseReference.child(AppConstants.DATA_USER_INFO);
+    private static final DatabaseReference dataRefYogaInfo   = databaseReference.child(AppConstants.DATA_YOGA_INFO);
     private static final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
 
@@ -127,5 +131,85 @@ public class FirebaseUtils {
                 .addOnFailureListener(e -> {
                     callback.onFailure("Email Registration failed", e, mobile);
                 });
+    }
+
+    public static void fetchYogaData(Callback<List<YogaModel>,String> callback) {
+        dataRefYogaInfo.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<YogaModel> yogaModels = new ArrayList<>();
+
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    String name = snapshot.child(AppConstants.KEY_NAME).getValue(String.class);
+                    String info = snapshot.child(AppConstants.KEY_INFO).getValue(String.class);
+                    String stretchedPart = snapshot.child(AppConstants.KEY_STRETCHED_PART).getValue(String.class);
+                    String help = snapshot.child(AppConstants.KEY_HELP).getValue(String.class);
+                    String path = snapshot.child(AppConstants.KEY_PATH).getValue(String.class);
+
+                    List<String> howToDo = new ArrayList<>();
+                    DataSnapshot howToDoSnapshot = snapshot.child(AppConstants.KEY_HOW_TO_DO);
+                    for (DataSnapshot stepSnapshot : howToDoSnapshot.getChildren()) {
+                        howToDo.add(stepSnapshot.getValue(String.class));
+                    }
+
+                    // Tips might not be present in all records, handle accordingly
+                    List<String> tips = new ArrayList<>();
+                    if (snapshot.hasChild(AppConstants.KEY_TIPS)) {
+                        DataSnapshot tipsSnapshot = snapshot.child("tips");
+                        for (DataSnapshot tipSnapshot : tipsSnapshot.getChildren()) {
+                            tips.add(tipSnapshot.getValue(String.class));
+                        }
+                    }
+
+                    YogaModel yogaModel = new YogaModel(name, info, stretchedPart, help, howToDo, tips,path);
+                    yogaModels.add(yogaModel);
+                }
+
+                callback.onSuccess("Data Fetched Successfully",yogaModels);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                callback.onFailure(databaseError.getMessage(),databaseError.toException(),null);
+            }
+        });
+    }
+
+    public static void getYogaModel(int yoga_id, Callback<YogaModel, String> callback) {
+        String yogaIdString = String.valueOf(yoga_id);
+        dataRefYogaInfo.child(yogaIdString).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String name = dataSnapshot.child("name").getValue(String.class);
+                    String info = dataSnapshot.child("info").getValue(String.class);
+                    String stretchedPart = dataSnapshot.child("stretched-part").getValue(String.class);
+                    String help = dataSnapshot.child("help").getValue(String.class);
+
+                    List<String> howToDo = new ArrayList<>();
+                    for (DataSnapshot stepSnapshot : dataSnapshot.child("how-to-do").getChildren()) {
+                        howToDo.add(stepSnapshot.getValue(String.class));
+                    }
+
+                    // Retrieve "tips" list
+                    List<String> tips = new ArrayList<>();
+                    for (DataSnapshot tipSnapshot : dataSnapshot.child("tips").getChildren()) {
+                        tips.add(tipSnapshot.getValue(String.class));
+                    }
+
+                    String path = dataSnapshot.child("path").getValue(String.class);
+
+                    YogaModel yogaModel = new YogaModel(name, info, stretchedPart, help, howToDo, tips, path);
+                    callback.onSuccess("",yogaModel);
+                } else {
+                    callback.onFailure("Data Not Exist",new Exception(),null);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                callback.onFailure(databaseError.getMessage(),databaseError.toException(),null);
+            }
+        });
     }
 }

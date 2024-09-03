@@ -1,30 +1,16 @@
 package com.example.stressApp;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.activity.OnBackPressedCallback;
 import androidx.activity.OnBackPressedDispatcher;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -36,19 +22,14 @@ import com.example.stressApp.MainFragments.YogaFragment;
 import com.example.stressApp.Utils.Utils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public class MainPage extends AppCompatActivity {
-    // static fields
-    private static String userId;
-    public static BottomNavigationView bottomNavigationBar;
-    private static boolean isRootFragmentLoaded = true;
-
     private Context context;
     private Activity activity;
-    private final FragmentManager fragmentManager = getSupportFragmentManager();
+    private String userId;
     private LoadingDialog loadingDialog;
+    private static boolean isRootFragmentLoaded = true;
+    private static BottomNavigationView bottomNavigationBar;
+    private final FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,10 +95,10 @@ public class MainPage extends AppCompatActivity {
     public static void load(Fragment fragment, FragmentManager fragmentManager, boolean isRootFragment) {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.setCustomAnimations(
-                R.anim.fragment_enter,  // enter
-                R.anim.fragment_exit,   // exit
-                R.anim.fragment_pop_enter,  // popEnter
-                R.anim.fragment_pop_exit   // popExit
+                R.anim.fragment_enter,
+                R.anim.fragment_exit,
+                R.anim.fragment_pop_enter,
+                R.anim.fragment_pop_exit
         );
         if (isRootFragment) {
             isRootFragmentLoaded = true;

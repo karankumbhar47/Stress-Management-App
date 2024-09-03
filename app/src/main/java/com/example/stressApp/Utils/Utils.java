@@ -2,6 +2,10 @@ package com.example.stressApp.Utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.widget.Toast;
 
 import com.example.stressApp.LoadingDialog;
 
@@ -35,6 +39,15 @@ public class Utils {
         if (alertDialog != null && alertDialog.isShowing()) {
             alertDialog.dismiss();
         }
+    }
+
+    public static void showToastOnMainThread(final Context context, final String message) {
+        new Handler(Looper.getMainLooper()).post(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

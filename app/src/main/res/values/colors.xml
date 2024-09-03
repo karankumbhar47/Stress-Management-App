@@ -5,10 +5,12 @@
     <!--colors for modern ui-->
     <color name="whiteTextColor">#fff</color>
     <color name="primaryTextColor">#2661FA</color>
+    <color name="textColor">#7977C1</color>
     <color name="loginBkColor">#f0f0f0</color>
 
     <!--colros for card-->
     <color name="whiteCardColor">#fff</color>
 
     <color name="background_color">#F4F4F4</color>
+    <color name="blue">#00BCD4</color>
 </resources>

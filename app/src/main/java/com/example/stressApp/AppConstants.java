@@ -4,29 +4,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AppConstants {
-    public static final String DATABASE_TEST    = "Test-Database";
-    public static final String PREF_CREDENTIALS         = "User-Credentials";
-    public static final String KEY_LOGIN_FLAG           = "Login-Flag"      ;
+    public static final String DATABASE_TEST            = "Test-Database"       ;
+    public static final String PREF_CREDENTIALS         = "User-Credentials"    ;
+    public static final String KEY_LOGIN_FLAG           = "Login-Flag"          ;
 
-    public static final String KEY_USER_ID              = "User-Id"         ;
-    public static final String LOG_LOGIN                = "App-Login-Logs"  ;
-    public static final String LOG_REGISTER             = "App-Register-Logs"  ;
-    public static final String DATA_USER_INFO           = "User-Information";
+    public static final String KEY_USER_ID              = "User-Id"             ;
+    public static final String LOG_LOGIN                = "App-Login-Logs"      ;
+    public static final String LOG_REGISTER             = "App-Register-Logs"   ;
+    public static final String DATA_USER_INFO           = "User-Information"    ;
+    public static final String DATA_YOGA_INFO           = "Yoga-Information"    ;
+    public static final String KEY_NAME                 = "name"                ;
+    public static final String KEY_INFO                 = "info"                ;
+    public static final String KEY_HELP                 = "help"                ;
+    public static final String KEY_HOW_TO_DO            = "how-to-do"           ;
+    public static final String KEY_STRETCHED_PART       = "stretched-part"      ;
+    public static final String KEY_TIPS                 = "tips"                ;
+    public static final String KEY_PATH                 = "path"                ;
 
 
-    public static final String DATA_CREDENTIALS         = "Credentials"     ;
+    public static final String DATA_CREDENTIALS         = "Credentials"         ;
     public static final String FIREBASE_URL             =  "https://stress-management-app-7a8f9-default-rtdb.firebaseio.com/";
 
-    public static final String KEY_MOBILE_NUMBER        = "Mobile-Number"   ;
-    public static final String KEY_GMAIL                = "Gmail"           ;
-    public static final String KEY_PASSWORD             = "Password"        ;
-    public static final String KEY_USER_NAME            = "User-Name"       ;
-    public static final String ROOT_FRAGMENT_TAG = "Root-Fragment";
+    public static final String KEY_MOBILE_NUMBER        = "Mobile-Number"       ;
+    public static final String KEY_GMAIL                = "Gmail"               ;
+    public static final String KEY_PASSWORD             = "Password"            ;
+    public static final String KEY_USER_NAME            = "User-Name"           ;
+    public static final String ROOT_FRAGMENT_TAG        = "Root-Fragment"       ;
 
-    public static final String FRAGMENT_HOME = "HomeFragment";
-    public static final String FRAGMENT_OTHERS = "OthersFragment";
-    public static final String FRAGMENT_YOGA = "YogaFragment";
-    public static final String FRAGMENT_SETTING = "SettingFragment";
+    public static final String FRAGMENT_HOME            = "HomeFragment"        ;
+    public static final String FRAGMENT_OTHERS          = "OthersFragment"      ;
+    public static final String FRAGMENT_YOGA            = "YogaFragment"        ;
+    public static final String FRAGMENT_SETTING         = "SettingFragment"     ;
 
     public static final Map<String, Integer> fragmentMap = new HashMap<>();
     static {
@@ -34,6 +42,19 @@ public class AppConstants {
         fragmentMap.put(FRAGMENT_OTHERS, R.id.others_icon);
         fragmentMap.put(FRAGMENT_YOGA, R.id.yoga_icon);
         fragmentMap.put(FRAGMENT_SETTING, R.id.setting_icon);
+    }
+
+    public static final Map<String, Integer> drawableMap = new HashMap<>();
+    static {
+        drawableMap.put("bridge", R.drawable.bridge);
+        drawableMap.put("cat", R.drawable.cat);
+        drawableMap.put("child", R.drawable.child);
+        drawableMap.put("corpse", R.drawable.corpse);
+        drawableMap.put("lotus", R.drawable.lotus);
+        drawableMap.put("resolver", R.drawable.revolver);
+        drawableMap.put("seat", R.drawable.seat);
+        drawableMap.put("standing", R.drawable.standing);
+        drawableMap.put("eagle", R.drawable.eagle);
     }
 
 }
