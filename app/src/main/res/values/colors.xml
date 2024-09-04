@@ -15,8 +15,12 @@
     <color name="blue">#00BCD4</color>
 
     <color name="gray">#808080</color>
+    <color name="gray_faint">#B2AFAF</color>
     <color name="yellow">#FFFF00</color>
     <color name="new_blue">#0000FF</color>
     <color name="colorSelected">#007BFF</color>
     <color name="colorUnselected">#6C757D</color>
+    <color name="button_color">#DADEF8</color>
+    <color name="custom_blue">#4a7adb</color>
+
 </resources>

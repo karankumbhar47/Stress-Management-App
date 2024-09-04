@@ -19,11 +19,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.stressApp.MainActivity;
 import com.example.stressApp.SettingFragments.AboutusFragment;
 import com.example.stressApp.SettingFragments.HelpFragment;
+import com.example.stressApp.SettingFragments.LanguageFragment;
+import com.example.stressApp.SettingFragments.ProfileFragment;
 import com.example.stressApp.SettingFragments.SupportFragment;
 import com.example.stressApp.Utils.AppConstants;
 import com.example.stressApp.MainPage;
@@ -38,10 +41,11 @@ import java.util.Objects;
 
 public class SettingFragment extends Fragment {
     private FragmentManager fragmentManager;
-    private CardView help_cardView, share_cardView, support_cardView;
+    private CardView help_cardView, share_cardView, support_cardView,language_cardView;
     private CardView aboutus_cardView, logout_cardView, changePassword_cardView;
     private String userName, mobile_number;
     private TextView userName_textView, mobileNumber_textView;
+    private ImageView editProfile_button;
     private SharedPreferences prefCredential;
     private LoadingDialog loadingDialog;
 
@@ -72,6 +76,8 @@ public class SettingFragment extends Fragment {
         aboutus_cardView = view.findViewById(R.id.aboutUs_cardView);
         logout_cardView =view.findViewById(R.id.logout_cardView);
         changePassword_cardView = view.findViewById(R.id.change_password_cardView);
+        language_cardView = view.findViewById(R.id.language_cardView);
+        editProfile_button = view.findViewById(R.id.profile_imageView);
 
         mobileNumber_textView = view.findViewById(R.id.phone_number_textView);
         userName_textView = view.findViewById(R.id.user_name_textView);
@@ -84,6 +90,8 @@ public class SettingFragment extends Fragment {
         logout_cardView.setOnClickListener(v -> logout());
         share_cardView.setOnClickListener(v -> shareApp());
         changePassword_cardView.setOnClickListener(v -> showBottomSheetDialog());
+        language_cardView.setOnClickListener(v -> load(new LanguageFragment()));
+        editProfile_button.setOnClickListener( v -> load(new ProfileFragment()));
     }
 
     private void showBottomSheetDialog(){

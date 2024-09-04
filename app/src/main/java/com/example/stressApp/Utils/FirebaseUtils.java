@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.stressApp.Model.YogaModel;
+import com.example.stressApp.SettingFragments.ProfileFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -216,6 +217,19 @@ public class FirebaseUtils {
                     callback.onSuccess("Successfully Updated", newPassword);
                 })
                 .addOnFailureListener(e -> callback.onFailure(e.getMessage(), e, mobileNumber));
+    }
+
+    public static void changeProfile(String mobile, String name, ProfileFragment.Callback callback) {
+        dataRefUsersInfo.child(mobile).child(AppConstants.DATA_CREDENTIALS).child(AppConstants.KEY_USER_NAME)
+                .setValue(name)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        callback.onSuccess();
+                    } else {
+                        callback.onFailure();
+                    }
+                })
+                .addOnFailureListener(e -> callback.onFailure());
     }
 
 }
