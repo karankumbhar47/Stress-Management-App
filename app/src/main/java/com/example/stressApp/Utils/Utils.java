@@ -7,6 +7,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
 
+import com.example.stressApp.Model.Question;
+
+import java.util.Collections;
+import java.util.List;
+
 public class Utils {
     private static AlertDialog alertDialog;
 
@@ -40,12 +45,16 @@ public class Utils {
     }
 
     public static void showToastOnMainThread(final Context context, final String message) {
-        new Handler(Looper.getMainLooper()).post(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-            }
-        });
+        new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(context, message, Toast.LENGTH_SHORT).show());
     }
 
+    public static void showLongToast(final Context context, final String message) {
+        new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(context, message, Toast.LENGTH_LONG).show());
+    }
+
+
+    public static List<Question> getRandomQuestions(List<Question> allQuestions, int numberOfQuestions) {
+        Collections.shuffle(allQuestions);
+        return allQuestions.subList(0, Math.min(numberOfQuestions, allQuestions.size()));
+    }
 }

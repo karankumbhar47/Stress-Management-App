@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.stressApp.YogaModel;
+import com.example.stressApp.Model.YogaModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -207,4 +207,15 @@ public class FirebaseUtils {
             }
         });
     }
+
+    public static void changePassword(String mobileNumber, String newPassword, Callback<String, String> callback) {
+        dataRefUsersInfo.child(mobileNumber).child(AppConstants.DATA_CREDENTIALS)
+                .child(AppConstants.KEY_PASSWORD)
+                .setValue(newPassword)
+                .addOnCompleteListener(task1 -> {
+                    callback.onSuccess("Successfully Updated", newPassword);
+                })
+                .addOnFailureListener(e -> callback.onFailure(e.getMessage(), e, mobileNumber));
+    }
+
 }

@@ -1,0 +1,152 @@
+{
+    "YogaInformation": {
+        "1": {
+            "name": "Easy Pose (Sukhasana) with optional Forward Fold",
+            "info": "A simple pose for both beginner and intermediate yogis—Easy Pose or Sukhasana is an uncomplicated therapeutic pose which calms the mind and reduces stress and anxiety. Adding the forward bend helps increase the exhale, leading to the relaxation response.",
+            "stretched-part": "Your lower body areas such as your knees, ankles, hips, groin, and outer thighs.",
+            "help": "Easy Pose helps with the gradual strengthening of the back muscles and improves body posture.",
+            "how-to-do": {
+                "0": "Start by sitting cross-legged on your mat, right shin/foot in the front.",
+                "1": "After a few minutes, slowly bend forward as far as you can, arms out in front of you. Don’t push yourself too hard.",
+                "2": "Stay in the forward bend for five breaths, then straighten.",
+                "3": "Switch legs and repeat above steps."
+            },
+            "path": "lotus"
+        },
+        "2": {
+            "name": "Standing Forward Fold Pose (Uttanasana)",
+            "info": "Uttanasana has many benefits which include quieting a busy mind, promoting calmness, and balancing the nervous system. It’s also mostly used as a transition between poses.",
+            "stretched-part": "Your hamstrings, calves, hips, and back.",
+            "help": "Standing Forward Fold helps to reduce stress and fatigue, stimulates the liver and kidneys, and relieves headaches and insomnia.",
+            "how-to-do": {
+                "0": "From Tadasana or simply your neutral standing position, bend your knees and hinge forward from your hips, placing your hands in front of your feet. Remember to engage your core and exhale as you fold.",
+                "1": "Shift the weight to the balls of your feet. If your hamstrings are too tight, bend your knees slightly to prevent strain on your lower back. If you don’t have tight hamstrings, lengthen through the back of your legs. Remember to keep the weight on the balls of your feet.",
+                "2": "Grab hold of each elbow with opposite hands. Focus on softening your jaw, neck, around your eyes, and clearing thoughts from your mind.",
+                "3": "Hold the pose for five breaths, then slowly rise back up to Tadasana."
+            },
+            "tips": {
+                "0": "While practicing this asana, imagine your worries flowing from your head all the way down to your feet, and being completely absorbed by the ground.",
+                "1": "Take your time coming out of this pose, especially if you have low blood pressure."
+            },
+            "path": "standing"
+        },
+        "3": {
+            "name": "Child’s Pose (Balasana)",
+            "info": "Child’s Pose or Balasana is perfect for quieting a busy mind and soothing the adrenals. When we stress excessively, we put pressure on our adrenal glands (located above the kidneys). This can lead to burnout. This pose allows you to embrace your inner child, hence the name Child’s Pose.",
+            "stretched-part": "Your back, hips, thighs, and ankles.",
+            "help": "Child’s Pose can help to reduce stress and restore the nervous and lymphatic systems.",
+            "how-to-do": {
+                "0": "Start on your hands and knees, sit back over your heels with your hands in front of you.",
+                "1": "Slowly fold forward until your forehead rests on the mat.",
+                "2": "Allow your big toes to touch. You can either have your knees together or separated (it depends on how tight your hips are).",
+                "3": "Traditionally your arms are resting alongside your body, but you can stack your hands and rest your head on your forearms. You can also extend your arms in front of you.",
+                "4": "Stay in this pose for at least ten breaths."
+            },
+            "tips": {
+                "0": "If your backside isn’t touching your heels, place a cushion in between.",
+                "1": "With each exhale try to let go as much air as you can."
+            },
+            "path": "child"
+        },
+        "4": {
+            "name": "Eagle Pose (Garudasana)",
+            "info": "Eagle Pose or Garudasana is an intricate pose allowing you to 'squeeze' out the tension in your body and focus on your balance, helping to alleviate stress and improve your concentration.",
+            "stretched-part": "Eagle Pose is perfect for stretching the whole body — your thighs, hips, calves, ankles, shoulders, and upper back.",
+            "help": "Eagle Pose stimulates the immune system and improves balance.",
+            "how-to-do": {
+                "0": "Begin by standing upright with your arms at your side.",
+                "1": "Bend your knees, balance on your right foot and cross your left thigh over your right.",
+                "2": "Hook the top of your left foot behind your right calf.",
+                "3": "Extend both arms straight in front of your body, then drop your left arm under your right.",
+                "4": "Bend your elbows, raise your forearms at a 90-degree angle (perpendicular) to the floor. Wrap your hands and arms, finally pressing your palms together.",
+                "5": "Square your chest and hips to the front. Draw your belly in and up.",
+                "6": "Focus on the tips of your thumbs to further retain your balance.",
+                "7": "Try to hold the pose for one minute. Gently unwind arms and legs and repeat on the left side."
+            },
+            "tips": {
+                "0": "At first, the pose might seem challenging, but continuous practice will soon allow you to master the Eagle Pose with less effort. Consistency is key! If balance is very difficult, touch one big toe to the floor."
+            },
+            "path": "eagle"
+        },
+        "5": {
+            "name": "Bridge Pose (Setu Bandha Sarvangasana)",
+            "info": "Bridge Pose or Setu Bandha Sarvangasana acts as a mild inversion, with the heart higher than the head. It helps calm the brain and central nervous system, promote ease and relaxation, alleviate stress, anxiety, and mild depression.",
+            "stretched-part": "Bridge Pose stretches your chest, neck, spine, hips, and back.",
+            "help": "Bridge Pose strengthens the back, buttocks, and hamstrings, improves digestion and the circulation of blood. It helps lower high blood pressure and can help with backaches, fatigue, insomnia, and headaches. It also stimulates the lungs, thyroid, and abdominal organs.",
+            "how-to-do": {
+                "0": "Start with lying flat on your back. Bend your knees and place your feet hip-width apart. Keep your arms alongside your body with palms facing down.",
+                "1": "Press your feet into the floor. Inhale as much as you can and lift your hips. Ensure you keep your knees hip-width apart.",
+                "2": "Press into your arms and shoulders to lift your chest. Engage your legs and glutes to lift your hips higher.",
+                "3": "Hold for five breaths, exhale and slowly roll your spine back to the floor."
+            },
+            "tips": {
+                "0": "For more support, add a yoga block underneath your sacrum."
+            },
+            "path": "bridge"
+        },
+        "6": {
+            "name": "Extended Triangle Pose (Utthita Trikonasana)",
+            "info": "The Extended Triangle Pose is the perfect full-body stretch to help relieve stress and reduce anxiety. The pose is a standing asana in modern-day yoga and includes variations such as Baddha Trikonasana and Parivrtta Trikonasana.",
+            "stretched-part": "Extended Triangle Pose helps stretch your lower body areas such as the knees, thighs, and ankles.",
+            "help": "Extended Triangle Pose helps with digestion, sciatica, and osteoporosis.",
+            "how-to-do": {
+                "0": "Start the pose by standing upright, exhale and spread legs one metre apart.",
+                "1": "Stretch your arms sideways with palms facing the ground.",
+                "2": "Turn your right foot out at a 90-degree angle.",
+                "3": "Tighten your thigh muscles and turn your right thigh outwards.",
+                "4": "Bend your body down from your hips toward your right leg.",
+                "5": "Twist your body to the left.",
+                "6": "Push your left hip forward (slightly) and lengthen your tailbone towards your heel.",
+                "7": "Put your right hand on your ankle, shin or the floor, depending on your flexibility level. Stretch your left arm straight up into the air.",
+                "8": "Keep your head straight and hold the position for 30 seconds."
+            },
+            "tips": {
+                "0": "If you can’t reach the floor with your hand, place your hand on your leg either above or below your knee or on a yoga block."
+            },
+            "path": "revolver"
+        },
+        "7": {
+            "name": "Cat Pose (Marjaryasana)",
+            "info": "Cat Pose or Marjaryasana is another asana which helps relieve stress, increase spinal flexibility and mobility and create emotional balance.",
+            "stretched-part": "Cat Pose mostly focuses on stretching the lower back, but the movement also stretches the muscles of the hips, upper back, and lungs. Cat Stretch held at its peak, releases tension in the upper back and neck.",
+            "help": "The asana flow (moving from one posture to another, seamlessly, using breath), helps relieve stress from menstrual cramps, lower back pain, and sciatica. It also massages and stimulates organs in the belly like the kidneys and adrenal glands.",
+            "how-to-do": {
+                "0": "Start on your hands and knees, exhale while drawing your stomach into your spine.",
+                "1": "Round your back to the ceiling as far as possible.",
+                "2": "Point the crown of your head to the floor. Don’t force your chin onto your chest.",
+                "3": "Repeat ten times."
+            },
+            "tips": {
+                "0": "Keep your shoulders relaxed.",
+                "1": "Don’t force your head down, instead let it drop naturally.",
+                "2": "To ensure the Cat Pose moves your spine, keep your arms straight."
+            },
+            "path": "cat"
+        },
+        "8": {
+            "name": "Legs-up-the-wall Pose (Viparita Karani)",
+            "info": "Commonly using a wall, the Legs-up-the-wall Pose or Viparita Karani is a fully supported asana. Having your legs up against a wall helps reduce stress and is a great pose to do before bed-time as it calms your mind and heart.",
+            "stretched-part": "Legs-up-the-wall helps stretch the back of your legs and neck, and chest.",
+            "help": "Legs-up-the-wall asana facilitates lymph drainage, increased blood circulation, and allows the return of blood back to the heart.",
+            "how-to-do": {
+                "0": "Start by placing your hips against a wall, then roll onto your back while straightening your legs against the wall.",
+                "1": "Your bottom should be pressed against the wall as close as possible. You might have to wiggle your way up close.",
+                "2": "Hold this pose for five minutes."
+            },
+            "path": "seat"
+        },
+        "9": {
+            "name": "Corpse Pose (Savasana)",
+            "info": "Usually, the last asana in yoga is the Corpse Pose or Savasana. It is generally considered the most calming part of the class. This pose promotes a sense of physical and emotional grounding, puts the whole body at ease, and leads to total relaxation. Although it seems as if someone is simply laying on the ground, the pose is much trickier in reality. Even though most students are able to easily twist and bend their way through a yoga class, simply lying still on the floor is quite a struggle for some. Relaxation doesn’t happen on demand. Savasana helps fade away fears and worries, as the student gradually sinks into a complete state of relaxation. Once you’ve mastered Corpse Pose, it’s extremely rewarding, as it relaxes your breathing, improves concentration, calms the mind, and improves mental health.",
+            "stretched-part": "Corpse Pose helps with insomnia and is an excellent asana for stimulating blood circulation.",
+            "help": "Corpse Pose helps with insomnia and is an excellent asana for stimulating blood circulation.",
+            "how-to-do": {
+                "0": "Start by lying flat on your back with your legs apart but not wider than your mat. Keep your arms at your sides with palms facing up.",
+                "1": "Keep your eyes closed, face relaxed, and focus on breathing deeply.",
+                "2": "Allow your mind to focus on each part of your body, starting at the top of your head and moving all the way down to your feet and releasing each part.",
+                "3": "Hold the pose for three to five minutes."
+            },
+            "path": "corpse"
+        }
+    }
+}

@@ -1,0 +1,74 @@
+{
+    "StudentInfo": [
+        {
+            "name": "Vedant Udan",
+            "id_number": "12140120",
+            "email": "udanvedant@iitbhilai.ac.in",
+            "phone_number": "9028348417",
+            "role": "Leader"
+        },
+        {
+            "name": "Shobhit Jain",
+            "id_number": "12140030",
+            "email": "shobh@iitbhilai.ac.in",
+            "phone_number": "9876543210",
+            "role": "Researcher"
+        },
+        {
+            "name": "Sandesh Ahire",
+            "id_number": "12140040",
+            "email": "sande@iitbhilai.ac.in",
+            "phone_number": "8765432109",
+            "role": "Developer"
+        },
+        {
+            "name": "Palkesh Jain",
+            "id_number": "12140050",
+            "email": "palke@iitbhilai.ac.in",
+            "phone_number": "7654321098",
+            "role": "Researcher"
+        },
+        {
+            "name": "Sanket Dandge",
+            "id_number": "12140060",
+            "email": "sanke@iitbhilai.ac.in",
+            "phone_number": "6543210987",
+            "role": "Developer"
+        },
+        {
+            "name": "Vikas Samota",
+            "id_number": "12140070",
+            "email": "vikas@iitbhilai.ac.in",
+            "phone_number": "5432109876",
+            "role": "Researcher"
+        },
+        {
+            "name": "Akshat Arora",
+            "id_number": "12140080",
+            "email": "aksha@iitbhilai.ac.in",
+            "phone_number": "4321098765",
+            "role": "Developer"
+        },
+        {
+            "name": "Rounak Kamble",
+            "id_number": "12140090",
+            "email": "rouna@iitbhilai.ac.in",
+            "phone_number": "3210987654",
+            "role": "Researcher"
+        },
+        {
+            "name": "Gourav",
+            "id_number": "12140100",
+            "email": "goura@iitbhilai.ac.in",
+            "phone_number": "2109876543",
+            "role": "Researcher"
+        },
+        {
+            "name": "Karan Kumbhar",
+            "id_number": "12140110",
+            "email": "karan@iitbhilai.ac.in",
+            "phone_number": "1098765432",
+            "role": "Developer"
+        }
+    ]
+}

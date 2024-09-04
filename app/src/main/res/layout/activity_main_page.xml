@@ -19,9 +19,8 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigationBar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/top_rounded_background"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/menu"
         tools:ignore="VisualLintBottomNav" />

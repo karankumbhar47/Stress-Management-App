@@ -1,4 +1,4 @@
-package com.example.stressApp;
+package com.example.stressApp.Model;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
 package com.example.stressApp.Model;
 
-public class FAQ {
-    private String question;
-    private String answer;
+public class FAQModel {
+    private final String question;
+    private final String answer;
 
-    public FAQ(String question, String answer) {
+    public FAQModel(String question, String answer) {
         this.question = question;
         this.answer = answer;
     }

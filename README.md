@@ -16,7 +16,6 @@
 
 ### Other Activities Fragment
 - Stress Meter
-- user
 - Fidgeting
 - Concentration Music
 

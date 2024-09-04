@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".YogaDetails">
+    tools:context=".YogaFragments.YogaDetails">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:elevation="10dp"
-            android:id="@+id/setting_title">
+            android:id="@+id/head_card">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -43,10 +43,10 @@
                     android:id="@+id/yoga_pose_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
                     android:hint="Yoga Name"
                     android:textColor="@color/blue"
-                    android:layout_margin="10dp"
-                    android:textSize="20sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -57,8 +57,6 @@
                android:orientation="vertical"
                android:layout_width="match_parent"
                android:layout_height="wrap_content">
-
-
 
                <androidx.cardview.widget.CardView
                    android:layout_gravity="center"

@@ -16,8 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.stressApp.Adapter.FAQAdapter;
 import com.example.stressApp.MainFragments.SettingFragment;
-import com.example.stressApp.MainFragments.YogaFragment;
-import com.example.stressApp.Model.FAQ;
+import com.example.stressApp.Model.FAQModel;
 import com.example.stressApp.R;
 
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class HelpFragment extends Fragment {
     private RecyclerView faqRecyclerView;
     private EditText faqSearchBar;
     private FAQAdapter faqAdapter;
-    private List<FAQ> faqList = new ArrayList<>();
+    private List<FAQModel> faqModelList = new ArrayList<>();
     private CardView close_button;
     private FragmentManager fragmentManager;
 
@@ -48,7 +47,7 @@ public class HelpFragment extends Fragment {
         initializeFAQs();
 
         // Set up RecyclerView
-        faqAdapter = new FAQAdapter(faqList);
+        faqAdapter = new FAQAdapter(faqModelList);
         faqRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         faqRecyclerView.setAdapter(faqAdapter);
 
@@ -62,10 +61,10 @@ public class HelpFragment extends Fragment {
     }
 
     private void initializeFAQs() {
-        faqList.add(new FAQ("What is the purpose of this app?", "The app helps users manage stress through various techniques."));
-        faqList.add(new FAQ("How often should I use the app?", "Daily usage for at least 10-15 minutes is recommended."));
-        faqList.add(new FAQ("I am facing issues with the app crashing, what should I do?", "Try restarting your device and ensure you have the latest version."));
-        faqList.add(new FAQ("How do I track my stress levels?", "Use the mood tracker under the 'Track' section."));
-        faqList.add(new FAQ("Are there any recommended resources?", "Yes, check out the 'Resources' tab for books, podcasts, and articles."));
+        faqModelList.add(new FAQModel("What is the purpose of this app?", "The app helps users manage stress through various techniques."));
+        faqModelList.add(new FAQModel("How often should I use the app?", "Daily usage for at least 10-15 minutes is recommended."));
+        faqModelList.add(new FAQModel("I am facing issues with the app crashing, what should I do?", "Try restarting your device and ensure you have the latest version."));
+        faqModelList.add(new FAQModel("How do I track my stress levels?", "Use the mood tracker under the 'Track' section."));
+        faqModelList.add(new FAQModel("Are there any recommended resources?", "Yes, check out the 'Resources' tab for books, podcasts, and articles."));
     }
 }

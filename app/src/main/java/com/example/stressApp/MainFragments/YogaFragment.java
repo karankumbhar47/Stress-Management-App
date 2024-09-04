@@ -14,13 +14,14 @@ import android.view.ViewGroup;
 
 import com.example.stressApp.Adapter.YogaAdapter;
 import com.example.stressApp.Utils.AppConstants;
+import com.example.stressApp.Utils.JsonHelper;
 import com.example.stressApp.Utils.LoadingDialog;
 import com.example.stressApp.MainPage;
 import com.example.stressApp.R;
 import com.example.stressApp.Utils.FirebaseUtils;
 import com.example.stressApp.Utils.Utils;
-import com.example.stressApp.YogaDetails;
-import com.example.stressApp.YogaModel;
+import com.example.stressApp.YogaFragments.YogaDetails;
+import com.example.stressApp.Model.YogaModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +56,7 @@ public class YogaFragment extends Fragment {
 
     private void setAdapter(){
         loadingDialog.show();
+
         FirebaseUtils.fetchYogaData(new FirebaseUtils.Callback<List<YogaModel>, String>() {
             @Override
             public void onSuccess(String customMessage, List<YogaModel> result) {
@@ -78,6 +80,7 @@ public class YogaFragment extends Fragment {
                 Utils.showToastOnMainThread(requireContext(),"Failed to load data");
             }
         });
+
     }
 
     private void load(Fragment fragment) {

@@ -1,4 +1,4 @@
-package com.example.stressApp;
+package com.example.stressApp.YogaFragments;
 
 import android.os.Bundle;
 
@@ -13,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.stressApp.MainFragments.YogaFragment;
+import com.example.stressApp.MainPage;
+import com.example.stressApp.Model.YogaModel;
+import com.example.stressApp.R;
 import com.example.stressApp.Utils.AppConstants;
 import com.example.stressApp.Utils.FirebaseUtils;
 import com.example.stressApp.Utils.Utils;

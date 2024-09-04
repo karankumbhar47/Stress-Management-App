@@ -7,17 +7,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.stressApp.Model.FAQ;
+import com.example.stressApp.Model.FAQModel;
 import com.example.stressApp.R;
 
 import java.util.List;
 
 public class FAQAdapter extends RecyclerView.Adapter<FAQAdapter.FAQViewHolder> {
 
-    private List<FAQ> faqList;
+    private List<FAQModel> faqModelList;
 
-    public FAQAdapter(List<FAQ> faqList) {
-        this.faqList = faqList;
+    public FAQAdapter(List<FAQModel> faqModelList) {
+        this.faqModelList = faqModelList;
     }
 
     @NonNull
@@ -30,9 +30,9 @@ public class FAQAdapter extends RecyclerView.Adapter<FAQAdapter.FAQViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull FAQViewHolder holder, int position) {
-        FAQ faq = faqList.get(position);
-        holder.questionTextView.setText(faq.getQuestion());
-        holder.answerTextView.setText(faq.getAnswer());
+        FAQModel faqModel = faqModelList.get(position);
+        holder.questionTextView.setText(faqModel.getQuestion());
+        holder.answerTextView.setText(faqModel.getAnswer());
 
         // Toggle visibility of the answer
         holder.questionTextView.setOnClickListener(v -> {
@@ -46,7 +46,7 @@ public class FAQAdapter extends RecyclerView.Adapter<FAQAdapter.FAQViewHolder> {
 
     @Override
     public int getItemCount() {
-        return faqList.size();
+        return faqModelList.size();
     }
 
     static class FAQViewHolder extends RecyclerView.ViewHolder {

@@ -1,0 +1,645 @@
+{
+    "questions": [
+        {
+            "question": "How often do you feel overwhelmed by your responsibilities?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How frequently do you feel anxious without a clear reason?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you often find it hard to relax even when you have free time?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How frequently do you have trouble falling or staying asleep?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel fatigued despite getting enough rest?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you find yourself easily irritated or angry?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you experience physical symptoms of stress (e.g., headaches, muscle tension)?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel like you are constantly under pressure?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you find yourself worrying about future events?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you have trouble concentrating on tasks or projects?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel a lack of motivation to perform daily tasks?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you find it difficult to manage your time effectively?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you lack control over your life?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you experience mood swings or feel emotionally unstable?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel disconnected from friends or family?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel that your work or study environment is stressful?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you find yourself procrastinating important tasks?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel overwhelmed by your workload or responsibilities?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you experience negative thoughts about yourself or your abilities?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel that you have too many commitments and not enough time?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you are not making enough progress towards your goals?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel anxious about upcoming events or deadlines?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you lack support from those around you?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you find it hard to maintain a healthy work-life balance?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you are not in control of your emotions?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you experience frequent mood swings or irritability?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you are not able to meet your personal expectations?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel that you are constantly juggling multiple tasks or responsibilities?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you are not getting enough time for yourself?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you experience frequent episodes of frustration or anger?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that your life is out of balance?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel that you are not achieving your goals as quickly as you would like?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you are not getting enough support from friends or family?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you find it difficult to unwind after a stressful day?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you are not able to enjoy your leisure time?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel that you are constantly worried about small details or issues?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you are not making progress in your personal life?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you find it hard to maintain a positive outlook on life?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you are struggling to balance your personal and professional life?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel that you are not able to keep up with your daily tasks?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you lack energy or enthusiasm for your daily activities?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you find it challenging to manage your emotions during stressful situations?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel overwhelmed by unexpected changes or events?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you often feel that you are not able to achieve a good balance between work and relaxation?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How frequently do you find yourself feeling anxious about your future?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you experience frequent feelings of inadequacy or self-doubt?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you are unable to cope with daily challenges?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+
+
+        {
+            "question": "How often do you feel overwhelmed by your responsibilities?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How frequently do you feel anxious without a clear reason?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you often find it hard to relax even when you have free time?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How frequently do you have trouble falling or staying asleep?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel fatigued despite getting enough rest?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you find yourself easily irritated or angry?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you experience physical symptoms of stress (e.g., headaches, muscle tension)?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel like you are constantly under pressure?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you find yourself worrying about future events?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you have trouble concentrating on tasks or projects?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel a lack of motivation to perform daily tasks?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you find it difficult to manage your time effectively?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you lack control over your life?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you experience mood swings or feel emotionally unstable?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel disconnected from friends or family?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel that your work or study environment is stressful?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you find yourself procrastinating important tasks?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel overwhelmed by your workload or responsibilities?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you experience negative thoughts about yourself or your abilities?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel that you have too many commitments and not enough time?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you are not making enough progress towards your goals?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you feel anxious about upcoming events or deadlines?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "How often do you feel that you lack support from those around you?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        },
+        {
+            "question": "Do you find it hard to maintain a healthy work-life balance?",
+            "options": [
+                {"text": "Never", "points": 1},
+                {"text": "Rarely", "points": 2},
+                {"text": "Sometimes", "points": 3},
+                {"text": "Often", "points": 4}
+            ]
+        }
+    ]
+}

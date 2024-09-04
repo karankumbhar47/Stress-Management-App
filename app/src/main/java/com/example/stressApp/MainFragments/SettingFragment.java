@@ -13,9 +13,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.stressApp.MainActivity;
@@ -25,16 +28,22 @@ import com.example.stressApp.SettingFragments.SupportFragment;
 import com.example.stressApp.Utils.AppConstants;
 import com.example.stressApp.MainPage;
 import com.example.stressApp.R;
+import com.example.stressApp.Utils.FirebaseUtils;
+import com.example.stressApp.Utils.LoadingDialog;
+import com.example.stressApp.Utils.Utils;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.nio.channels.FileChannel;
+import java.util.Objects;
 
 public class SettingFragment extends Fragment {
     private FragmentManager fragmentManager;
     private CardView help_cardView, share_cardView, support_cardView;
-    private CardView aboutus_cardView, logout_cardView;
+    private CardView aboutus_cardView, logout_cardView, changePassword_cardView;
     private String userName, mobile_number;
     private TextView userName_textView, mobileNumber_textView;
     private SharedPreferences prefCredential;
+    private LoadingDialog loadingDialog;
 
     public SettingFragment() {
     }
@@ -51,7 +60,7 @@ public class SettingFragment extends Fragment {
     }
 
     private void init(View view){
-        requireActivity();
+        loadingDialog = new LoadingDialog(requireActivity());
         prefCredential = requireActivity().getSharedPreferences(AppConstants.PREF_CREDENTIALS, Context.MODE_PRIVATE);
         userName = prefCredential.getString(AppConstants.KEY_USER_NAME,"user name");
         mobile_number = prefCredential.getString(AppConstants.KEY_MOBILE_NUMBER,"mobile number");
@@ -62,6 +71,7 @@ public class SettingFragment extends Fragment {
         support_cardView = view.findViewById(R.id.support_cardView);
         aboutus_cardView = view.findViewById(R.id.aboutUs_cardView);
         logout_cardView =view.findViewById(R.id.logout_cardView);
+        changePassword_cardView = view.findViewById(R.id.change_password_cardView);
 
         mobileNumber_textView = view.findViewById(R.id.phone_number_textView);
         userName_textView = view.findViewById(R.id.user_name_textView);
@@ -73,6 +83,43 @@ public class SettingFragment extends Fragment {
         aboutus_cardView.setOnClickListener(v -> load(new AboutusFragment()));
         logout_cardView.setOnClickListener(v -> logout());
         share_cardView.setOnClickListener(v -> shareApp());
+        changePassword_cardView.setOnClickListener(v -> showBottomSheetDialog());
+    }
+
+    private void showBottomSheetDialog(){
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(requireActivity());
+        bottomSheetDialog.setContentView(R.layout.change_pass);
+        Button changeButton = bottomSheetDialog.findViewById(R.id.changepass);
+        EditText newPassword_editText = bottomSheetDialog.findViewById(R.id.password);
+
+        Objects.requireNonNull(changeButton).setOnClickListener(v -> {
+            String newPassword = Objects.requireNonNull(newPassword_editText).getText().toString().trim();
+            Log.d(AppConstants.LOG_SETTING, "showBottomSheetDialog: new password "+newPassword);
+            Log.d(AppConstants.LOG_SETTING, "showBottomSheetDialog: new password size "+newPassword.length());
+            Log.d(AppConstants.LOG_SETTING, "showBottomSheetDialog: mobile number "+mobile_number);
+            if(newPassword.length()<= 5){
+                Utils.showToastOnMainThread(requireContext(), "Please type a stronger password !!!");
+            }
+            else{
+                String mobileNumber = prefCredential.getString(AppConstants.KEY_MOBILE_NUMBER,"");
+                loadingDialog.show();
+                FirebaseUtils.changePassword(mobileNumber, newPassword, new FirebaseUtils.Callback<String, String>() {
+                    @Override
+                    public void onSuccess(String customMessage, String result) {
+                        loadingDialog.dismiss();
+                        bottomSheetDialog.dismiss();
+                        Utils.showLongToast(requireContext(),"\""+newPassword+"\"\nNew Password Set Successfully");
+                    }
+
+                    @Override
+                    public void onFailure(String customMessage, Exception exception, String params) {
+                        loadingDialog.dismiss();
+                        Utils.showLongToast(requireContext(),customMessage);
+                    }
+                });
+            }
+        });
+        bottomSheetDialog.show();
     }
 
     @Override

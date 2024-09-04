@@ -1,0 +1,22 @@
+{
+    "activities": [
+        {
+            "id": 1,
+            "name": "Stress Meter",
+            "activity_info": "Takes a quiz of the user and gives a number on the scale of 10 (SGPA). The next quiz will update the SGPA into CSGPA.",
+            "icon_key": "stress"
+        },
+        {
+            "id": 2,
+            "name": "Fidgeting",
+            "activity_info": "Includes two fidgeting activities: Tap/Tap and Random Tap.",
+            "icon_key": "fidget"
+        },
+        {
+            "id": 3,
+            "name": "Concentration Music",
+            "activity_info": "Provides a list of pre-installed relaxing music.",
+            "icon_key": "music"
+        }
+    ]
+}

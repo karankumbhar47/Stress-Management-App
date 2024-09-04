@@ -14,6 +14,9 @@ public class AppConstants {
     public static final String KEY_USER_ID              = "User-Id"             ;
     public static final String LOG_LOGIN                = "App-Login-Logs"      ;
     public static final String LOG_REGISTER             = "App-Register-Logs"   ;
+    public static final String LOG_YOGA                 = "App-Yoga-Logs"       ;
+    public static final String LOG_ACTIVITY             = "App-Activity-Logs"   ;
+    public static final String LOG_SETTING              = "App-Setting-Logs"    ;
     public static final String DATA_USER_INFO           = "User-Information"    ;
     public static final String DATA_YOGA_INFO           = "Yoga-Information"    ;
     public static final String KEY_NAME                 = "name"                ;
@@ -54,10 +57,14 @@ public class AppConstants {
         drawableMap.put("child", R.drawable.child);
         drawableMap.put("corpse", R.drawable.corpse);
         drawableMap.put("lotus", R.drawable.lotus);
-        drawableMap.put("resolver", R.drawable.revolver);
+        drawableMap.put("revolver", R.drawable.revolver);
         drawableMap.put("seat", R.drawable.seat);
         drawableMap.put("standing", R.drawable.standing);
         drawableMap.put("eagle", R.drawable.eagle);
+        drawableMap.put("music", R.drawable.music);
+        drawableMap.put("high", R.drawable.high);
+        drawableMap.put("fidget", R.drawable.fidget);
+        drawableMap.put("stress", R.drawable.stress_test);
     }
 
     public static final ArrayList<String> PREF_LIST = new ArrayList<>();

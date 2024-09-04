@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.stressApp"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -47,5 +47,6 @@ dependencies {
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.auth)
     implementation(libs.google.firebase.database)
-    implementation("com.github.bumptech.glide:glide:4.15.1")
+    implementation(libs.glide)
+    implementation(libs.gson)
 }

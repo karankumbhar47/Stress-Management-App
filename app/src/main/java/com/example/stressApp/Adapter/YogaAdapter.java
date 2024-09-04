@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.stressApp.Utils.AppConstants;
 import com.example.stressApp.R;
-import com.example.stressApp.YogaModel;
+import com.example.stressApp.Model.YogaModel;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -66,9 +67,14 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.viewHolder> {
         }
         else holder.yogaAsan_name.setText(yogaModel.getName());
 
+        Log.d(AppConstants.LOG_YOGA, "onBindViewHolder: model name "+yogaModel.getName());
+        Log.d(AppConstants.LOG_YOGA, "onBindViewHolder: model path "+yogaModel.getPath());
         Integer drawableId = AppConstants.drawableMap.get(yogaModel.getPath());
-        if (drawableId != null)
+        if (drawableId != null){
             Glide.with(context) .load(drawableId) .into(holder.picImage);
+            Log.d(AppConstants.LOG_YOGA, "onBindViewHolder: drawable id "+drawableId);
+        }
+
 
         holder.main_card.setOnClickListener(v -> listener.onItemClick(position));
     }
