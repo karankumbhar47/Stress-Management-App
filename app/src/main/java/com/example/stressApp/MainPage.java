@@ -11,6 +11,10 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.stressApp.MainFragments.HomeFragment;
 import com.example.stressApp.MainFragments.OtherFragment;
@@ -20,6 +24,8 @@ import com.example.stressApp.Utils.AppConstants;
 import com.example.stressApp.Utils.LoadingDialog;
 import com.example.stressApp.Utils.Utils;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Objects;
 
 public class MainPage extends AppCompatActivity {
     private LoadingDialog loadingDialog;
@@ -34,36 +40,43 @@ public class MainPage extends AppCompatActivity {
 
         init();
 
-        if (savedInstanceState == null)
-            load(new HomeFragment());
+//        if (savedInstanceState == null)
+//            load(new HomeFragment());
+
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        NavController navController = Objects.requireNonNull(navHostFragment).getNavController();
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigationBar);
+        NavigationUI.setupWithNavController(bottomNav, navController);
+
+        navController.navigate(R.id.homeFragment);
     }
 
     private void init() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         loadingDialog = new LoadingDialog(this);
-        OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
-        onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                handleBackPress();
-            }
-        });
+//        OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
+//        onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
+//            @Override
+//            public void handleOnBackPressed() {
+//                handleBackPress();
+//            }
+//        });
 
 
         bottomNavigationBar = findViewById(R.id.bottom_navigationBar);
-        bottomNavigationBar.setOnNavigationItemSelectedListener(item -> {
-            int id = item.getItemId();
-            if (id == R.id.setting_icon) {
-                load(new SettingFragment());
-            } else if (id == R.id.others_icon) {
-                load(new OtherFragment());
-            } else if (id == R.id.yoga_icon) {
-                load(new YogaFragment());
-            } else {
-                load(new HomeFragment());
-            }
-            return true;
-        });
+//        bottomNavigationBar.setOnNavigationItemSelectedListener(item -> {
+//            int id = item.getItemId();
+//            if (id == R.id.settingFragment) {
+//                load(new SettingFragment());
+//            } else if (id == R.id.otherFragment) {
+//                load(new OtherFragment());
+//            } else if (id == R.id.yogaFragment) {
+//                load(new YogaFragment());
+//            } else {
+//                load(new HomeFragment());
+//            }
+//            return true;
+//        });
     }
 
     private void handleBackPress(){
@@ -75,11 +88,19 @@ public class MainPage extends AppCompatActivity {
                 .show();
     }
 
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.frame, fragment);
-        ft.commit();
+//    private void load(Fragment fragment) {
+//        FragmentTransaction ft = fragmentManager.beginTransaction();
+//        ft.replace(R.id.nav_host_fragment, fragment);
+//        ft.commit();
+//    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.onNavDestinationSelected(item, navController)
+                || super.onOptionsItemSelected(item);
     }
+
 
     public static void updateBottomNavigationBar(String fragment) {
         Integer menuItemId = AppConstants.fragmentMap.get(fragment);

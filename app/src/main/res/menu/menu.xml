@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:title="Home"
+        android:title="home"
         android:icon="@drawable/baseline_home"
         android:enabled="true"
-        android:id="@+id/home_icon" />
+        android:id="@+id/homeFragment" />
     <item
-        android:icon="@drawable/other"
+        android:icon="@drawable/application"
         android:title="Others"
         android:enabled="true"
-        android:id="@+id/others_icon" />
+        android:id="@+id/otherFragment" />
     <item
         android:icon="@drawable/buddhist_yoga_pose"
         android:enabled="true"
         android:title="Yoga"
-        android:id="@+id/yoga_icon" />
+        android:id="@+id/yogaFragment" />
     <item
         android:enabled="true"
         android:icon="@drawable/baseline_settings_24"
         android:title="Setting"
-        android:id="@+id/setting_icon" />
+        android:id="@+id/settingFragment" />
 </menu>
 

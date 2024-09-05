@@ -2,7 +2,6 @@ package com.example.stressApp.SettingFragments;
 
 import android.os.Bundle;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.stressApp.MainFragments.SettingFragment;
-import com.example.stressApp.MainFragments.YogaFragment;
 import com.example.stressApp.Model.StudentModel;
 import com.example.stressApp.R;
 import com.example.stressApp.Utils.JsonHelper;
@@ -109,7 +107,7 @@ public class AboutusFragment extends Fragment {
 
     private void load(Fragment fragment) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.frame, fragment);
+        ft.replace(R.id.nav_host_fragment, fragment);
         ft.commit();
     }
 

@@ -3,3 +3,12 @@ plugins {
     alias(libs.plugins.android.application) apply false
     id("com.google.gms.google-services") version "4.4.2" apply false
 }
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        val nav_version = "2.8.0"
+        classpath(libs.navigation.safe.args.gradle.plugin)
+    }
+}

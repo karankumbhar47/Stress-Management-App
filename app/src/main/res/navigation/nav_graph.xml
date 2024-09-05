@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.stressApp.MainFragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/yogaFragment"
+        android:name="com.example.stressApp.MainFragments.YogaFragment"
+        android:label="fragment_yoga"
+        tools:layout="@layout/fragment_yoga" >
+        <action
+            android:id="@+id/action_yogaFragment_to_yogaDetails"
+            app:destination="@id/yogaDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.stressApp.MainFragments.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_aboutusFragment2"
+            app:destination="@id/aboutusFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_languageFragment"
+            app:destination="@id/languageFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_profileFragment2"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otherFragment"
+        android:name="com.example.stressApp.MainFragments.OtherFragment"
+        android:label="fragment_other"
+        tools:layout="@layout/fragment_other" >
+        <action
+            android:id="@+id/action_otherFragment_to_musicPlayer"
+            app:destination="@id/musicPlayer" />
+        <action
+            android:id="@+id/action_otherFragment_to_stressMeter"
+            app:destination="@id/stressMeter" />
+    </fragment>
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.stressApp.SettingFragments.HelpFragment"
+        android:label="HelpFragment" />
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.example.stressApp.SettingFragments.LanguageFragment"
+        android:label="fragment_language"
+        tools:layout="@layout/fragment_language" />
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="com.example.stressApp.SettingFragments.SupportFragment"
+        android:label="SupportFragment" />
+    <fragment
+        android:id="@+id/aboutusFragment"
+        android:name="com.example.stressApp.SettingFragments.AboutusFragment"
+        android:label="AboutusFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.stressApp.SettingFragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/yogaDetails"
+        android:name="com.example.stressApp.YogaFragments.YogaDetails"
+        android:label="fragment_yoga_details"
+        tools:layout="@layout/fragment_yoga_details">
+        <argument
+            android:name="yoga_id"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/musicDetails2"
+        android:name="com.example.stressApp.OthersFragments.MusicDetails"
+        android:label="fragment_music_details"
+        tools:layout="@layout/fragment_music_details" />
+    <fragment
+        android:id="@+id/musicPlayer"
+        android:name="com.example.stressApp.OthersFragments.MusicPlayer"
+        android:label="fragment_music_player"
+        tools:layout="@layout/fragment_music_player" >
+        <action
+            android:id="@+id/action_musicPlayer_to_musicDetails2"
+            app:destination="@id/musicDetails2" />
+    </fragment>
+    <fragment
+        android:id="@+id/stressMeter"
+        android:name="com.example.stressApp.OthersFragments.StressMeter"
+        android:label="fragment_stress_meter"
+        tools:layout="@layout/fragment_stress_meter" >
+        <action
+            android:id="@+id/action_stressMeter_to_stressResult"
+            app:destination="@id/stressResult" />
+    </fragment>
+    <fragment
+        android:id="@+id/stressResult"
+        android:name="com.example.stressApp.OthersFragments.StressResult"
+        android:label="fragment_stress_result"
+        tools:layout="@layout/fragment_stress_result" />
+</navigation>

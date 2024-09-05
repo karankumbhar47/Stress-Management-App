@@ -36,7 +36,6 @@ import com.example.stressApp.Utils.LoadingDialog;
 import com.example.stressApp.Utils.Utils;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-import java.nio.channels.FileChannel;
 import java.util.Objects;
 
 public class SettingFragment extends Fragment {
@@ -138,7 +137,7 @@ public class SettingFragment extends Fragment {
 
     private void load(Fragment fragment) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.frame, fragment);
+        ft.replace(R.id.nav_host_fragment, fragment);
         ft.commit();
     }
 

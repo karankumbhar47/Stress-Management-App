@@ -23,7 +23,6 @@ import com.example.stressApp.Utils.JsonHelper;
 import com.example.stressApp.Utils.LoadingDialog;
 import com.example.stressApp.Utils.Utils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class StressMeter extends Fragment {
@@ -110,7 +109,7 @@ public class StressMeter extends Fragment {
 
     private void load(Fragment fragment) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.frame, fragment);
+        ft.replace(R.id.nav_host_fragment, fragment);
         ft.commit();
     }
 }

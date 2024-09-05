@@ -24,7 +24,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class YogaDetails extends Fragment {
-    private final int yoga_id;
+    private int yoga_id;
     private YogaModel yogaModel;
     private TextView info, name, title_streches, info_tips;
     private TextView info_streches, title_help, info_help;
@@ -33,8 +33,7 @@ public class YogaDetails extends Fragment {
     private CardView close_button;
     private FragmentManager fragmentManager;
 
-    public YogaDetails(int id) {
-        this.yoga_id = id;
+    public YogaDetails() {
     }
 
     @Override
@@ -42,7 +41,14 @@ public class YogaDetails extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_yoga_details, container, false);
         init(view);
-        close_button.setOnClickListener(v -> load(new YogaFragment()));
+//        close_button.setOnClickListener(v -> load(new YogaFragment()));
+
+        if (getArguments() != null) {
+            yoga_id = getArguments().getInt("yoga_id");
+        }
+        else{
+            this.yoga_id = 0;
+        }
 
         FirebaseUtils.getYogaModel(yoga_id, new FirebaseUtils.Callback<YogaModel, String>() {
             @Override
@@ -61,7 +67,7 @@ public class YogaDetails extends Fragment {
 
     private void load(Fragment fragment) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.frame, fragment);
+        ft.replace(R.id.nav_host_fragment, fragment);
         ft.commit();
     }
 

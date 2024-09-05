@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,7 +16,6 @@ import android.view.ViewGroup;
 
 import com.example.stressApp.Adapter.YogaAdapter;
 import com.example.stressApp.Utils.AppConstants;
-import com.example.stressApp.Utils.JsonHelper;
 import com.example.stressApp.Utils.LoadingDialog;
 import com.example.stressApp.MainPage;
 import com.example.stressApp.R;
@@ -64,12 +65,13 @@ public class YogaFragment extends Fragment {
                 GridLayoutManager gridLayoutManager = new GridLayoutManager(requireContext(), 3);
                 yoga_recyclerView.setLayoutManager(gridLayoutManager);
                 yogaAdapter = new YogaAdapter(yogaModelList);
-                yogaAdapter.setOnItemClickListener(new YogaAdapter.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(int position) {
-                        load(new YogaDetails(position+1));
-                    }
+                yogaAdapter.setOnItemClickListener(position -> {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("yoga_id", position);
+                    NavController navController = NavHostFragment.findNavController(YogaFragment.this);
+                    navController.navigate(R.id.yogaDetails, bundle);
                 });
+
                 yoga_recyclerView.setAdapter(yogaAdapter);
                 loadingDialog.dismiss();
             }
@@ -85,7 +87,7 @@ public class YogaFragment extends Fragment {
 
     private void load(Fragment fragment) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.frame, fragment);
+        ft.replace(R.id.nav_host_fragment, fragment);
         ft.commit();
     }
 

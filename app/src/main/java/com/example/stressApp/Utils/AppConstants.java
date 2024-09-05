@@ -44,10 +44,10 @@ public class AppConstants {
 
     public static final Map<String, Integer> fragmentMap = new HashMap<>();
     static {
-        fragmentMap.put(FRAGMENT_HOME, R.id.home_icon);
-        fragmentMap.put(FRAGMENT_OTHERS, R.id.others_icon);
-        fragmentMap.put(FRAGMENT_YOGA, R.id.yoga_icon);
-        fragmentMap.put(FRAGMENT_SETTING, R.id.setting_icon);
+        fragmentMap.put(FRAGMENT_HOME, R.id.homeFragment);
+        fragmentMap.put(FRAGMENT_OTHERS, R.id.otherFragment);
+        fragmentMap.put(FRAGMENT_YOGA, R.id.yogaFragment);
+        fragmentMap.put(FRAGMENT_SETTING, R.id.settingFragment);
     }
 
     public static final Map<String, Integer> drawableMap = new HashMap<>();

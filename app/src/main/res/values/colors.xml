@@ -5,6 +5,7 @@
     <!--colors for modern ui-->
     <color name="whiteTextColor">#fff</color>
     <color name="primaryTextColor">#2661FA</color>
+    <color name="background_primary">#FBFBFB</color>
     <color name="textColor">#7977C1</color>
     <color name="loginBkColor">#f0f0f0</color>
 

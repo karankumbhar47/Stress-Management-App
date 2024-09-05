@@ -10,9 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.stressApp.MainFragments.SettingFragment;
-import com.example.stressApp.MainFragments.YogaFragment;
 import com.example.stressApp.R;
-import com.example.stressApp.Utils.FirebaseUtils;
 import com.example.stressApp.Utils.Utils;
 
 import android.content.Intent;
@@ -43,7 +41,7 @@ public class SupportFragment extends Fragment {
 
     private void load(Fragment fragment) {
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.frame, fragment);
+        ft.replace(R.id.nav_host_fragment, fragment);
         ft.commit();
     }
 
