@@ -31,7 +31,6 @@ public class MainPage extends AppCompatActivity {
     private LoadingDialog loadingDialog;
     public static boolean isRootOnTop = true;
     private static BottomNavigationView bottomNavigationBar;
-    private final FragmentManager fragmentManager = getSupportFragmentManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,59 +39,18 @@ public class MainPage extends AppCompatActivity {
 
         init();
 
-//        if (savedInstanceState == null)
-//            load(new HomeFragment());
-
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         NavController navController = Objects.requireNonNull(navHostFragment).getNavController();
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigationBar);
         NavigationUI.setupWithNavController(bottomNav, navController);
-
-        navController.navigate(R.id.homeFragment);
+        handleBackPressed(navController);
     }
 
     private void init() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         loadingDialog = new LoadingDialog(this);
-//        OnBackPressedDispatcher onBackPressedDispatcher = getOnBackPressedDispatcher();
-//        onBackPressedDispatcher.addCallback(this, new OnBackPressedCallback(true) {
-//            @Override
-//            public void handleOnBackPressed() {
-//                handleBackPress();
-//            }
-//        });
-
-
         bottomNavigationBar = findViewById(R.id.bottom_navigationBar);
-//        bottomNavigationBar.setOnNavigationItemSelectedListener(item -> {
-//            int id = item.getItemId();
-//            if (id == R.id.settingFragment) {
-//                load(new SettingFragment());
-//            } else if (id == R.id.otherFragment) {
-//                load(new OtherFragment());
-//            } else if (id == R.id.yogaFragment) {
-//                load(new YogaFragment());
-//            } else {
-//                load(new HomeFragment());
-//            }
-//            return true;
-//        });
     }
-
-    private void handleBackPress(){
-        new AlertDialog.Builder(this)
-                .setTitle("Exit Application")
-                .setMessage("Are you sure you want to Exit the App")
-                .setPositiveButton("Yes", (dialog, which) -> finish())
-                .setNegativeButton("No", null)
-                .show();
-    }
-
-//    private void load(Fragment fragment) {
-//        FragmentTransaction ft = fragmentManager.beginTransaction();
-//        ft.replace(R.id.nav_host_fragment, fragment);
-//        ft.commit();
-//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -100,7 +58,6 @@ public class MainPage extends AppCompatActivity {
         return NavigationUI.onNavDestinationSelected(item, navController)
                 || super.onOptionsItemSelected(item);
     }
-
 
     public static void updateBottomNavigationBar(String fragment) {
         Integer menuItemId = AppConstants.fragmentMap.get(fragment);
@@ -110,6 +67,24 @@ public class MainPage extends AppCompatActivity {
                 item.setChecked(true);
             }
         }
+    }
+
+    private void handleBackPressed(NavController navController) {
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (navController.getCurrentDestination() != null && navController.getCurrentDestination().getId() == navController.getGraph().getStartDestination()) {
+                    // Show a confirmation dialog
+                    new AlertDialog.Builder(MainPage.this)
+                            .setMessage("Do you really want to exit the app?")
+                            .setPositiveButton("Yes", (dialog, which) -> finish()) // Exit app
+                            .setNegativeButton("No", null) // Do nothing
+                            .show();
+                } else {
+                    navController.navigateUp(); // Navigate back to the previous fragment
+                }
+            }
+        });
     }
 
     @Override

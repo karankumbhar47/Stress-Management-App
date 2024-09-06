@@ -6,6 +6,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +32,6 @@ public class YogaDetails extends Fragment {
     private TextView title_how_to_do, info_how_to_do, title_tips;
     private TextView yoga_pose_name, info_name;
     private CardView close_button;
-    private FragmentManager fragmentManager;
 
     public YogaDetails() {
     }
@@ -41,15 +41,9 @@ public class YogaDetails extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_yoga_details, container, false);
         init(view);
-//        close_button.setOnClickListener(v -> load(new YogaFragment()));
+        close_button.setOnClickListener(v -> NavHostFragment.findNavController(this).navigateUp());
 
-        if (getArguments() != null) {
-            yoga_id = getArguments().getInt("yoga_id");
-        }
-        else{
-            this.yoga_id = 0;
-        }
-
+        yoga_id = YogaDetailsArgs.fromBundle(getArguments()).getYogaId()+1;
         FirebaseUtils.getYogaModel(yoga_id, new FirebaseUtils.Callback<YogaModel, String>() {
             @Override
             public void onSuccess(String customMessage, YogaModel result) {
@@ -63,12 +57,6 @@ public class YogaDetails extends Fragment {
             }
         });
         return view;
-    }
-
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
     }
 
     private void init(View view){
@@ -85,7 +73,6 @@ public class YogaDetails extends Fragment {
         title_how_to_do = view.findViewById(R.id.title_how_to_do);
         info_how_to_do = view.findViewById(R.id.info_how_to_do);
         close_button = view.findViewById(R.id.close_button_cardView);
-        fragmentManager = requireActivity().getSupportFragmentManager();
     }
 
     private void setInfo(YogaModel yogaModel) {

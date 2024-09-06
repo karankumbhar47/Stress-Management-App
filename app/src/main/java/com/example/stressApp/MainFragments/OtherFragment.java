@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -32,7 +34,7 @@ public class OtherFragment extends Fragment {
     private ActivityAdapter activityAdapter;
     private List<ActivityModel> activityModelList;
     private LoadingDialog loadingDialog;
-    private FragmentManager fragmentManager;
+    private NavController navController;
 
     public OtherFragment() {}
 
@@ -51,7 +53,7 @@ public class OtherFragment extends Fragment {
         activity_recyclerView = view.findViewById(R.id.activity_recyclerView);
         loadingDialog = new LoadingDialog(requireActivity());
         activityModelList = new ArrayList<>();
-        fragmentManager = requireActivity().getSupportFragmentManager();
+        navController = NavHostFragment.findNavController(this);
     }
 
     private void setAdapter(){
@@ -75,11 +77,6 @@ public class OtherFragment extends Fragment {
         });
     }
 
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
-    }
 
     @Override
     public void onResume() {
@@ -90,13 +87,13 @@ public class OtherFragment extends Fragment {
     private void loadFragment(int position){
         switch (position){
             case 0:
-                load(new StressMeter());
+                navController.navigate(R.id.action_otherFragment_to_stressMeter);
                 break;
             case 2:
-                load(new MusicPlayer());
+                navController.navigate(R.id.action_otherFragment_to_musicPlayer);
                 break;
             default:
-                load(new ActivityDetails());
+                navController.navigate(R.id.action_otherFragment_to_activityDetails);
         }
     }
 }

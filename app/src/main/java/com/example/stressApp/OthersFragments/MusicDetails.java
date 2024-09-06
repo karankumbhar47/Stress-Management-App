@@ -4,7 +4,9 @@ import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -23,16 +25,17 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class MusicDetails extends Fragment {
-    TextView titleTv,currentTimeTv,totalTimeTv;
-    SeekBar seekBar;
-    ImageView pausePlay,nextBtn,previousBtn,musicIcon;
-    ArrayList<AudioModel> songsList;
-    AudioModel currentSong;
-    MediaPlayer mediaPlayer = MyMediaPlayer.getInstance();
     int x=0;
+    SeekBar seekBar;
+    AudioModel currentSong;
+    private CardView closeButton;
+    ArrayList<AudioModel> songsList;
+    TextView titleTv,currentTimeTv,totalTimeTv;
+    ImageView pause_button,nextBtn,previousBtn,musicIcon;
+    MediaPlayer mediaPlayer = MyMediaPlayer.getInstance();
 
-    public MusicDetails(ArrayList<AudioModel> songsList) {
-        this.songsList = songsList;
+    public MusicDetails() {
+        this.songsList = MyMediaPlayer.songList;
     }
 
     @Override
@@ -40,31 +43,33 @@ public class MusicDetails extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_music_details, container, false);
 
+        closeButton = view.findViewById(R.id.close_button_cardView);
         titleTv = view.findViewById(R.id.song_title);
         currentTimeTv = view.findViewById(R.id.current_time);
         totalTimeTv = view.findViewById(R.id.total_time);
         seekBar = view.findViewById(R.id.seek_bar);
-        pausePlay = view.findViewById(R.id.pause_play);
+        pause_button = view.findViewById(R.id.pause_button);
         nextBtn = view.findViewById(R.id.next);
         previousBtn = view.findViewById(R.id.previous);
         musicIcon = view.findViewById(R.id.music_icon_big);
         titleTv.setSelected(true);
 
 
+        closeButton.setOnClickListener(v -> NavHostFragment.findNavController(this).navigateUp());
         setResourcesWithMusic();
 
         requireActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if(mediaPlayer!=null){
+                if(mediaPlayer!=null && mediaPlayer.isPlaying()){
                     seekBar.setProgress(mediaPlayer.getCurrentPosition());
-                    currentTimeTv.setText(convertToMMSS(mediaPlayer.getCurrentPosition()+""));
+                    currentTimeTv.setText(convertToMMSS((long) mediaPlayer.getCurrentPosition()));
 
                     if(mediaPlayer.isPlaying()){
-                        pausePlay.setImageResource(R.drawable.ic_baseline_pause_circle_outline_24);
+                        pause_button.setImageResource(R.drawable.ic_baseline_pause_circle_outline_24);
                         musicIcon.setRotation(x++);
                     }else{
-                        pausePlay.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
+                        pause_button.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
                         musicIcon.setRotation(0);
                     }
 
@@ -95,37 +100,15 @@ public class MusicDetails extends Fragment {
     }
 
 
-    void setResourcesWithMusic(){
+    void setResourcesWithMusic() {
         currentSong = songsList.get(MyMediaPlayer.currentIndex);
-
         titleTv.setText(currentSong.getTitle().split("\\.")[0]);
-
-        totalTimeTv.setText(convertToMMSS(currentSong.getDuration()));
-
-        pausePlay.setOnClickListener(v-> pausePlay());
-        nextBtn.setOnClickListener(v-> playNextSong());
-        previousBtn.setOnClickListener(v-> playPreviousSong());
-
+        totalTimeTv.setText(currentSong.getDuration());
+        pause_button.setOnClickListener(v -> pausePlay());
+        nextBtn.setOnClickListener(v -> playNextSong());
+        previousBtn.setOnClickListener(v -> playPreviousSong());
         playMusic();
-
-
     }
-
-//    private void playMusic(){
-//
-//        mediaPlayer.reset();
-//        try {
-//            mediaPlayer.setDataSource(currentSong.getPath());
-//            mediaPlayer.prepare();
-//            mediaPlayer.start();
-//            seekBar.setProgress(0);
-//            seekBar.setMax(mediaPlayer.getDuration());
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-//    }
 
     private void playMusic() {
         mediaPlayer.reset();
@@ -141,36 +124,42 @@ public class MusicDetails extends Fragment {
             e.printStackTrace();
         }
     }
-    private void playNextSong(){
 
-        if(MyMediaPlayer.currentIndex== songsList.size()-1)
-            return;
-        MyMediaPlayer.currentIndex +=1;
-        mediaPlayer.reset();
-        setResourcesWithMusic();
+    private void playNextSong() {
 
-    }
-
-    private void playPreviousSong(){
-        if(MyMediaPlayer.currentIndex== 0)
-            return;
-        MyMediaPlayer.currentIndex -=1;
-        mediaPlayer.reset();
-        setResourcesWithMusic();
-    }
-
-    private void pausePlay(){
-        if(mediaPlayer.isPlaying())
-            mediaPlayer.pause();
+        if (MyMediaPlayer.currentIndex != songsList.size() - 1)
+            MyMediaPlayer.currentIndex += 1;
         else
-            mediaPlayer.start();
+            MyMediaPlayer.currentIndex = 0;
+
+        mediaPlayer.reset();
+        setResourcesWithMusic();
+
     }
 
-    public static String convertToMMSS(String duration){
-        Long millis = Long.parseLong(duration);
+    private void playPreviousSong() {
+        if (MyMediaPlayer.currentIndex == 0)
+            MyMediaPlayer.currentIndex = songsList.size()-1;
+        else
+            MyMediaPlayer.currentIndex -= 1;
+        mediaPlayer.reset();
+        setResourcesWithMusic();
+    }
+
+    private void pausePlay() {
+        if (mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+            pause_button.setImageResource(R.drawable.ic_baseline_play_circle_outline_24);
+        }
+        else{
+            pause_button.setImageResource(R.drawable.ic_baseline_pause_circle_outline_24);
+            mediaPlayer.start();
+        }
+    }
+
+    public static String convertToMMSS(Long millis) {
         return String.format("%02d:%02d",
                 TimeUnit.MILLISECONDS.toMinutes(millis) % TimeUnit.HOURS.toMinutes(1),
                 TimeUnit.MILLISECONDS.toSeconds(millis) % TimeUnit.MINUTES.toSeconds(1));
     }
-
 }

@@ -1,6 +1,5 @@
 package com.example.stressApp.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -11,27 +10,23 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.stressApp.Model.AudioModel;
-import com.example.stressApp.OthersFragments.MusicDetails;
 import com.example.stressApp.R;
 import com.example.stressApp.Utils.MyMediaPlayer;
 
 public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.ViewHolder>{
 
-    private FragmentManager fragmentManager;
+    private final NavController navController;
     ArrayList<AudioModel> songsList;
     Context context;
-    Activity activity;
 
-    public MusicListAdapter(ArrayList<AudioModel> songsList, Context context,FragmentManager fragmentManager) {
-        this.songsList = songsList;
+    public MusicListAdapter( Context context, NavController navController) {
+        this.songsList = MyMediaPlayer.songList;
         this.context = context;
-        this.fragmentManager = fragmentManager;
+        this.navController = navController;
     }
 
     @Override
@@ -55,18 +50,11 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
             @Override
             public void onClick(View v) {
                 MyMediaPlayer.getInstance().reset();
-                MyMediaPlayer.currentIndex = position;
-                load(new MusicDetails(songsList));
+                MyMediaPlayer.currentIndex = holder.getAdapterPosition();
+                navController.navigate(R.id.action_musicPlayer_to_musicDetails2);
             }
         });
 
-    }
-
-
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
     }
 
     @Override

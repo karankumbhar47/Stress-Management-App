@@ -9,13 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.stressApp.Adapter.FAQAdapter;
-import com.example.stressApp.MainFragments.SettingFragment;
 import com.example.stressApp.Model.FAQModel;
 import com.example.stressApp.R;
 
@@ -29,16 +28,16 @@ public class HelpFragment extends Fragment {
     private FAQAdapter faqAdapter;
     private List<FAQModel> faqModelList = new ArrayList<>();
     private CardView close_button;
-    private FragmentManager fragmentManager;
+    private NavController navController;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_help, container, false);
 
-        fragmentManager = requireActivity().getSupportFragmentManager();
+        navController = NavHostFragment.findNavController(this);
         close_button = view.findViewById(R.id.close_button_cardView);
-        close_button.setOnClickListener(v -> load(new SettingFragment()));
+        close_button.setOnClickListener(v -> navController.navigateUp());
 
         faqRecyclerView = view.findViewById(R.id.faqRecyclerView);
         faqSearchBar = view.findViewById(R.id.faqSearchBar);
@@ -52,12 +51,6 @@ public class HelpFragment extends Fragment {
         faqRecyclerView.setAdapter(faqAdapter);
 
         return view;
-    }
-
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
     }
 
     private void initializeFAQs() {

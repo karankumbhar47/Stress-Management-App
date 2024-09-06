@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.stressApp.MainFragments.SettingFragment;
 import com.example.stressApp.Model.StudentModel;
 import com.example.stressApp.R;
 import com.example.stressApp.Utils.JsonHelper;
@@ -21,29 +20,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import java.util.List;
 import java.util.Objects;
 
 public class AboutusFragment extends Fragment {
     private List<StudentModel> studentModelList;
-    private FragmentManager fragmentManager;
     private LoadingDialog loadingDialog;
+    private NavController navController;
 
-    private static final String[] TEAM_EMAILS = {
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "karansunilk@iitbhilai.ac.in"
-    };
-    private static final String LEADER_EMAIL = "udanvedant@iitbhilai.ac.in";
 
     @Nullable
     @Override
@@ -54,9 +41,9 @@ public class AboutusFragment extends Fragment {
     }
 
     private void init(View view){
-        fragmentManager = requireActivity().getSupportFragmentManager();
+        navController = NavHostFragment.findNavController(this);
         loadingDialog = new LoadingDialog(requireActivity());
-        view.findViewById(R.id.close_button_cardView).setOnClickListener(v -> load(new SettingFragment()));
+        view.findViewById(R.id.close_button_cardView).setOnClickListener(v -> navController.navigateUp());
 
         loadingDialog.show();
         JsonHelper.getStudentList(requireContext(), new JsonHelper.Callback<List<StudentModel>, String>() {
@@ -93,7 +80,7 @@ public class AboutusFragment extends Fragment {
             else{
                 leaderContact.setText(String.format( "Leader: %s\nEmail  : %s\nPhone: %s",
                         studentModel.getName(),studentModel.getEmail(),studentModel.getPhoneNumber()));
-                leaderContact.setOnClickListener(v -> sendEmail(LEADER_EMAIL));
+                leaderContact.setOnClickListener(v -> sendEmail(studentModel.getEmail()));
             }
         }
     }
@@ -103,12 +90,6 @@ public class AboutusFragment extends Fragment {
         intent.setData(Uri.parse("mailto:" + email));
         startActivity(Intent.createChooser(intent, "Send Email"));
         Utils.showToastOnMainThread(requireContext(),"Mail sent to "+email);
-    }
-
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
     }
 
 }

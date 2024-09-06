@@ -6,6 +6,8 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,6 +18,7 @@ import android.view.ViewGroup;
 
 import com.example.stressApp.Adapter.QuestionAdapter;
 import com.example.stressApp.MainFragments.OtherFragment;
+import com.example.stressApp.MainFragments.YogaFragmentDirections;
 import com.example.stressApp.Model.Question;
 import com.example.stressApp.R;
 import com.example.stressApp.Utils.AppConstants;
@@ -31,7 +34,7 @@ public class StressMeter extends Fragment {
     private QuestionAdapter adapter;
     private LoadingDialog loadingDialog;
     private CardView submit_button, close_button;
-    private FragmentManager fragmentManager;
+    private NavController navController;
 
     public StressMeter() {}
 
@@ -43,7 +46,7 @@ public class StressMeter extends Fragment {
         init(view);
         setAdapter();
         submit_button.setOnClickListener(v -> countPoints());
-        close_button.setOnClickListener(v -> load(new OtherFragment()));
+        close_button.setOnClickListener(v -> navController.navigateUp());
 
         return view;
     }
@@ -53,7 +56,7 @@ public class StressMeter extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view_questions);
         submit_button = view.findViewById(R.id.submit_button_cardView);
         close_button = view.findViewById(R.id.close_button_cardView);
-        fragmentManager = requireActivity().getSupportFragmentManager();
+        navController = NavHostFragment.findNavController(this);
     }
 
     private void setAdapter(){
@@ -103,13 +106,11 @@ public class StressMeter extends Fragment {
         if(flag){
             double scoreValue =  (10*currentPoints)/((double) totalPoints);
             Utils.showToastOnMainThread(requireContext(), "Your score: " + currentPoints);
-            load(new StressResult((int) Math.round(scoreValue)));
+            int score = (int)  Math.round(scoreValue);
+            StressMeterDirections.ActionStressMeterToStressResult action =
+                    StressMeterDirections.actionStressMeterToStressResult(score);
+            navController.navigate(action);
         }
     }
 
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
-    }
 }

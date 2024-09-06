@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_otherFragment_to_stressMeter"
             app:destination="@id/stressMeter" />
+        <action
+            android:id="@+id/action_otherFragment_to_activityDetails"
+            app:destination="@id/activityDetails" />
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
@@ -80,6 +83,7 @@
         android:label="fragment_yoga_details"
         tools:layout="@layout/fragment_yoga_details">
         <argument
+            app:nullable="false"
             android:name="yoga_id"
             app:argType="integer" />
     </fragment>
@@ -111,5 +115,17 @@
         android:id="@+id/stressResult"
         android:name="com.example.stressApp.OthersFragments.StressResult"
         android:label="fragment_stress_result"
-        tools:layout="@layout/fragment_stress_result" />
+        tools:layout="@layout/fragment_stress_result" >
+        <argument
+            android:name="score"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_stressResult_to_otherFragment"
+            app:destination="@id/otherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/activityDetails"
+        android:name="com.example.stressApp.OthersFragments.ActivityDetails"
+        android:label="fragment_activity_details"
+        tools:layout="@layout/fragment_activity_details" />
 </navigation>

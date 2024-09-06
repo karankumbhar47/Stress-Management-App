@@ -8,6 +8,8 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -36,7 +38,7 @@ public class ProfileFragment extends Fragment {
     LinearLayout edit_profile_view;
     Button update_profile_button;
     CardView show_profile_view;
-    FragmentManager fragmentManager;
+    private NavController navController;
     boolean isDateSet;
 
     public ProfileFragment() {}
@@ -47,7 +49,7 @@ public class ProfileFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         CardView back = view.findViewById(R.id.close_button_cardView);
-        fragmentManager = requireActivity().getSupportFragmentManager();
+        navController = NavHostFragment.findNavController(this);
         isDateSet = true;
 
         show_profile_view = view.findViewById(R.id.show_profile_view);
@@ -111,14 +113,8 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        back.setOnClickListener(v -> load(new SettingFragment()));
+        back.setOnClickListener(v -> navController.navigateUp());
         return view;
-    }
-
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
     }
 
     public void setProfile() {

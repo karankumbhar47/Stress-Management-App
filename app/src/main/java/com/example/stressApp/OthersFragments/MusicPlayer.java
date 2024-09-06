@@ -1,17 +1,19 @@
 package com.example.stressApp.OthersFragments;
 
 import android.content.pm.PackageManager;
-import android.database.Cursor;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,18 +23,19 @@ import com.example.stressApp.Adapter.MusicListAdapter;
 import android.Manifest;
 import com.example.stressApp.Model.AudioModel;
 import com.example.stressApp.R;
+import com.example.stressApp.Utils.MyMediaPlayer;
 import com.example.stressApp.Utils.Utils;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class MusicPlayer extends Fragment {
     RecyclerView recyclerView;
     TextView noMusicTextView;
     ArrayList<AudioModel> songsList = new ArrayList<>();
-    FragmentManager fragmentManager;
+    private NavController navController;
+    private CardView close_button;
 
     public MusicPlayer() {
     }
@@ -41,17 +44,18 @@ public class MusicPlayer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_music_player, container, false);
-        fragmentManager = requireActivity().getSupportFragmentManager();
 
+        navController = NavHostFragment.findNavController(this);
         recyclerView = view.findViewById(R.id.recycler_view);
         noMusicTextView = view.findViewById(R.id.no_songs_text);
+        close_button = view.findViewById(R.id.close_button_cardView);
+        close_button.setOnClickListener(v -> navController.navigateUp());
 
-        if (checkPermission() == false) {
+        if (!checkPermission()) {
             requestPermission();
             return view;
         }
 
-        // Fetch music files from assets
         String[] musicFiles = null;
         try {
             musicFiles = requireContext().getAssets().list("music");
@@ -61,34 +65,38 @@ public class MusicPlayer extends Fragment {
 
         if (musicFiles != null) {
             for (String fileName : musicFiles) {
-                // Assuming you have a method to get the duration of the file
-                String duration = "0"; // Placeholder, you'll need to calculate or fetch duration
-                AudioModel songData = new AudioModel(fileName, fileName, duration);
-                songsList.add(songData);
+                MediaPlayer mp = new MediaPlayer();
+                try {
+                    AssetFileDescriptor afd = requireContext().getAssets().openFd("music/" + fileName);
+                    mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                    afd.close();
+                    mp.prepare();
+                    String duration = convertToMMSS(mp.getDuration());
+                    AudioModel songData = new AudioModel(fileName, fileName, duration);
+                    songsList.add(songData);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    mp.release();
+                }
             }
         }
-//
-//        String[] projection = {
-//                MediaStore.Audio.Media.TITLE,
-//                MediaStore.Audio.Media.DATA,
-//                MediaStore.Audio.Media.DURATION
-//        };
-//
-//        String selection = MediaStore.Audio.Media.IS_MUSIC + " != 0";
-//        Cursor cursor = requireContext().getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, projection, selection, null, null);
-//        while (Objects.requireNonNull(cursor).moveToNext()) {
-//            AudioModel songData = new AudioModel(cursor.getString(1), cursor.getString(0), cursor.getString(2));
-//            if (new File(songData.getPath()).exists())
-//                songsList.add(songData);
-//        }
+
 
         if (songsList.isEmpty()) {
             noMusicTextView.setVisibility(View.VISIBLE);
         } else {
+            MyMediaPlayer.songList = songsList;
             recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-            recyclerView.setAdapter(new MusicListAdapter(songsList, requireActivity().getApplicationContext(),fragmentManager));
+            recyclerView.setAdapter(new MusicListAdapter( requireContext(), navController));
         }
         return view;
+    }
+
+    public static String convertToMMSS(long millis) {
+        return String.format("%02d:%02d",
+                TimeUnit.MILLISECONDS.toMinutes(millis) % TimeUnit.HOURS.toMinutes(1),
+                TimeUnit.MILLISECONDS.toSeconds(millis) % TimeUnit.MINUTES.toSeconds(1));
     }
 
     boolean checkPermission() {
@@ -108,7 +116,7 @@ public class MusicPlayer extends Fragment {
     public void onResume() {
         super.onResume();
         if (recyclerView != null) {
-            recyclerView.setAdapter(new MusicListAdapter(songsList,requireActivity().getApplicationContext(),fragmentManager));
+            recyclerView.setAdapter(new MusicListAdapter(requireActivity().getApplicationContext(),navController));
         }
     }
 }

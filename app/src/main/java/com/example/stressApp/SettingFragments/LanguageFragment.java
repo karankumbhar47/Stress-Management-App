@@ -6,6 +6,8 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +27,7 @@ public class LanguageFragment extends Fragment {
     private LanguageAdapter languageAdapter;
     private List<String> list;
     private CardView close_button;
-    private FragmentManager fragmentManager;
+    private NavController navController;
 
     public LanguageFragment() {}
 
@@ -36,20 +38,15 @@ public class LanguageFragment extends Fragment {
 
         list = Arrays.asList("English","Hindi","Spanish","French","Russian");
         close_button = view.findViewById(R.id.close_button_cardView);
-        fragmentManager = requireActivity().getSupportFragmentManager();
+        navController = NavHostFragment.findNavController(this);
 
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(requireContext(),3));
         languageAdapter = new LanguageAdapter(requireContext(),list,0);
         recyclerView.setAdapter(languageAdapter);
 
-        close_button.setOnClickListener(v -> load(new SettingFragment()));
+        close_button.setOnClickListener(v -> navController.navigateUp());
         return view;
     }
 
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
-    }
 }

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
+import androidx.navigation.NavHostController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +22,6 @@ import com.example.stressApp.MainPage;
 import com.example.stressApp.R;
 import com.example.stressApp.Utils.FirebaseUtils;
 import com.example.stressApp.Utils.Utils;
-import com.example.stressApp.YogaFragments.YogaDetails;
 import com.example.stressApp.Model.YogaModel;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class YogaFragment extends Fragment {
     private YogaAdapter yogaAdapter;
     private List<YogaModel> yogaModelList;
     private LoadingDialog loadingDialog;
-    private FragmentManager fragmentManager;
+    private NavController navController;
 
     public YogaFragment() {
     }
@@ -52,7 +52,7 @@ public class YogaFragment extends Fragment {
         yoga_recyclerView = view.findViewById(R.id.yoga_recyclerView);
         yogaModelList = new ArrayList<>();
         loadingDialog = new LoadingDialog(requireActivity());
-        fragmentManager = requireActivity().getSupportFragmentManager();
+        navController = NavHostFragment.findNavController(this);
     }
 
     private void setAdapter(){
@@ -66,10 +66,8 @@ public class YogaFragment extends Fragment {
                 yoga_recyclerView.setLayoutManager(gridLayoutManager);
                 yogaAdapter = new YogaAdapter(yogaModelList);
                 yogaAdapter.setOnItemClickListener(position -> {
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("yoga_id", position);
-                    NavController navController = NavHostFragment.findNavController(YogaFragment.this);
-                    navController.navigate(R.id.yogaDetails, bundle);
+                    YogaFragmentDirections.ActionYogaFragmentToYogaDetails action = YogaFragmentDirections.actionYogaFragmentToYogaDetails(position);
+                    navController.navigate(action);
                 });
 
                 yoga_recyclerView.setAdapter(yogaAdapter);
@@ -83,12 +81,6 @@ public class YogaFragment extends Fragment {
             }
         });
 
-    }
-
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
     }
 
     @Override

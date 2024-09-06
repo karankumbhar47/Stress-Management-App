@@ -22,27 +22,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 public class SupportFragment extends Fragment {
 
     private static final String OWNER_EMAIL = "udanvedant@iitbhilai.ac.in"; // Replace with actual email
-    private FragmentManager fragmentManager;
+    private NavController navController;
     private CardView close_button;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_support, container, false);
-        fragmentManager = requireActivity().getSupportFragmentManager();
+        navController = NavHostFragment.findNavController(this);
         close_button = view.findViewById(R.id.close_button_cardView);
-        close_button.setOnClickListener(v -> load(new SettingFragment()));
+        close_button.setOnClickListener(v -> navController.navigateUp());
         return view;
-    }
-
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
     }
 
     @Override

@@ -12,6 +12,8 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,7 +41,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import java.util.Objects;
 
 public class SettingFragment extends Fragment {
-    private FragmentManager fragmentManager;
     private CardView help_cardView, share_cardView, support_cardView,language_cardView;
     private CardView aboutus_cardView, logout_cardView, changePassword_cardView;
     private String userName, mobile_number;
@@ -47,6 +48,7 @@ public class SettingFragment extends Fragment {
     private ImageView editProfile_button;
     private SharedPreferences prefCredential;
     private LoadingDialog loadingDialog;
+    private NavController navController;
 
     public SettingFragment() {
     }
@@ -68,7 +70,7 @@ public class SettingFragment extends Fragment {
         userName = prefCredential.getString(AppConstants.KEY_USER_NAME,"user name");
         mobile_number = prefCredential.getString(AppConstants.KEY_MOBILE_NUMBER,"mobile number");
 
-        fragmentManager = requireActivity().getSupportFragmentManager();
+        navController = NavHostFragment.findNavController(this);
         help_cardView = view.findViewById(R.id.help_cardView);
         share_cardView = view.findViewById(R.id.share_app_cardView);
         support_cardView = view.findViewById(R.id.support_cardView);
@@ -83,14 +85,14 @@ public class SettingFragment extends Fragment {
     }
 
     private void setListeners(){
-        help_cardView.setOnClickListener(v -> load(new HelpFragment()));
-        support_cardView.setOnClickListener(v -> load(new SupportFragment()));
-        aboutus_cardView.setOnClickListener(v -> load(new AboutusFragment()));
+        help_cardView.setOnClickListener(v -> navController.navigate(R.id.action_settingFragment_to_helpFragment));
+        support_cardView.setOnClickListener(v -> navController.navigate(R.id.action_settingFragment_to_supportFragment));
+        aboutus_cardView.setOnClickListener(v -> navController.navigate(R.id.action_settingFragment_to_aboutusFragment2));
         logout_cardView.setOnClickListener(v -> logout());
         share_cardView.setOnClickListener(v -> shareApp());
         changePassword_cardView.setOnClickListener(v -> showBottomSheetDialog());
-        language_cardView.setOnClickListener(v -> load(new LanguageFragment()));
-        editProfile_button.setOnClickListener( v -> load(new ProfileFragment()));
+        language_cardView.setOnClickListener(v -> navController.navigate(R.id.action_settingFragment_to_languageFragment));
+        editProfile_button.setOnClickListener(v -> navController.navigate(R.id.action_settingFragment_to_profileFragment2));
     }
 
     private void showBottomSheetDialog(){
@@ -133,12 +135,6 @@ public class SettingFragment extends Fragment {
     public void onResume() {
         MainPage.updateBottomNavigationBar(AppConstants.FRAGMENT_SETTING);
         super.onResume();
-    }
-
-    private void load(Fragment fragment) {
-        FragmentTransaction ft = fragmentManager.beginTransaction();
-        ft.replace(R.id.nav_host_fragment, fragment);
-        ft.commit();
     }
 
     private void logout(){
