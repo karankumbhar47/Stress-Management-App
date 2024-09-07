@@ -77,13 +77,6 @@ public class OtherFragment extends Fragment {
         });
     }
 
-
-    @Override
-    public void onResume() {
-        MainPage.updateBottomNavigationBar(AppConstants.FRAGMENT_OTHERS);
-        super.onResume();
-    }
-
     private void loadFragment(int position){
         switch (position){
             case 0:

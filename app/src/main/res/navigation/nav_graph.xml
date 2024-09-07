@@ -8,12 +8,12 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.stressApp.MainFragments.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/yogaFragment"
         android:name="com.example.stressApp.MainFragments.YogaFragment"
-        android:label="fragment_yoga"
+        android:label="Yoga"
         tools:layout="@layout/fragment_yoga" >
         <action
             android:id="@+id/action_yogaFragment_to_yogaDetails"
@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.example.stressApp.MainFragments.SettingFragment"
-        android:label="fragment_setting"
+        android:label="Setting"
         tools:layout="@layout/fragment_setting" >
         <action
             android:id="@+id/action_settingFragment_to_aboutusFragment2"
@@ -43,8 +43,8 @@
     <fragment
         android:id="@+id/otherFragment"
         android:name="com.example.stressApp.MainFragments.OtherFragment"
-        android:label="fragment_other"
-        tools:layout="@layout/fragment_other" >
+        android:label="Other Activities"
+        tools:layout="@layout/fragment_other">
         <action
             android:id="@+id/action_otherFragment_to_musicPlayer"
             app:destination="@id/musicPlayer" />
@@ -58,46 +58,46 @@
     <fragment
         android:id="@+id/helpFragment"
         android:name="com.example.stressApp.SettingFragments.HelpFragment"
-        android:label="HelpFragment" />
+        android:label="FAQ" />
     <fragment
         android:id="@+id/languageFragment"
         android:name="com.example.stressApp.SettingFragments.LanguageFragment"
-        android:label="fragment_language"
+        android:label="Language Setting"
         tools:layout="@layout/fragment_language" />
     <fragment
         android:id="@+id/supportFragment"
         android:name="com.example.stressApp.SettingFragments.SupportFragment"
-        android:label="SupportFragment" />
+        android:label="Support" />
     <fragment
         android:id="@+id/aboutusFragment"
         android:name="com.example.stressApp.SettingFragments.AboutusFragment"
-        android:label="AboutusFragment" />
+        android:label="About Us" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.stressApp.SettingFragments.ProfileFragment"
-        android:label="fragment_profile"
+        android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/yogaDetails"
         android:name="com.example.stressApp.YogaFragments.YogaDetails"
-        android:label="fragment_yoga_details"
+        android:label="Yoga Name"
         tools:layout="@layout/fragment_yoga_details">
         <argument
-            app:nullable="false"
             android:name="yoga_id"
-            app:argType="integer" />
+            app:argType="integer"
+            app:nullable="false" />
     </fragment>
 
     <fragment
         android:id="@+id/musicDetails2"
         android:name="com.example.stressApp.OthersFragments.MusicDetails"
-        android:label="fragment_music_details"
+        android:label="Music Player"
         tools:layout="@layout/fragment_music_details" />
     <fragment
         android:id="@+id/musicPlayer"
         android:name="com.example.stressApp.OthersFragments.MusicPlayer"
-        android:label="fragment_music_player"
-        tools:layout="@layout/fragment_music_player" >
+        android:label="Songs"
+        tools:layout="@layout/fragment_music_player">
         <action
             android:id="@+id/action_musicPlayer_to_musicDetails2"
             app:destination="@id/musicDetails2" />
@@ -105,8 +105,8 @@
     <fragment
         android:id="@+id/stressMeter"
         android:name="com.example.stressApp.OthersFragments.StressMeter"
-        android:label="fragment_stress_meter"
-        tools:layout="@layout/fragment_stress_meter" >
+        android:label="Stress Meter"
+        tools:layout="@layout/fragment_stress_meter">
         <action
             android:id="@+id/action_stressMeter_to_stressResult"
             app:destination="@id/stressResult" />
@@ -114,8 +114,8 @@
     <fragment
         android:id="@+id/stressResult"
         android:name="com.example.stressApp.OthersFragments.StressResult"
-        android:label="fragment_stress_result"
-        tools:layout="@layout/fragment_stress_result" >
+        android:label="Your Score"
+        tools:layout="@layout/fragment_stress_result">
         <argument
             android:name="score"
             app:argType="integer" />
@@ -126,6 +126,6 @@
     <fragment
         android:id="@+id/activityDetails"
         android:name="com.example.stressApp.OthersFragments.ActivityDetails"
-        android:label="fragment_activity_details"
+        android:label="Activity Details"
         tools:layout="@layout/fragment_activity_details" />
 </navigation>

@@ -46,13 +46,10 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
             holder.titleTextView.setTextColor(Color.parseColor("#000000"));
         }
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MyMediaPlayer.getInstance().reset();
-                MyMediaPlayer.currentIndex = holder.getAdapterPosition();
-                navController.navigate(R.id.action_musicPlayer_to_musicDetails2);
-            }
+        holder.itemView.setOnClickListener(v -> {
+            MyMediaPlayer.getInstance().reset();
+            MyMediaPlayer.currentIndex = holder.getAdapterPosition();
+            navController.navigate(R.id.action_musicPlayer_to_musicDetails2);
         });
 
     }

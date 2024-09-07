@@ -31,7 +31,6 @@ public class YogaDetails extends Fragment {
     private TextView info_streches, title_help, info_help;
     private TextView title_how_to_do, info_how_to_do, title_tips;
     private TextView yoga_pose_name, info_name;
-    private CardView close_button;
 
     public YogaDetails() {
     }
@@ -41,7 +40,6 @@ public class YogaDetails extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_yoga_details, container, false);
         init(view);
-        close_button.setOnClickListener(v -> NavHostFragment.findNavController(this).navigateUp());
 
         yoga_id = YogaDetailsArgs.fromBundle(getArguments()).getYogaId()+1;
         FirebaseUtils.getYogaModel(yoga_id, new FirebaseUtils.Callback<YogaModel, String>() {
@@ -72,7 +70,6 @@ public class YogaDetails extends Fragment {
         yoga_pose_name = view.findViewById(R.id.yoga_pose_name);
         title_how_to_do = view.findViewById(R.id.title_how_to_do);
         info_how_to_do = view.findViewById(R.id.info_how_to_do);
-        close_button = view.findViewById(R.id.close_button_cardView);
     }
 
     private void setInfo(YogaModel yogaModel) {
@@ -86,7 +83,7 @@ public class YogaDetails extends Fragment {
             mainName = matcher.group(2);
         }
 
-        yoga_pose_name.setText(mainName);
+        ((MainPage) requireActivity()).setToolbarTitle(mainName);
         name.setText(mainName);
         info_name.setText(String.format("(%s)", sideName));
 
@@ -114,9 +111,4 @@ public class YogaDetails extends Fragment {
         info_tips.setText(tips.toString());
     }
 
-    @Override
-    public void onResume() {
-        MainPage.updateBottomNavigationBar(AppConstants.FRAGMENT_YOGA);
-        super.onResume();
-    }
 }

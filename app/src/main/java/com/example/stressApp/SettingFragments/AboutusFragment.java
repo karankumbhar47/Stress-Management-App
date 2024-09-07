@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.stressApp.MainPage;
 import com.example.stressApp.Model.StudentModel;
 import com.example.stressApp.R;
+import com.example.stressApp.Utils.AppConstants;
 import com.example.stressApp.Utils.JsonHelper;
 import com.example.stressApp.Utils.LoadingDialog;
 import com.example.stressApp.Utils.Utils;
@@ -20,8 +22,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
 
 import java.util.List;
 import java.util.Objects;
@@ -29,7 +29,6 @@ import java.util.Objects;
 public class AboutusFragment extends Fragment {
     private List<StudentModel> studentModelList;
     private LoadingDialog loadingDialog;
-    private NavController navController;
 
 
     @Nullable
@@ -41,9 +40,7 @@ public class AboutusFragment extends Fragment {
     }
 
     private void init(View view){
-        navController = NavHostFragment.findNavController(this);
         loadingDialog = new LoadingDialog(requireActivity());
-        view.findViewById(R.id.close_button_cardView).setOnClickListener(v -> navController.navigateUp());
 
         loadingDialog.show();
         JsonHelper.getStudentList(requireContext(), new JsonHelper.Callback<List<StudentModel>, String>() {

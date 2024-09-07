@@ -28,16 +28,11 @@ import androidx.navigation.fragment.NavHostFragment;
 public class SupportFragment extends Fragment {
 
     private static final String OWNER_EMAIL = "udanvedant@iitbhilai.ac.in"; // Replace with actual email
-    private NavController navController;
-    private CardView close_button;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_support, container, false);
-        navController = NavHostFragment.findNavController(this);
-        close_button = view.findViewById(R.id.close_button_cardView);
-        close_button.setOnClickListener(v -> navController.navigateUp());
         return view;
     }
 

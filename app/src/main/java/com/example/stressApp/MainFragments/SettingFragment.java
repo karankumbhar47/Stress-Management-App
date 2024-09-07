@@ -131,12 +131,6 @@ public class SettingFragment extends Fragment {
         bottomSheetDialog.show();
     }
 
-    @Override
-    public void onResume() {
-        MainPage.updateBottomNavigationBar(AppConstants.FRAGMENT_SETTING);
-        super.onResume();
-    }
-
     private void logout(){
         new AlertDialog.Builder(getActivity())
                 .setTitle("Confirm")

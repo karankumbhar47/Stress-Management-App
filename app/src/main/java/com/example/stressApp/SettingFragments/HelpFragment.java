@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.stressApp.Adapter.FAQAdapter;
+import com.example.stressApp.MainPage;
 import com.example.stressApp.Model.FAQModel;
 import com.example.stressApp.R;
+import com.example.stressApp.Utils.AppConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,20 +29,13 @@ public class HelpFragment extends Fragment {
     private EditText faqSearchBar;
     private FAQAdapter faqAdapter;
     private List<FAQModel> faqModelList = new ArrayList<>();
-    private CardView close_button;
-    private NavController navController;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_help, container, false);
 
-        navController = NavHostFragment.findNavController(this);
-        close_button = view.findViewById(R.id.close_button_cardView);
-        close_button.setOnClickListener(v -> navController.navigateUp());
-
         faqRecyclerView = view.findViewById(R.id.faqRecyclerView);
-        faqSearchBar = view.findViewById(R.id.faqSearchBar);
 
         // Initialize FAQ data
         initializeFAQs();

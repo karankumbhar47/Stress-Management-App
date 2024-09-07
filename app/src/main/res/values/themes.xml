@@ -1,8 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.StressManagementApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="actionOverflowButtonStyle">@style/ThreeDotsStyle</item>
+    </style>
+    
+    <style name="ThreeDotsStyle" parent="Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="tint">@color/black</item>
     </style>
 
     <style name="Theme.StressManagementApp" parent="Base.Theme.StressManagementApp" />
@@ -56,4 +59,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Toolbar_TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/blue</item> <!-- Set the desired color here -->
+        <item name="android:textSize">20sp</item> <!-- Adjust size as needed -->
+        <item name="android:textStyle">normal</item> <!-- Adjust size as needed -->
+    </style>
     </resources>

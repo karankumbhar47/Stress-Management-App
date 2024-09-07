@@ -4,9 +4,7 @@ import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -28,7 +26,6 @@ public class MusicDetails extends Fragment {
     int x=0;
     SeekBar seekBar;
     AudioModel currentSong;
-    private CardView closeButton;
     ArrayList<AudioModel> songsList;
     TextView titleTv,currentTimeTv,totalTimeTv;
     ImageView pause_button,nextBtn,previousBtn,musicIcon;
@@ -43,7 +40,6 @@ public class MusicDetails extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_music_details, container, false);
 
-        closeButton = view.findViewById(R.id.close_button_cardView);
         titleTv = view.findViewById(R.id.song_title);
         currentTimeTv = view.findViewById(R.id.current_time);
         totalTimeTv = view.findViewById(R.id.total_time);
@@ -54,8 +50,6 @@ public class MusicDetails extends Fragment {
         musicIcon = view.findViewById(R.id.music_icon_big);
         titleTv.setSelected(true);
 
-
-        closeButton.setOnClickListener(v -> NavHostFragment.findNavController(this).navigateUp());
         setResourcesWithMusic();
 
         requireActivity().runOnUiThread(new Runnable() {

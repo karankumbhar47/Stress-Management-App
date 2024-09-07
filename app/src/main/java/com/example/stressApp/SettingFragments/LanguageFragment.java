@@ -26,8 +26,6 @@ public class LanguageFragment extends Fragment {
     private RecyclerView recyclerView;
     private LanguageAdapter languageAdapter;
     private List<String> list;
-    private CardView close_button;
-    private NavController navController;
 
     public LanguageFragment() {}
 
@@ -37,15 +35,12 @@ public class LanguageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_language, container, false);
 
         list = Arrays.asList("English","Hindi","Spanish","French","Russian");
-        close_button = view.findViewById(R.id.close_button_cardView);
-        navController = NavHostFragment.findNavController(this);
 
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new GridLayoutManager(requireContext(),3));
         languageAdapter = new LanguageAdapter(requireContext(),list,0);
         recyclerView.setAdapter(languageAdapter);
 
-        close_button.setOnClickListener(v -> navController.navigateUp());
         return view;
     }
 

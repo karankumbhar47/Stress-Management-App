@@ -5,7 +5,6 @@ import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
-import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -35,7 +34,6 @@ public class MusicPlayer extends Fragment {
     TextView noMusicTextView;
     ArrayList<AudioModel> songsList = new ArrayList<>();
     private NavController navController;
-    private CardView close_button;
 
     public MusicPlayer() {
     }
@@ -44,12 +42,9 @@ public class MusicPlayer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_music_player, container, false);
-
         navController = NavHostFragment.findNavController(this);
         recyclerView = view.findViewById(R.id.recycler_view);
         noMusicTextView = view.findViewById(R.id.no_songs_text);
-        close_button = view.findViewById(R.id.close_button_cardView);
-        close_button.setOnClickListener(v -> navController.navigateUp());
 
         if (!checkPermission()) {
             requestPermission();

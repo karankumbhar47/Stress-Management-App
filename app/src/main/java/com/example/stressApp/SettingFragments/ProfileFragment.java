@@ -6,8 +6,6 @@ import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -20,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.stressApp.MainFragments.SettingFragment;
+import com.example.stressApp.MainPage;
 import com.example.stressApp.R;
 import com.example.stressApp.Utils.AppConstants;
 import com.example.stressApp.Utils.FirebaseUtils;
@@ -38,7 +36,6 @@ public class ProfileFragment extends Fragment {
     LinearLayout edit_profile_view;
     Button update_profile_button;
     CardView show_profile_view;
-    private NavController navController;
     boolean isDateSet;
 
     public ProfileFragment() {}
@@ -48,8 +45,6 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        CardView back = view.findViewById(R.id.close_button_cardView);
-        navController = NavHostFragment.findNavController(this);
         isDateSet = true;
 
         show_profile_view = view.findViewById(R.id.show_profile_view);
@@ -113,9 +108,9 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        back.setOnClickListener(v -> navController.navigateUp());
         return view;
     }
+
 
     public void setProfile() {
         SharedPreferences prefCredentials = requireContext().getSharedPreferences(AppConstants.PREF_CREDENTIALS,Context.MODE_PRIVATE);
