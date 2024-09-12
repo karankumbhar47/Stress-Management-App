@@ -52,8 +52,14 @@
             android:id="@+id/action_otherFragment_to_stressMeter"
             app:destination="@id/stressMeter" />
         <action
-            android:id="@+id/action_otherFragment_to_activityDetails"
-            app:destination="@id/activityDetails" />
+            android:id="@+id/action_otherFragment_to_fidgetSpinner"
+            app:destination="@id/fidgetSpinner" />
+        <action
+            android:id="@+id/action_otherFragment_to_fidgetCube"
+            app:destination="@id/fidgetCube" />
+        <action
+            android:id="@+id/action_otherFragment_to_fragment_native"
+            app:destination="@id/fragment_native" />
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
@@ -124,8 +130,19 @@
             app:destination="@id/otherFragment" />
     </fragment>
     <fragment
-        android:id="@+id/activityDetails"
-        android:name="com.example.stressApp.OthersFragments.ActivityDetails"
-        android:label="Activity Details"
-        tools:layout="@layout/fragment_activity_details" />
+        android:id="@+id/fidgetSpinner"
+        android:name="com.example.stressApp.OthersFragments.FidgetSpinner"
+        android:label="Fidget Spinner"
+        tools:layout="@layout/fragment_fidget_spinner" />
+    <fragment
+        android:id="@+id/fidgetCube"
+        android:name="com.example.stressApp.OthersFragments.FidgetCube"
+        android:label="Fidget Cube"
+        tools:layout="@layout/fragment_fidget_cube_activity" />
+
+    <fragment
+        android:id="@+id/fragment_native"
+        android:label="Native Fragment"
+        android:name="com.example.stressApp.NativeClass.FirstNative"
+        tools:layout="@layout/fragment_first_native"/>
 </navigation>

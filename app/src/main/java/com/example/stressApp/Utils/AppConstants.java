@@ -16,6 +16,7 @@ public class AppConstants {
     public static final String LOG_REGISTER             = "App-Register-Logs"   ;
     public static final String LOG_YOGA                 = "App-Yoga-Logs"       ;
     public static final String LOG_ACTIVITY             = "App-Activity-Logs"   ;
+    public static final String LOG_NATIVE               = "App-Native-Logs"     ;
     public static final String LOG_SETTING              = "App-Setting-Logs"    ;
     public static final String DATA_USER_INFO           = "User-Information"    ;
     public static final String DATA_YOGA_INFO           = "Yoga-Information"    ;
@@ -63,7 +64,8 @@ public class AppConstants {
         drawableMap.put("eagle", R.drawable.eagle);
         drawableMap.put("music", R.drawable.music);
         drawableMap.put("high", R.drawable.high);
-        drawableMap.put("fidget", R.drawable.fidget);
+        drawableMap.put("cube", R.drawable.fidget);
+        drawableMap.put("spinner", R.drawable.fidget_spinner);
         drawableMap.put("stress", R.drawable.stress_test);
     }
 
