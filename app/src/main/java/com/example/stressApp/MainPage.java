@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import androidx.activity.OnBackPressedCallback;
@@ -34,7 +35,6 @@ public class MainPage extends AppCompatActivity {
     private Toolbar toolbar;
     private LoadingDialog loadingDialog;
     private NavController navController;
-    private static BottomNavigationView bottomNavigationBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -92,11 +92,12 @@ public class MainPage extends AppCompatActivity {
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         loadingDialog = new LoadingDialog(this);
-        bottomNavigationBar = findViewById(R.id.bottom_navigationBar);
     }
 
     private void updateToolbarForDestination(NavDestination destination) {
         int destinationId = destination.getId();
+        FrameLayout submitButtonContainer = findViewById(R.id.custom_submit_button_container);
+
         if (destinationId == R.id.homeFragment ||
                 destinationId == R.id.yogaFragment ||
                 destinationId == R.id.settingFragment ||
@@ -119,6 +120,12 @@ public class MainPage extends AppCompatActivity {
                 searchItem.setVisible(false);
             }
         }
+
+        if(destinationId==R.id.stressMeter)
+            submitButtonContainer.setVisibility(View.VISIBLE);
+        else
+            submitButtonContainer.setVisibility(View.GONE);
+
     }
 
     private void setSearch(MenuItem searchItem){
