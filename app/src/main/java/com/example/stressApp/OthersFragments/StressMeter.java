@@ -2,6 +2,9 @@ package com.example.stressApp.OthersFragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -15,6 +18,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.stressApp.Adapter.QuestionAdapter;
 import com.example.stressApp.MainFragments.OtherFragment;
@@ -45,17 +50,32 @@ public class StressMeter extends Fragment {
 
         init(view);
         setAdapter();
-        submit_button.setOnClickListener(v -> countPoints());
-        close_button.setOnClickListener(v -> navController.navigateUp());
+//        submit_button.setOnClickListener(v -> countPoints());
+//        close_button.setOnClickListener(v -> navController.navigateUp());
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        FrameLayout submitButtonContainer = requireActivity().findViewById(R.id.custom_submit_button_container);
+
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        View submitButton = inflater.inflate(R.layout.button_submit_card, submitButtonContainer, false);
+
+        submitButtonContainer.addView(submitButton);
+        submitButton.findViewById(R.id.submit_button_cardView).setOnClickListener(v -> {
+            countPoints();
+        });
     }
 
     private void init(View view){
         loadingDialog = new LoadingDialog(requireActivity());
         recyclerView = view.findViewById(R.id.recycler_view_questions);
-        submit_button = view.findViewById(R.id.submit_button_cardView);
-        close_button = view.findViewById(R.id.close_button_cardView);
+//        submit_button = view.findViewById(R.id.submit_button_cardView);
+//        close_button = view.findViewById(R.id.close_button_cardView);
         navController = NavHostFragment.findNavController(this);
     }
 

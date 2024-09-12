@@ -47,7 +47,7 @@ Random tips popuping in the app. reminding the user of the ....
 ### App Progress
 
 <div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="./images/p1.jpeg" alt="First Image" style="width:30%;"/>
+  <img src="./src/images/p1.jpeg" alt="First Image" style="width:30%;"/>
   <img src="./images/p2.jpeg" alt="Second Image" style="width:30%;"/>
   <img src="./images/p3.jpeg" alt="Third Image" style="width:30%;"/>
 </div>

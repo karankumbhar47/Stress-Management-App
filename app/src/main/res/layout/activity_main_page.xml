@@ -22,8 +22,16 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
-            app:menu="@menu/common_menu"
-            />
+            app:menu="@menu/common_menu">
+
+            <FrameLayout
+                android:id="@+id/custom_submit_button_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:paddingEnd="10dp" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.fragment.app.FragmentContainerView
