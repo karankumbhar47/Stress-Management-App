@@ -51,7 +51,7 @@ public class OtherFragment extends Fragment {
 
     private void setAdapter(){
         loadingDialog.show();
-        JsonHelper.getActivityModels(requireContext(), new JsonHelper.Callback<List<ActivityModel>, String>() {
+        JsonHelper.getActivityModels(requireContext(), new JsonHelper.Callback<List<ActivityModel >, String>() {
             @Override
             public void onSuccess(String customMessage, List<ActivityModel> result) {
                 activityModelList = result;
