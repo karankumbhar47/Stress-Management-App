@@ -7,4 +7,7 @@
     <dimen name="loginViewsMargin">20dp</dimen>
 
     <dimen name="signup_text_margin_top">10dp</dimen>
+    <dimen name="image_height">270dp</dimen>
+    <dimen name="image_margin">8dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
