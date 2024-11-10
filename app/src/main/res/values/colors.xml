@@ -23,5 +23,10 @@
     <color name="colorUnselected">#6C757D</color>
     <color name="button_color">#DADEF8</color>
     <color name="custom_blue">#4a7adb</color>
+    <color name="modelMessageColor">#4CAF50</color>
+    <color name="userMessageColor">#2196F3</color>
+
+    <color name="model_message_color">#FFBB86FC</color>
+    <color name="user_message_color">#FF6200EE</color>
 
 </resources>

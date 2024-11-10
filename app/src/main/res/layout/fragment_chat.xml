@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical">
+
+<TextView
+    android:id="@+id/appHeader"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:text="AI Chatbot"
+    android:textSize="22sp"
+    android:textStyle="bold"
+    android:background="?attr/colorPrimary"
+    android:textColor="@android:color/white" />
+
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/messageList"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <EditText
+        android:id="@+id/messageInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Type a message" />
+
+    <ImageButton
+        android:id="@+id/sendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_send"
+        android:contentDescription="Send"
+        android:background="?attr/selectableItemBackground" />
+</LinearLayout>
+</LinearLayout>
