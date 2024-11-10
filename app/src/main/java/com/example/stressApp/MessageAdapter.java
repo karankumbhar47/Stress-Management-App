@@ -15,7 +15,7 @@ import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
 
-    private final List<MessageModel> messageList;
+    private List<MessageModel> messageList;
 
     public MessageAdapter(List<MessageModel> messageList) {
         this.messageList = messageList;
@@ -26,6 +26,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
     public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_message_row, parent, false);
         return new MessageViewHolder(view);
+    }
+
+    public void submitList(List<MessageModel> messageList){
+        this.messageList = messageList;
     }
 
     @Override

@@ -15,44 +15,98 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.stressApp.ChatViewModel;
+import com.example.stressApp.Constants;
 import com.example.stressApp.MessageAdapter;
+import com.example.stressApp.MessageModel;
 import com.example.stressApp.R;
+import com.google.ai.client.generativeai.GenerativeModel;
+import com.google.ai.client.generativeai.java.GenerativeModelFutures;
+import com.google.ai.client.generativeai.type.Content;
+import com.google.ai.client.generativeai.type.GenerateContentResponse;
+import com.google.common.util.concurrent.FutureCallback;
+import com.google.common.util.concurrent.Futures;
+import com.google.common.util.concurrent.ListenableFuture;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class ChatFragments extends Fragment {
 
-    private ChatViewModel chatViewModel;
     private MessageAdapter messageAdapter;
+    private List<MessageModel> messageList = new ArrayList<>();
+    private GenerativeModel generativeModel;
+    private GenerativeModelFutures modelFutures;
+    private final Executor executor = Executors.newSingleThreadExecutor();
+
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
 
-        // Initialize ViewModel
-        chatViewModel = new ViewModelProvider(this).get(ChatViewModel.class);
+        generativeModel = new GenerativeModel("gemini-pro", Constants.apiKey);
+        modelFutures = GenerativeModelFutures.from(generativeModel);
 
-        // Setup RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.messageList);
-        messageAdapter = new MessageAdapter();
+        messageAdapter = new MessageAdapter(messageList);
         recyclerView.setAdapter(messageAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        // Observe message list
-        chatViewModel.getMessageList().observe(getViewLifecycleOwner(), messageAdapter::submitList);
 
-        // Set up send button and input
         EditText messageInput = view.findViewById(R.id.messageInput);
         ImageButton sendButton = view.findViewById(R.id.sendButton);
+
+
 
         sendButton.setOnClickListener(v -> {
             String message = messageInput.getText().toString().trim();
             if (!message.isEmpty()) {
-                chatViewModel.sendMessage(message);
+                sendMessage(message);
                 messageInput.setText("");
             }
         });
 
         return view;
+    }
+
+
+    private void sendMessage(String question) {
+        messageList.add(new MessageModel(question, "user"));
+        messageList.add(new MessageModel("Typing...", "model"));
+        messageAdapter.submitList(new ArrayList<>(messageList));
+
+
+        Content content = new Content.Builder().addText(question).build();
+
+
+        ListenableFuture<GenerateContentResponse> response = modelFutures.generateContent(content);
+
+
+        Futures.addCallback(
+                response,
+                new FutureCallback<GenerateContentResponse>() {
+                    @Override
+                    public void onSuccess(GenerateContentResponse result) {
+
+                        messageList.remove(messageList.size() - 1);
+                        messageList.add(new MessageModel(result.getText(), "model"));
+                        messageAdapter.submitList(new ArrayList<>(messageList));
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+
+                        messageList.remove(messageList.size() - 1);
+                        messageList.add(new MessageModel("Error: " + t.getMessage(), "model"));
+                        messageAdapter.submitList(new ArrayList<>(messageList));
+                        t.printStackTrace();
+                    }
+                },
+                executor
+        );
     }
 }
 
