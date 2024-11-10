@@ -66,4 +66,10 @@
         <item name="android:textSize">20sp</item> <!-- Adjust size as needed -->
         <item name="android:textStyle">normal</item> <!-- Adjust size as needed -->
     </style>
+    <style name="vedant">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
     </resources>
