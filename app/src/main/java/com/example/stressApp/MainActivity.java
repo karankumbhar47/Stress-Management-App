@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isLogin;
     private Activity activity;
     private Typeface customFont;
+    private SharedPreferences prefCredentials;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         activity = this;
+        prefCredentials = getSharedPreferences(AppConstants.PREF_CREDENTIALS, MODE_PRIVATE);
         customFont = ResourcesCompat.getFont(this, R.font.font1);
-        SharedPreferences prefCredentials = getSharedPreferences(AppConstants.PREF_CREDENTIALS, MODE_PRIVATE);
         isLogin = prefCredentials.getBoolean(AppConstants.KEY_LOGIN_FLAG, false);
         loadingDialog = new LoadingDialog(MainActivity.this);
         mobile_text = findViewById(R.id.editTextMobile);
@@ -127,6 +128,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(String customMessage, String result) {
                 Utils.okDialog(activity, "Login Successful", "User Info Saved Successfully", false, () -> {
+                    SharedPreferences.Editor editor = prefCredentials.edit();
+                    editor.putString(AppConstants.KEY_MOBILE_NUMBER, mobile);
+                    editor.putString(AppConstants.KEY_PASSWORD, password);
+                    editor.apply();
                     Intent intent = new Intent(MainActivity.this, MainPage.class);
                     startActivity(intent);
                     if (loadingDialog != null && loadingDialog.isShowing() && !isFinishing()) {

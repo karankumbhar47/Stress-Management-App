@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:orientation="vertical"
+    android:background="@drawable/old_paper_texture"
+    android:id="@+id/dialogId">
+
+    <TextView
+        android:id="@+id/date_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="15sp"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:text="20-Jan-2024"
+        android:ems="10" />
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#404047"
+        android:layout_height="2dp"/>
+
+    <TextView
+        android:id="@+id/description_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about"
+        android:fontFamily="@font/pacifico"
+        android:padding="5dp"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        android:lineHeight="35dp"
+        android:scrollbars="vertical"/>
+</LinearLayout>
+

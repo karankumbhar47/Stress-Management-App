@@ -134,38 +134,32 @@
         tools:layout="@layout/fragment_activity_details" />
     <fragment
         android:id="@+id/diaryFragment"
-        android:name="com.example.stressApp.HomeFragments.DiaryFragment"
-        android:label="fragment_diary"
+        android:name="com.example.stressApp.HomeFragments.DiaryEventFragment"
+        android:label="Gratitude Journal"
         tools:layout="@layout/fragment_diary" >
         <action
-            android:id="@+id/action_diaryFragment_to_addDataFragment"
-            app:destination="@id/addDataFragment" />
+            android:id="@+id/action_diaryFragment_to_showDataFragment"
+            app:destination="@id/showDataFragment" />
         <action
-            android:id="@+id/action_diaryFragment_to_updateActivityFragment"
-            app:destination="@id/updateActivityFragment" />
-        <action
-            android:id="@+id/action_diaryFragment_to_updateActivityFragment2"
-            app:destination="@id/updateActivityFragment" />
+            android:id="@+id/action_diaryFragment_to_updateDiaryFragment"
+            app:destination="@id/updateDiaryFragment" />
     </fragment>
     <fragment
-        android:id="@+id/updateActivityFragment"
-        android:name="com.example.stressApp.HomeFragments.UpdateActivityFragment"
-        android:label="UpdateActivityFragment" >
+        android:id="@+id/showDataFragment"
+        android:name="com.example.stressApp.HomeFragments.ShowDataFragment"
+        android:label="ShowDataFragment">
         <argument
-            android:name="subject"
+            android:name="date"
             app:argType="string"
-            app:nullable="false" />
-        <argument
-            android:name="listId"
-            app:argType="string"
-            app:nullable="false" />
+            app:nullable="false"/>
+
         <argument
             android:name="description"
             app:argType="string"
-            app:nullable="false" />
+            app:nullable="true"/>
     </fragment>
     <fragment
-        android:id="@+id/addDataFragment"
-        android:name="com.example.stressApp.HomeFragments.AddDataFragment"
-        android:label="AddDataFragment" />
+        android:id="@+id/updateDiaryFragment"
+        android:name="com.example.stressApp.HomeFragments.UpdateDiaryFragment"
+        android:label="Today's Event"/>
 </navigation>

@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragments.DiaryFragment">
-
+    tools:context=".HomeFragments.DiaryEventFragment">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -13,24 +12,19 @@
         tools:context=".Activity.MainActivity"
         android:orientation="vertical">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:padding="13dp"
+            android:id="@+id/event_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat"
-            >
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.5" />
 
-            <Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/Widget.AppCompat.PopupMenu"
-                android:background="#148F77"
-
-                />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <include layout="@layout/content_main" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
@@ -43,6 +37,5 @@
             app:srcCompat="@android:drawable/ic_input_add"
             tools:ignore="RtlHardcoded" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>>
-
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>

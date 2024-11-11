@@ -9,7 +9,10 @@ import android.widget.Toast;
 
 import com.example.stressApp.Model.Question;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class Utils {
@@ -56,5 +59,19 @@ public class Utils {
     public static List<Question> getRandomQuestions(List<Question> allQuestions, int numberOfQuestions) {
         Collections.shuffle(allQuestions);
         return allQuestions.subList(0, Math.min(numberOfQuestions, allQuestions.size()));
+    }
+
+    public static String formatDateString(String dateString) {
+        try {
+            // Parse the input date string
+            SimpleDateFormat inputFormat = new SimpleDateFormat("d-M-yyyy");
+            Date date = inputFormat.parse(dateString);
+
+            // Format the date to dd-MM-yyyy
+            SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
+            return outputFormat.format(date);
+        } catch (ParseException e) {
+            return dateString; // Return original if parsing fails
+        }
     }
 }

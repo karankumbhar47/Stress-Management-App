@@ -22,6 +22,7 @@ public class AppConstants {
     public static final String KEY_NAME                 = "name"                ;
     public static final String KEY_INFO                 = "info"                ;
     public static final String KEY_HELP                 = "help"                ;
+    public static final String KEY_DIARY                = "diary"               ;
     public static final String KEY_HOW_TO_DO            = "how-to-do"           ;
     public static final String KEY_STRETCHED_PART       = "stretched-part"      ;
     public static final String KEY_TIPS                 = "tips"                ;
