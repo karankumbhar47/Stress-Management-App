@@ -8,9 +8,9 @@
         },
         {
             "id": 2,
-            "name": "Fidgeting",
-            "activity_info": "Includes two fidgeting activities: Tap/Tap and Random Tap.",
-            "icon_key": "fidget"
+            "name": "Fidget Spinner",
+            "activity_info": "Includes two fidgeting activities: Tap/Tap and Random Tap.Fidget spinners can be a helpful tool for stress management, especially in reducing anxiety and aiding focus. Here’s why:\n\n    Distraction from Stress: Fidget spinners can break the cycle of rumination by providing a simple distraction, helping to shift focus away from stressful thoughts.\n\n    Promotes Mindfulness: The repetitive motion can help individuals enter a meditative state, aiding relaxation and reducing stress, especially for those who struggle with traditional meditation.\n\n    Improves Focus: For people with ADHD, fidget spinners help channel excess energy, potentially improving concentration and reducing stress.\n\n    Comfort in Repetition: They provide a comforting repetitive action, especially for individuals with ADHD or autism, offering a calming outlet.\n\n    Normalizes Fidgeting: Fidget spinners can make fidgeting socially acceptable, reducing stigma and helping individuals feel less self-conscious.\n\n    Personal Stress Relief: For many, fidget spinners provide immediate relief, offering a low-effort way to manage stress and anxiety.\n\n  While not a replacement for therapy, fidget spinners can be an effective tool for stress relief for those who find them helpful.\n",
+            "icon_key": "spinner"
         },
         {
             "id": 3,
