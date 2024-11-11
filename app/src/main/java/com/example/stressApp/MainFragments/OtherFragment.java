@@ -86,7 +86,8 @@ public class OtherFragment extends Fragment {
                 navController.navigate(R.id.action_otherFragment_to_musicPlayer);
                 break;
             default:
-                navController.navigate(R.id.action_otherFragment_to_activityDetails);
+//                navController.navigate(R.id.action_otherFragment_to_activityDetails);
+                navController.navigate(R.id.action_otherFragment_to_learnFragment);
         }
     }
 }

@@ -17,6 +17,12 @@
             "name": "Concentration Music",
             "activity_info": "Provides a list of pre-installed relaxing music.",
             "icon_key": "music"
+        },
+        {
+            "id": 4,
+            "name": "Meditation",
+            "activity_info": "Learning Meditation Step by Step",
+            "icon_key":"meditation_icon"
         }
     ]
 }

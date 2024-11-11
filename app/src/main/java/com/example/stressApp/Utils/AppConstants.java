@@ -66,6 +66,7 @@ public class AppConstants {
         drawableMap.put("high", R.drawable.high);
         drawableMap.put("fidget", R.drawable.fidget);
         drawableMap.put("stress", R.drawable.stress_test);
+        drawableMap.put("meditation_icon", R.drawable.meditation_icon);
     }
 
     public static final ArrayList<String> PREF_LIST = new ArrayList<>();

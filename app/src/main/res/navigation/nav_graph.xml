@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_otherFragment_to_activityDetails"
             app:destination="@id/activityDetails" />
+        <action
+            android:id="@+id/action_otherFragment_to_learnFragment"
+            app:destination="@id/learnFragment" />
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
@@ -147,7 +150,7 @@
     <fragment
         android:id="@+id/showDataFragment"
         android:name="com.example.stressApp.HomeFragments.ShowDataFragment"
-        android:label="ShowDataFragment">
+        android:label="Dairy">
         <argument
             android:name="date"
             app:argType="string"
@@ -162,4 +165,21 @@
         android:id="@+id/updateDiaryFragment"
         android:name="com.example.stressApp.HomeFragments.UpdateDiaryFragment"
         android:label="Today's Event"/>
+    <fragment
+        android:id="@+id/learnFragment"
+        android:name="com.example.stressApp.OthersFragments.LearnFragment"
+        android:label="Learn Meditation" >
+        <action
+            android:id="@+id/action_learnFragment_to_videosView"
+            app:destination="@id/videosView" />
+    </fragment>
+    <fragment
+        android:id="@+id/videosView"
+        android:name="com.example.stressApp.OthersFragments.VideosPlayerView"
+        android:label="Tutorial" >
+        <argument
+            android:name="videos"
+            app:nullable="false"
+            app:argType="com.example.stressApp.Model.VideoModel"/>
+    </fragment>
 </navigation>

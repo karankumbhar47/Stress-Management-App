@@ -53,4 +53,6 @@ dependencies {
     implementation(libs.google.firebase.database)
     implementation(libs.glide)
     implementation(libs.gson)
+    implementation(libs.core)
+
 }
