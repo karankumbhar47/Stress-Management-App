@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_chatFragment"
-            app:destination="@id/chatFragment" />
+            app:destination="@id/chatFragments" />
     </fragment>
     <fragment
         android:id="@+id/yogaFragment"
@@ -133,7 +133,7 @@
         android:label="Activity Details"
         tools:layout="@layout/fragment_activity_details" />
     <fragment
-        android:id="@+id/chatFragment"
-        android:name="com.example.stressApp.HomeFragments.ChatFragment"
-        android:label="ChatFragment" />
+        android:id="@+id/chatFragments"
+        android:name="com.example.stressApp.HomeFragments.ChatFragments"
+        android:label="AI ChatBot" />
 </navigation>

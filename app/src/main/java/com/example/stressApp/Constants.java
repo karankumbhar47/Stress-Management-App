@@ -5,6 +5,6 @@
 package com.example.stressApp;
 
 public class Constants {
-    public static final String apiKey = "YOUR_API_KEY";
+    public static final String apiKey = "AIzaSyDNwhsjX5WFZnxydBdAhPZL7c2-8kbLLwA";
 }
 

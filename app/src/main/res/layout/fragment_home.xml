@@ -139,6 +139,7 @@
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/consult_doctor_cardView"
                 style="@style/vedant"
                 android:elevation="10dp"
                 app:cardElevation="10dp"

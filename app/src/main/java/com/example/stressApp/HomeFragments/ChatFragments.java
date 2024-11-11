@@ -1,6 +1,7 @@
 package com.example.stressApp.HomeFragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,7 @@ public class ChatFragments extends Fragment {
     private GenerativeModel generativeModel;
     private GenerativeModelFutures modelFutures;
     private final Executor executor = Executors.newSingleThreadExecutor();
+    private RecyclerView recyclerView;
 
 
 
@@ -50,20 +52,17 @@ public class ChatFragments extends Fragment {
         generativeModel = new GenerativeModel("gemini-pro", Constants.apiKey);
         modelFutures = GenerativeModelFutures.from(generativeModel);
 
-        RecyclerView recyclerView = view.findViewById(R.id.messageList);
+        recyclerView = view.findViewById(R.id.messageList);
         messageAdapter = new MessageAdapter(messageList);
         recyclerView.setAdapter(messageAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-
-
         EditText messageInput = view.findViewById(R.id.messageInput);
         ImageButton sendButton = view.findViewById(R.id.sendButton);
-
-
 
         sendButton.setOnClickListener(v -> {
             String message = messageInput.getText().toString().trim();
             if (!message.isEmpty()) {
+                Log.d("vedant", "onCreateView: " + message);
                 sendMessage(message);
                 messageInput.setText("");
             }
@@ -72,17 +71,24 @@ public class ChatFragments extends Fragment {
         return view;
     }
 
+    private final String systemPrompt = "You are a compassionate doctor specializing in stress management named Killerkaran69. Please provide calming, professional advice to help users manage and reduce their stress effectively. Before recommending anything ask user about his condition and then responsed accordingly. Remember your response should be accurate and concise.";
 
     private void sendMessage(String question) {
         messageList.add(new MessageModel(question, "user"));
         messageList.add(new MessageModel("Typing...", "model"));
         messageAdapter.submitList(new ArrayList<>(messageList));
+        messageAdapter.notifyDataSetChanged();
+        recyclerView.smoothScrollToPosition(messageList.size() - 1);  // Scroll to the bottom
 
 
-        Content content = new Content.Builder().addText(question).build();
+        Log.d("Vedantmessage", "sendMessage: " + question);
+
+        Content content = new Content.Builder().addText(systemPrompt + "\n\nUser" + question).build();
 
 
+        Log.d("VedantContent", "sendMessage: " + content);
         ListenableFuture<GenerateContentResponse> response = modelFutures.generateContent(content);
+        Log.d("VedantModel", "sendMessage: " + response);
 
 
         Futures.addCallback(
@@ -90,19 +96,27 @@ public class ChatFragments extends Fragment {
                 new FutureCallback<GenerateContentResponse>() {
                     @Override
                     public void onSuccess(GenerateContentResponse result) {
-
-                        messageList.remove(messageList.size() - 1);
-                        messageList.add(new MessageModel(result.getText(), "model"));
-                        messageAdapter.submitList(new ArrayList<>(messageList));
+                        getActivity().runOnUiThread(() -> {
+                            Log.d("VedantModel", "onSuccess: " + result.getText());
+                            Log.d("VedantModel", "onSuccess: " + response);
+                            messageList.remove(messageList.size() - 1);
+                            messageList.add(new MessageModel(result.getText(), "model"));
+                            messageAdapter.submitList(new ArrayList<>(messageList));
+                            messageAdapter.notifyDataSetChanged();
+                            recyclerView.smoothScrollToPosition(messageList.size() - 1);
+                        });
                     }
 
                     @Override
                     public void onFailure(Throwable t) {
-
-                        messageList.remove(messageList.size() - 1);
-                        messageList.add(new MessageModel("Error: " + t.getMessage(), "model"));
-                        messageAdapter.submitList(new ArrayList<>(messageList));
-                        t.printStackTrace();
+                        getActivity().runOnUiThread(() -> {
+                            Log.d("VedantModel", "onFailure: " + response);
+                            messageList.remove(messageList.size() - 1);
+                            messageList.add(new MessageModel("Error: " + t.getMessage(), "model"));
+                            messageAdapter.submitList(new ArrayList<>(messageList));
+                            t.printStackTrace();
+                            recyclerView.smoothScrollToPosition(messageList.size() - 1);
+                        });
                     }
                 },
                 executor
