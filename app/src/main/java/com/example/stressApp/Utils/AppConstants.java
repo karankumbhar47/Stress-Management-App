@@ -42,6 +42,8 @@ public class AppConstants {
     public static final String FRAGMENT_YOGA            = "YogaFragment"        ;
     public static final String FRAGMENT_SETTING         = "SettingFragment"     ;
 
+    public static final String PREF_CHAT = "chat_preferences";
+    public static final String KEY_MESSAGES            = "messages";
     public static final Map<String, Integer> fragmentMap = new HashMap<>();
     static {
         fragmentMap.put(FRAGMENT_HOME, R.id.homeFragment);

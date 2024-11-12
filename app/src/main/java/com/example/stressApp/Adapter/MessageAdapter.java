@@ -1,4 +1,4 @@
-package com.example.stressApp;
+package com.example.stressApp.Adapter;
 
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.stressApp.Model.MessageModel;
+import com.example.stressApp.R;
 
 import java.util.List;
 

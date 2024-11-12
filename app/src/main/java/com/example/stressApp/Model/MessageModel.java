@@ -1,4 +1,4 @@
-package com.example.stressApp;
+package com.example.stressApp.Model;
 
 public class MessageModel {
     private final String message;
@@ -16,5 +16,6 @@ public class MessageModel {
     public String getRole() {
         return role;
     }
+
 }
 

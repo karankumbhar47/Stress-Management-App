@@ -1,25 +1,26 @@
 package com.example.stressApp.HomeFragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.stressApp.ChatViewModel;
+import com.example.stressApp.BuildConfig;
 import com.example.stressApp.Constants;
-import com.example.stressApp.MessageAdapter;
-import com.example.stressApp.MessageModel;
+import com.example.stressApp.Adapter.MessageAdapter;
+import com.example.stressApp.Model.MessageModel;
 import com.example.stressApp.R;
+import com.example.stressApp.Utils.LoadingDialog;
+import com.example.stressApp.Utils.Utils;
 import com.google.ai.client.generativeai.GenerativeModel;
 import com.google.ai.client.generativeai.java.GenerativeModelFutures;
 import com.google.ai.client.generativeai.type.Content;
@@ -41,7 +42,10 @@ public class ChatFragments extends Fragment {
     private GenerativeModelFutures modelFutures;
     private final Executor executor = Executors.newSingleThreadExecutor();
     private RecyclerView recyclerView;
-
+    private final String systemPrompt = "You are a compassionate doctor specializing in stress management named Rajkumar. Please provide calming, professional advice to help users manage and reduce their stress effectively. Before recommending anything ask user about his condition and then responsed accordingly. Remember your response should be accurate and concise.";
+    private LoadingDialog loadingDialog;
+    private Context context;
+    private String apiKey;
 
 
     @Nullable
@@ -49,29 +53,41 @@ public class ChatFragments extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chat, container, false);
 
-        generativeModel = new GenerativeModel("gemini-pro", Constants.apiKey);
-        modelFutures = GenerativeModelFutures.from(generativeModel);
+        init(view);
 
-        recyclerView = view.findViewById(R.id.messageList);
+
         messageAdapter = new MessageAdapter(messageList);
         recyclerView.setAdapter(messageAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        EditText messageInput = view.findViewById(R.id.messageInput);
-        ImageButton sendButton = view.findViewById(R.id.sendButton);
 
-        sendButton.setOnClickListener(v -> {
+        messageList = Utils.getMessages(context);
+        messageAdapter.submitList(messageList);
+        recyclerView.scrollToPosition(messageList.size() - 1);  // Scroll to the last message
+
+        EditText messageInput = view.findViewById(R.id.messageInput);
+        view.findViewById(R.id.sendButton).setOnClickListener(v -> {
             String message = messageInput.getText().toString().trim();
-            if (!message.isEmpty()) {
-                Log.d("vedant", "onCreateView: " + message);
+            if (!message.isEmpty())
                 sendMessage(message);
-                messageInput.setText("");
-            }
+            messageInput.setText("");
         });
 
         return view;
     }
 
-    private final String systemPrompt = "You are a compassionate doctor specializing in stress management named Killerkaran69. Please provide calming, professional advice to help users manage and reduce their stress effectively. Before recommending anything ask user about his condition and then responsed accordingly. Remember your response should be accurate and concise.";
+    private void init(View view){
+        apiKey = BuildConfig.API_KEY;
+//        if (apiKey == null || apiKey.isEmpty()) {
+//            Log.d("apikey", "init: API_KEY environment variable is not set." );
+////            throw new IllegalStateException("API_KEY environment variable is not set.");
+//        }
+        generativeModel = new GenerativeModel("gemini-pro", apiKey);
+        modelFutures = GenerativeModelFutures.from(generativeModel);
+        messageList = new ArrayList<>();
+        recyclerView = view.findViewById(R.id.messageList);
+        context = requireContext();
+    }
+
 
     private void sendMessage(String question) {
         messageList.add(new MessageModel(question, "user"));
@@ -81,41 +97,31 @@ public class ChatFragments extends Fragment {
         recyclerView.smoothScrollToPosition(messageList.size() - 1);  // Scroll to the bottom
 
 
-        Log.d("Vedantmessage", "sendMessage: " + question);
-
         Content content = new Content.Builder().addText(systemPrompt + "\n\nUser" + question).build();
-
-
-        Log.d("VedantContent", "sendMessage: " + content);
         ListenableFuture<GenerateContentResponse> response = modelFutures.generateContent(content);
-        Log.d("VedantModel", "sendMessage: " + response);
-
-
         Futures.addCallback(
                 response,
                 new FutureCallback<GenerateContentResponse>() {
                     @Override
                     public void onSuccess(GenerateContentResponse result) {
-                        getActivity().runOnUiThread(() -> {
-                            Log.d("VedantModel", "onSuccess: " + result.getText());
-                            Log.d("VedantModel", "onSuccess: " + response);
+                        requireActivity().runOnUiThread(() -> {
                             messageList.remove(messageList.size() - 1);
                             messageList.add(new MessageModel(result.getText(), "model"));
                             messageAdapter.submitList(new ArrayList<>(messageList));
                             messageAdapter.notifyDataSetChanged();
                             recyclerView.smoothScrollToPosition(messageList.size() - 1);
+                            Utils.saveMessages(requireContext(), messageList);
                         });
                     }
 
                     @Override
                     public void onFailure(Throwable t) {
-                        getActivity().runOnUiThread(() -> {
-                            Log.d("VedantModel", "onFailure: " + response);
+                        requireActivity().runOnUiThread(() -> {
                             messageList.remove(messageList.size() - 1);
                             messageList.add(new MessageModel("Error: " + t.getMessage(), "model"));
                             messageAdapter.submitList(new ArrayList<>(messageList));
-                            t.printStackTrace();
                             recyclerView.smoothScrollToPosition(messageList.size() - 1);
+                            Utils.saveMessages(requireContext(), messageList);
                         });
                     }
                 },
