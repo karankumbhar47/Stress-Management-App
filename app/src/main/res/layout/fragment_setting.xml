@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#392db5"
+    android:background="@color/mid_dark_blue"
     android:orientation="vertical"
     tools:context=".MainFragments.SettingFragment">
 
@@ -38,7 +38,7 @@
                     android:layout_width="145dp"
                     android:layout_height="145dp"
                     android:layout_gravity="center"
-                    app:cardBackgroundColor="#392db5"
+                    app:cardBackgroundColor="@color/soft_blue_green"
                     app:cardCornerRadius="360dp">
 
                     <TextView

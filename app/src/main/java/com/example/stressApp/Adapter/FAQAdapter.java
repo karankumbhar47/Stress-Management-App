@@ -1,10 +1,15 @@
 package com.example.stressApp.Adapter;
 
+import static java.security.AccessController.getContext;
+
+import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.stressApp.Model.FAQModel;
@@ -33,6 +38,9 @@ public class FAQAdapter extends RecyclerView.Adapter<FAQAdapter.FAQViewHolder> {
         FAQModel faqModel = faqModelList.get(position);
         holder.questionTextView.setText(faqModel.getQuestion());
         holder.answerTextView.setText(faqModel.getAnswer());
+        holder.questionTextView.setTextColor(Color.parseColor("#333333"));
+        holder.answerTextView.setTextColor(Color.parseColor("#30617E"));
+
 
         // Toggle visibility of the answer
         holder.questionTextView.setOnClickListener(v -> {

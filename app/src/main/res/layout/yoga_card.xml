@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_card"
-    android:layout_gravity="center"
-    app:cardCornerRadius="15dp"
-    android:layout_margin="8dp"
     android:layout_width="110dp"
-    android:backgroundTint="#efeafe"
     android:layout_height="180dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_gravity="center"
+    android:layout_margin="8dp"
+    android:backgroundTint="#A3BFC9"
+    app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
-            android:elevation="10dp"
-            app:cardElevation="20dp"
             android:id="@+id/yoga_pose_cardView"
-            app:cardCornerRadius="20dp"
+            android:layout_width="80dp"
+            android:layout_height="100dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/round_corner_background"
-            app:layout_constraintStart_toStartOf="parent"
+            android:elevation="10dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_width="80dp"
-            android:layout_height="100dp">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/yoga_pic"
@@ -36,14 +36,14 @@
 
         <TextView
             android:id="@+id/yoga_pose_name"
-            android:textColorHint="@color/black"
-            android:textAlignment="center"
             style="@style/TextAppearance.AppCompat.Caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:hint="Yoga Pose Name Yoga Pose Name"
+            android:textAlignment="center"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

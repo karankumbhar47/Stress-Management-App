@@ -1,7 +1,9 @@
 package com.example.stressApp.SettingFragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -68,8 +70,10 @@ public class AboutusFragment extends Fragment {
             if(!Objects.equals(studentModel.getRole(), "Leader")){
                 TextView teamMemberView = new TextView(getContext());
 
-                teamMemberView.setText(String.format("%s(%s)", studentModel.getName(), studentModel.getIdNumber()));
-                teamMemberView.setTextColor(getResources().getColor(R.color.blue));
+                teamMemberView.setText(android.text.Html.fromHtml(String.format("<b>%s</b> (%s)", studentModel.getName(), studentModel.getIdNumber())));
+                teamMemberView.setTextColor(ContextCompat.getColor(getContext(), R.color.mid_dark_blue));
+
+
                 teamMemberView.setTextSize(16);
                 teamMemberView.setOnClickListener(v -> sendEmail(studentModel.getEmail()));
                 teamMembersContainer.addView(teamMemberView);

@@ -2,7 +2,7 @@
     "StudentInfo": [
         {
             "name": "Vedant Udan",
-            "id_number": "12140120",
+            "id_number": "12141690",
             "email": "udanvedant@iitbhilai.ac.in",
             "phone_number": "9028348417",
             "role": "Leader"
@@ -16,8 +16,8 @@
         },
         {
             "name": "Sandesh Ahire",
-            "id_number": "12140040",
-            "email": "sande@iitbhilai.ac.in",
+            "id_number": "12140110",
+            "email": "ahiresandesh@iitbhilai.ac.in",
             "phone_number": "8765432109",
             "role": "Developer"
         },
@@ -30,9 +30,9 @@
         },
         {
             "name": "Sanket Dandge",
-            "id_number": "12140060",
-            "email": "sanke@iitbhilai.ac.in",
-            "phone_number": "6543210987",
+            "id_number": "12140540",
+            "email": "dandgesanket@iitbhilai.ac.in",
+            "phone_number": "9028441863",
             "role": "Developer"
         },
         {
@@ -50,14 +50,14 @@
             "role": "Developer"
         },
         {
-            "name": "Rounak Kamble",
-            "id_number": "12140090",
-            "email": "rouna@iitbhilai.ac.in",
-            "phone_number": "3210987654",
-            "role": "Researcher"
+            "name": "Rounak R Kamble",
+            "id_number": "12141410",
+            "email": "rounakr@iitbhilai.ac.in",
+            "phone_number": "9356797787",
+            "role": "Developer"
         },
         {
-            "name": "Gourav",
+            "name": "Gaurav",
             "id_number": "12140100",
             "email": "goura@iitbhilai.ac.in",
             "phone_number": "2109876543",

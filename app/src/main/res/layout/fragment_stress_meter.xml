@@ -79,6 +79,7 @@
             android:textSize="16sp"
             android:textStyle="bold|italic"
             android:text="Choose Any One Option For Following 10 Question. After Completion Click on Submit"
+            android:textColor="@color/charcoal_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

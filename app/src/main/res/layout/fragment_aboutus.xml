@@ -31,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:textColor="@color/charcoal_gray"
             android:text="About Us"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -41,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:padding="8dp"
+            android:textColor="@color/mid_dark_blue"
             android:text="Welcome to our stress management app! Here, we aim to provide you with tools and resources to help manage stress and improve your overall well-being. Our app features a range of techniques and tips designed to support you in finding balance and relaxation." />
 
         <!-- Contact Us Section -->
@@ -50,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_marginTop="16dp"
+            android:textColor="@color/charcoal_gray"
             android:text="Contact Us"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -62,7 +65,7 @@
             android:layout_margin="8dp"
             android:layout_marginTop="8dp"
             android:text="leader"
-            android:textColor="@color/blue"
+            android:textColor="@color/mid_dark_blue"
             android:textStyle="bold" />
 
         <TextView
@@ -72,6 +75,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="20dp"
             android:layout_marginBottom="5dp"
+            android:textColor="@color/charcoal_gray"
             android:text="Our Team"
             android:textSize="18sp"
             android:textStyle="bold" />

@@ -25,6 +25,7 @@
                    app:cardElevation="20dp"
                    android:id="@+id/yoga_pose_cardView"
                    app:cardCornerRadius="20dp"
+                   app:cardBackgroundColor="@color/soft_blue_green"
                    android:layout_marginTop="20dp"
                    android:background="@drawable/round_corner_background"
                    app:layout_constraintStart_toStartOf="parent"
@@ -42,60 +43,71 @@
                </androidx.cardview.widget.CardView>
 
                <TextView
-                   android:layout_margin="2dp"
                    android:id="@+id/name"
-                   android:layout_marginTop="20dp"
-                   android:layout_gravity="center"
-                   android:text="Yoga Name"
-                   android:textStyle="bold"
-                   android:textSize="18dp"
                    android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"/>
-
-               <TextView
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
                    android:layout_margin="2dp"
-                   android:layout_gravity="center"
-                   android:id="@+id/name_info"
-                   android:hint="(Yoga Info Name)"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"/>
+                   android:layout_marginTop="20dp"
+                   android:text="Yoga Name"
+                   android:textColor="@color/charcoal_gray"
+                   android:textSize="18dp"
+                   android:textStyle="bold" />
 
                <TextView
-                   android:padding="5dp"
+                   android:id="@+id/name_info"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:layout_margin="2dp"
+                   android:hint="(Yoga Info Name)"
+                   android:textColor="@color/charcoal_gray" />
+
+               <TextView
+                   android:id="@+id/info"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_margin="10dp"
+                   android:hint="lorem"
                    android:justificationMode="inter_word"
                    android:lineSpacingExtra="4dp"
-                   android:layout_margin="10dp"
-                   android:id="@+id/info"
-                   android:hint="lorem"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"/>
+                   android:padding="5dp"
+                   android:textColor="@color/charcoal_gray" />
 
                <androidx.cardview.widget.CardView
                    android:layout_margin="12dp"
                    android:padding="12dp"
                    android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                   android:layout_height="wrap_content"
+                   app:cardCornerRadius="10dp"
+                   app:cardElevation="10dp">
+
                    <LinearLayout
-                       android:orientation="vertical"
                        android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
+                       android:layout_height="wrap_content"
+                       android:background="@color/whisper_white_bright"
+                       android:orientation="vertical">
+
                        <TextView
-                           android:textColor="@color/blue"
-                           android:textSize="16sp"
-                           android:textStyle="italic"
-                           android:padding="5dp"
                            android:id="@+id/title_streches"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:paddingLeft="15dp"
+                           android:paddingTop="10dp"
                            android:text="Title Streches"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"/>
+                           android:textColor="@color/mid_dark_blue"
+                           android:textSize="16sp"
+                           android:textStyle="bold|italic" />
+
                        <TextView
-                           android:justificationMode="inter_word"
-                           android:lineSpacingExtra="4dp"
-                           android:padding="5dp"
                            android:id="@+id/info_streches"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:justificationMode="inter_word"
+                           android:lineSpacingExtra="4dp"
+                           android:padding="8dp"
                            android:text="info streches"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"/>
+                           android:textColor="@color/charcoal_gray" />
                    </LinearLayout>
                </androidx.cardview.widget.CardView>
 
@@ -103,26 +115,34 @@
                    android:layout_margin="12dp"
                    android:padding="12dp"
                    android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                   android:layout_height="wrap_content"
+                   app:cardCornerRadius="10dp"
+                   app:cardElevation="10dp">
+
                    <LinearLayout
-                       android:orientation="vertical"
                        android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
+                       android:layout_height="wrap_content"
+                       android:background="@color/whisper_white_bright"
+                       android:orientation="vertical">
+
                        <TextView
-                           android:textColor="@color/blue"
-                           android:textStyle="italic"
-                           android:padding="5dp"
-                           android:textSize="16sp"
                            android:id="@+id/title_help"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:paddingLeft="15dp"
+                           android:paddingTop="10dp"
                            android:text="Title help"
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"/>
+                           android:textColor="@color/mid_dark_blue"
+                           android:textSize="16sp"
+                           android:textStyle="bold|italic" />
+
                        <TextView
-                           android:padding="5dp"
                            android:id="@+id/info_help"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:padding="8dp"
                            android:text="info help"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"/>
+                           android:textColor="@color/charcoal_gray" />
                    </LinearLayout>
                </androidx.cardview.widget.CardView>
 
@@ -130,28 +150,36 @@
                    android:layout_margin="12dp"
                    android:padding="12dp"
                    android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                   android:layout_height="wrap_content"
+                   app:cardCornerRadius="10dp"
+                   app:cardElevation="10dp">
+
                    <LinearLayout
-                       android:orientation="vertical"
                        android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
+                       android:layout_height="wrap_content"
+                       android:background="@color/whisper_white_bright"
+                       android:orientation="vertical">
+
                        <TextView
-                           android:textColor="@color/blue"
-                           android:textStyle="italic"
-                           android:padding="5dp"
-                           android:textSize="16sp"
                            android:id="@+id/title_how_to_do"
-                           android:text="Title how to do"
                            android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"/>
+                           android:layout_height="wrap_content"
+                           android:paddingLeft="15dp"
+                           android:paddingTop="10dp"
+                           android:text="Title how to do"
+                           android:textColor="@color/mid_dark_blue"
+                           android:textSize="16sp"
+                           android:textStyle="bold|italic" />
+
                        <TextView
+                           android:id="@+id/info_how_to_do"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
                            android:justificationMode="inter_word"
                            android:lineSpacingExtra="4dp"
-                           android:padding="5dp"
-                           android:id="@+id/info_how_to_do"
+                           android:padding="8dp"
                            android:text="info how to do"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"/>
+                           android:textColor="@color/charcoal_gray" />
                    </LinearLayout>
                </androidx.cardview.widget.CardView>
 
@@ -159,28 +187,36 @@
                    android:layout_margin="12dp"
                    android:padding="12dp"
                    android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                   android:layout_height="wrap_content"
+                   app:cardCornerRadius="10dp"
+                   app:cardElevation="10dp">
+
                    <LinearLayout
-                       android:orientation="vertical"
                        android:layout_width="match_parent"
-                       android:layout_height="wrap_content">
+                       android:layout_height="wrap_content"
+                       android:background="@color/whisper_white_bright"
+                       android:orientation="vertical">
+
                        <TextView
-                           android:textColor="@color/blue"
-                           android:padding="5dp"
-                           android:textSize="16sp"
-                           android:textStyle="italic"
                            android:id="@+id/title_tips"
-                           android:text="Title tips"
                            android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"/>
+                           android:layout_height="wrap_content"
+                           android:paddingLeft="15dp"
+                           android:paddingTop="10dp"
+                           android:text="Title tips"
+                           android:textColor="@color/mid_dark_blue"
+                           android:textSize="16sp"
+                           android:textStyle="bold|italic" />
+
                        <TextView
+                           android:id="@+id/info_tips"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
                            android:justificationMode="inter_word"
                            android:lineSpacingExtra="4dp"
-                           android:padding="5dp"
-                           android:id="@+id/info_tips"
+                           android:padding="8dp"
                            android:text="info tips"
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"/>
+                           android:textColor="@color/charcoal_gray" />
                    </LinearLayout>
                </androidx.cardview.widget.CardView>
 

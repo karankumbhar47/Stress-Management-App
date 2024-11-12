@@ -60,7 +60,7 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.viewHolder> {
         if (matcher.find()) {
             String textOutsideBrackets = matcher.group(1) + matcher.group(3);
             String textInsideBrackets = matcher.group(2);
-            String name = textInsideBrackets + "(" + textOutsideBrackets + ")";
+            String name = textInsideBrackets + "\n(" + textOutsideBrackets + ")";
             SpannableString spannableString = new SpannableString(name);
             spannableString.setSpan(new StyleSpan(Typeface.BOLD), 0, textInsideBrackets.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             holder.yogaAsan_name.setText(spannableString);
