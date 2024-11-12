@@ -1,5 +1,6 @@
 package com.example.stressApp.Adapter;
 
+import android.content.Context;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +17,15 @@ import com.example.stressApp.R;
 
 import java.util.List;
 
+import io.noties.markwon.Markwon;
+
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageViewHolder> {
 
     private List<MessageModel> messageList;
+    private Context context;
 
-    public MessageAdapter(List<MessageModel> messageList) {
+    public MessageAdapter(Context context,List<MessageModel> messageList) {
+        this.context = context;
         this.messageList = messageList;
     }
 
@@ -40,7 +45,8 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MessageV
         MessageModel messageModel = messageList.get(position);
 
         // Set message text
-        holder.messageText.setText(messageModel.getMessage());
+        Markwon markwon = Markwon.create(context);
+        markwon.setMarkdown(holder.messageText,messageModel.getMessage());
 
         // Apply styling based on the role
         boolean isModel = messageModel.getRole().equals("model");

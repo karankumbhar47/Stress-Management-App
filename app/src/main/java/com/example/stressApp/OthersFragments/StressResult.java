@@ -33,9 +33,9 @@ public class StressResult extends Fragment {
         View view = inflater.inflate(R.layout.fragment_stress_result, container, false);
         init(view);
 
+        scoreValue = StressResultArgs.fromBundle(getArguments()).getScore();
         score.setText(String.format("%s/%s",scoreValue,10));
-        backButton.setOnClickListener(v -> navController.navigate(R.id.action_stressResult_to_otherFragment));
-        closeButton.setOnClickListener(v -> navController.navigateUp());
+        backButton.setOnClickListener(v -> navController.navigateUp());
         if(scoreValue>5){
             free_lottie.setVisibility(View.VISIBLE);
             stress_lottie.setVisibility(View.GONE);

@@ -8,8 +8,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.stressApp.Model.DiaryEventModel;
 import com.example.stressApp.Model.YogaModel;
 import com.example.stressApp.SettingFragments.ProfileFragment;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -18,7 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -230,6 +236,59 @@ public class FirebaseUtils {
                     }
                 })
                 .addOnFailureListener(e -> callback.onFailure());
+    }
+
+    public static void fetchDiaryEvent(String mobile, Callback<List<DiaryEventModel>, String> callback) {
+        Log.d("Update_Diary", "updateDiaryEvent: mobile "+mobile);
+        dataRefUsersInfo.child(mobile).get()
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        List<DiaryEventModel> diaryEventModels = new ArrayList<>();
+                        DataSnapshot messageList = task.getResult().child(AppConstants.KEY_DIARY);
+                        Log.d("Update_Diary", "fetchDiaryEvent: ref "+dataRefUsersInfo.toString());
+                        Log.d("Update_Diary", "fetchDiaryEvent: ref "+ messageList.getRef());
+                        Log.d("Update_Diary", "fetchDiaryEvent: size "+messageList.getChildrenCount());
+                        for(DataSnapshot snapshot : messageList.getChildren()) {
+                            Log.d("Update_Diary", "fetchDiaryEvent: loop "+snapshot.getKey());
+                            String date = snapshot.getKey();
+                            String message = Objects.requireNonNull(snapshot.getValue()).toString();
+                            DiaryEventModel diaryEventModel = new DiaryEventModel(message,date);
+                            diaryEventModels.add(diaryEventModel);
+                        }
+                        callback.onSuccess("Event List Found",diaryEventModels);
+                    }
+                    else
+                        callback.onFailure("No User Found", new Exception("User Not Found"), mobile);
+                });
+    }
+
+    public static void updateDiaryEvent(String mobile,DiaryEventModel model, Callback<String,String> callback) {
+        dataRefUsersInfo.child(mobile).child(AppConstants.KEY_DIARY).child(model.getDateTime())
+                .setValue(model.getDescription())
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful())
+                        callback.onSuccess("Event List Updated",mobile);
+                    else
+                        callback.onFailure("No User Found", new Exception("User Not Found"), mobile);
+                });
+    }
+
+    public static void fetchSingleEvent(String mobile, String date, Callback<DiaryEventModel, String> callback) {
+        dataRefUsersInfo.child(mobile).get()
+                .addOnCompleteListener(task -> {
+                    if(task.isSuccessful()){
+                        String message = "Empty Memo";
+                        Object messageObject = task.getResult()
+                                .child(AppConstants.KEY_DIARY)
+                                .child(date).getValue();
+                        if(messageObject!=null) {
+                            message = messageObject.toString();
+                        }
+                        callback.onSuccess("Event List Found",new DiaryEventModel(message,date));
+                    }
+                    else
+                        callback.onFailure("No User Found", new Exception("User Not Found"), mobile);
+                });
     }
 
 }

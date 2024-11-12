@@ -1,6 +1,8 @@
 package com.example.stressApp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -11,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.stressApp.Utils.AppConstants;
 import com.example.stressApp.Utils.FirebaseUtils;
 import com.example.stressApp.Utils.LoadingDialog;
 
@@ -19,6 +22,7 @@ public class CreateAccount extends AppCompatActivity {
     private Button createAccountButton;
     private LoadingDialog loadingDialog;
     private TextView navigationLogin;
+    private SharedPreferences prefCredentials;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +33,12 @@ public class CreateAccount extends AppCompatActivity {
         loadingDialog = new LoadingDialog(this);
         editTextName = findViewById(R.id.editTextName);
         editTextMobile = findViewById(R.id.editTextMobile);
-        editTextEmail = findViewById(R.id.editTextMobile);
+        editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextCnfPassword = findViewById(R.id.editTextCnfPassword);
         createAccountButton = findViewById(R.id.loginButton);
         navigationLogin = findViewById(R.id.navigationLogin);
+        prefCredentials = getSharedPreferences(AppConstants.PREF_CREDENTIALS, Context.MODE_PRIVATE);
 
         createAccountButton.setOnClickListener(v -> validateAndCreateAccount());
         navigationLogin.setOnClickListener(v -> {

@@ -56,7 +56,7 @@ public class ChatFragments extends Fragment {
         init(view);
 
 
-        messageAdapter = new MessageAdapter(messageList);
+        messageAdapter = new MessageAdapter(requireContext(),messageList);
         recyclerView.setAdapter(messageAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 

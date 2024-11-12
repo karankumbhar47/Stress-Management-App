@@ -14,8 +14,12 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class Utils {
@@ -89,5 +93,16 @@ public class Utils {
         if(list==null)
             return new ArrayList<>();
         return list;
+    }
+
+    public static String formatDateString(String dateString) {
+        try {
+            SimpleDateFormat inputFormat = new SimpleDateFormat("d-M-yyyy");
+            Date date = inputFormat.parse(dateString);
+            SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
+            return outputFormat.format(date);
+        } catch (ParseException e) {
+            return dateString;
+        }
     }
 }

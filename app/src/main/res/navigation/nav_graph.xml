@@ -13,6 +13,15 @@
         <action
             android:id="@+id/action_homeFragment_to_chatFragment"
             app:destination="@id/chatFragments" />
+        <action
+            android:id="@+id/action_homeFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_breathActivityFragment"
+            app:destination="@id/breathActivityFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_gettingStartedFragment"
+            app:destination="@id/gettingStartedFragment" />
     </fragment>
     <fragment
         android:id="@+id/yogaFragment"
@@ -44,6 +53,7 @@
             android:id="@+id/action_settingFragment_to_profileFragment2"
             app:destination="@id/profileFragment" />
     </fragment>
+    
     <fragment
         android:id="@+id/otherFragment"
         android:name="com.example.stressApp.MainFragments.OtherFragment"
@@ -56,9 +66,13 @@
             android:id="@+id/action_otherFragment_to_stressMeter"
             app:destination="@id/stressMeter" />
         <action
-            android:id="@+id/action_otherFragment_to_activityDetails"
-            app:destination="@id/activityDetails" />
+            android:id="@+id/action_otherFragment_to_fidgetSpinner"
+            app:destination="@id/fidgetSpinner" />
+        <action
+            android:id="@+id/action_otherFragment_to_learnFragment"
+            app:destination="@+id/learnFragment"/>
     </fragment>
+    
     <fragment
         android:id="@+id/helpFragment"
         android:name="com.example.stressApp.SettingFragments.HelpFragment"
@@ -97,6 +111,7 @@
         android:name="com.example.stressApp.OthersFragments.MusicDetails"
         android:label="Music Player"
         tools:layout="@layout/fragment_music_details" />
+    
     <fragment
         android:id="@+id/musicPlayer"
         android:name="com.example.stressApp.OthersFragments.MusicPlayer"
@@ -106,6 +121,7 @@
             android:id="@+id/action_musicPlayer_to_musicDetails2"
             app:destination="@id/musicDetails2" />
     </fragment>
+    
     <fragment
         android:id="@+id/stressMeter"
         android:name="com.example.stressApp.OthersFragments.StressMeter"
@@ -115,6 +131,7 @@
             android:id="@+id/action_stressMeter_to_stressResult"
             app:destination="@id/stressResult" />
     </fragment>
+    
     <fragment
         android:id="@+id/stressResult"
         android:name="com.example.stressApp.OthersFragments.StressResult"
@@ -127,13 +144,93 @@
             android:id="@+id/action_stressResult_to_otherFragment"
             app:destination="@id/otherFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/activityDetails"
-        android:name="com.example.stressApp.OthersFragments.ActivityDetails"
-        android:label="Activity Details"
-        tools:layout="@layout/fragment_activity_details" />
+    
     <fragment
         android:id="@+id/chatFragments"
         android:name="com.example.stressApp.HomeFragments.ChatFragments"
         android:label="AI ChatBot" />
+    <fragment
+        android:id="@+id/diaryFragment"
+        android:name="com.example.stressApp.HomeFragments.DiaryEventFragment"
+        android:label="Gratitude Journal"
+        tools:layout="@layout/fragment_diary" >
+        <action
+            android:id="@+id/action_diaryFragment_to_showDataFragment"
+            app:destination="@id/showDataFragment" />
+        <action
+            android:id="@+id/action_diaryFragment_to_updateDiaryFragment"
+            app:destination="@id/updateDiaryFragment" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/showDataFragment"
+        android:name="com.example.stressApp.HomeFragments.ShowDataFragment"
+        android:label="Dairy">
+        <argument
+            android:name="date"
+            app:argType="string"
+            app:nullable="false"/>
+
+        <argument
+            android:name="description"
+            app:argType="string"
+            app:nullable="true"/>
+    </fragment>
+    
+    <fragment
+        android:id="@+id/updateDiaryFragment"
+        android:name="com.example.stressApp.HomeFragments.UpdateDiaryFragment"
+        android:label="Today's Event"/>
+    
+    <fragment
+        android:id="@+id/learnFragment"
+        android:name="com.example.stressApp.OthersFragments.LearnFragment"
+        android:label="Learn Meditation" >
+        <action
+            android:id="@+id/action_learnFragment_to_videosView"
+            app:destination="@id/videosView" />
+    </fragment>
+    
+    <fragment
+        android:id="@+id/videosView"
+        android:name="com.example.stressApp.OthersFragments.VideosPlayerView"
+        android:label="Tutorial" >
+        <argument
+            android:name="videos"
+            app:nullable="false"
+            app:argType="com.example.stressApp.Model.VideoModel"/>
+    </fragment>
+    
+    <fragment
+        android:id="@+id/fidgetSpinner"
+        android:name="com.example.stressApp.OthersFragments.FidgetSpinner"
+        android:label="Fidget Spinner"
+        tools:layout="@layout/fragment_fidget_spinner" >
+        <argument
+            android:name="description"
+            app:nullable="false"
+            app:argType="string"/>
+    </fragment>
+    <fragment
+        android:id="@+id/breathActivityFragment"
+        android:name="com.example.stressApp.HomeFragments.BreathActivityFragment"
+        android:label="BreathActivityFragment" />
+    <fragment
+        android:id="@+id/gettingStartedFragment"
+        android:name="com.example.stressApp.HomeFragments.GettingStartedFragment"
+        android:label="Getting Started"
+        tools:layout="@layout/fragment_getting_started">
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_stressMeter"
+            app:destination="@id/stressMeter" />
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_musicPlayer"
+            app:destination="@id/musicPlayer" />
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_yogaFragment"
+            app:destination="@id/yogaFragment" />
+    </fragment>
 </navigation>

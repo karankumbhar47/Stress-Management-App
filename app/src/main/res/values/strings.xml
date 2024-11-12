@@ -20,4 +20,14 @@
     <string name="others">Others</string>
     <string name="yoga">Yoga</string>
     <string name="setting">Setting</string>
+    <string name="message_addition_button">message addition button</string>
+    <string name="about">Some people want to save their daily activity and want to share on social media.\n This app will help them perfectly.\n Instructions to use this app: If you want to add your activity \nthen click on add icon from the bottom|right on the home screen. After writing your data click save button to save. For share, you need to click the share icon For update, you need to click the update button.You can delete multiple items in one time. Just hold on the item and select how many items you want to delete. Then press the delete button to delete.</string>
+    <string name="description">Description</string>
+    <string name="duration_09_29">Duration: 09:29</string>
+    <string name="video_title">Video Title</string>
+    <string name="yoga_icon_image">Yoga Icon Image</string>
+    <string name="video_description">Video Description</string>
+    <string name="activity_info">Activity Info</string>
+    <string name="str_start">Start</string>
+    <string name="str_end">Stop</string>
 </resources>

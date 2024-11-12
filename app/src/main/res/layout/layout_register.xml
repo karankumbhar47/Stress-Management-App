@@ -54,7 +54,7 @@
         android:layout_marginTop="@dimen/loginViewsMargin">
 
         <EditText
-            android:id="@+id/editTextMobile"
+            android:id="@+id/editTextEmail"
             style="@style/modifiedEditText"
             android:autofillHints="emailAddress"
             android:hint="@string/login_email_hint"

@@ -16,12 +16,14 @@ public class AppConstants {
     public static final String LOG_REGISTER             = "App-Register-Logs"   ;
     public static final String LOG_YOGA                 = "App-Yoga-Logs"       ;
     public static final String LOG_ACTIVITY             = "App-Activity-Logs"   ;
+    public static final String LOG_NATIVE               = "App-Native-Logs"     ;
     public static final String LOG_SETTING              = "App-Setting-Logs"    ;
     public static final String DATA_USER_INFO           = "User-Information"    ;
     public static final String DATA_YOGA_INFO           = "Yoga-Information"    ;
     public static final String KEY_NAME                 = "name"                ;
     public static final String KEY_INFO                 = "info"                ;
     public static final String KEY_HELP                 = "help"                ;
+    public static final String KEY_DIARY                = "diary"               ;
     public static final String KEY_HOW_TO_DO            = "how-to-do"           ;
     public static final String KEY_STRETCHED_PART       = "stretched-part"      ;
     public static final String KEY_TIPS                 = "tips"                ;
@@ -65,8 +67,10 @@ public class AppConstants {
         drawableMap.put("eagle", R.drawable.eagle);
         drawableMap.put("music", R.drawable.music);
         drawableMap.put("high", R.drawable.high);
-        drawableMap.put("fidget", R.drawable.fidget);
+        drawableMap.put("cube", R.drawable.fidget);
+        drawableMap.put("spinner", R.drawable.fidget_spinner);
         drawableMap.put("stress", R.drawable.stress_test);
+        drawableMap.put("meditation_icon", R.drawable.meditation_icon);
     }
 
     public static final ArrayList<String> PREF_LIST = new ArrayList<>();

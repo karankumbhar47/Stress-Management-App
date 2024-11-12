@@ -7,6 +7,7 @@ import com.example.stressApp.Model.ActivityModel;
 import com.example.stressApp.Model.FAQModel;
 import com.example.stressApp.Model.Question;
 import com.example.stressApp.Model.StudentModel;
+import com.example.stressApp.Model.VideoModel;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
@@ -122,6 +123,37 @@ public class JsonHelper {
             callback.onSuccess("Successfully Loaded", questions);
         } catch (IOException | org.json.JSONException e) {
             callback.onFailure(e.getMessage(), e, "question");
+        }
+    }
+
+    public static void fetchVideoInfoFromAssets(Context context, Callback<List<VideoModel>, String> callback) {
+        List<VideoModel> list = new ArrayList<>();
+        try {
+            InputStream is = context.getAssets().open("jsonData/meditation.json");
+
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+
+            String jsonFileString = new String(buffer, StandardCharsets.UTF_8);
+            JSONObject jsonObject = new JSONObject(jsonFileString);
+            JSONArray meditationInfoList = jsonObject.getJSONArray("Meditation-Info");
+            for (int i = 0; i < meditationInfoList.length(); i++) {
+                JSONObject meditationObject = meditationInfoList.getJSONObject(i);
+                String url = meditationObject.getString("url");
+                String title = meditationObject.getString("title");
+                String description = meditationObject.getString("description");
+                String duration = meditationObject.getString("duration");
+                int thumbnail = meditationObject.getInt("thumbnail");
+
+                VideoModel videoModel = new VideoModel(url, title, description, duration, thumbnail);
+                list.add(videoModel);
+            }
+            callback.onSuccess("Successfully Loaded", list);
+        } catch (IOException | JSONException e) {
+            Log.e("JsonUtils", "Error reading JSON file", e);
+            callback.onFailure(e.getMessage(), e, "student");
         }
     }
 }
