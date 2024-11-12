@@ -16,12 +16,12 @@
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/getting_started_card"
                 style="@style/vedant"
                 android:elevation="10dp"
                 app:cardElevation="10dp"
                 android:padding="5dp"
                 app:cardCornerRadius="15dp"
-                android:id="@+id/first_card"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/image_height"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +87,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/first_card">
+                app:layout_constraintTop_toBottomOf="@id/getting_started_card">
 
                 <ImageView
                     android:layout_margin="8dp"

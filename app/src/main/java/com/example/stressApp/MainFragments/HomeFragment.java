@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import com.example.stressApp.R;
 
 public class HomeFragment extends Fragment {
-    private CardView diary_cardView;
+    private CardView diary_cardView, getting_started_cardView;
     private NavController navController;
 
     public HomeFragment() {}
@@ -24,9 +24,14 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         diary_cardView = view.findViewById(R.id.diary_cardView);
+        getting_started_cardView = view.findViewById(R.id.getting_started_card);
         navController = NavHostFragment.findNavController(this);
+
         diary_cardView.setOnClickListener(v -> navController
                 .navigate(HomeFragmentDirections.actionHomeFragmentToDiaryFragment()));
+
+        getting_started_cardView.setOnClickListener(v -> navController
+                .navigate(HomeFragmentDirections.actionHomeFragmentToGettingStartedFragment()));
         return view;
     }
 

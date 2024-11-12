@@ -211,8 +211,8 @@
     <fragment
         android:id="@+id/gettingStartedFragment"
         android:name="com.example.stressApp.HomeFragments.GettingStartedFragment"
-        android:label="fragment_getting_started"
-        tools:layout="@layout/fragment_getting_started" >
+        android:label="Getting Started"
+        tools:layout="@layout/fragment_getting_started">
         <action
             android:id="@+id/action_gettingStartedFragment_to_stressMeter"
             app:destination="@id/stressMeter" />

@@ -8,8 +8,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f3f4f6"
-        android:padding="24dp">
+        android:scrollbars="none"
+        android:padding="5dp"
+        android:background="#f3f4f6">
 
 
         <LinearLayout
@@ -18,7 +19,10 @@
             android:orientation="vertical"
             android:gravity="center"
             android:background="@drawable/rounded_background"
-            android:padding="24dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            android:paddingTop="5dp"
             android:layout_margin="16dp">
 
 
