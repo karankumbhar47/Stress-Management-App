@@ -16,12 +16,12 @@
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/getting_started_card"
                 style="@style/vedant"
                 android:elevation="10dp"
                 app:cardElevation="10dp"
                 android:padding="5dp"
                 app:cardCornerRadius="15dp"
-                android:id="@+id/first_card"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/image_height"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,6 @@
 
             </androidx.cardview.widget.CardView>
 
-
             <androidx.cardview.widget.CardView
                 style="@style/vedant"
                 android:elevation="10dp"
@@ -88,7 +87,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/first_card">
+                app:layout_constraintTop_toBottomOf="@id/getting_started_card">
 
                 <ImageView
                     android:layout_margin="8dp"
@@ -137,8 +136,8 @@
 
             </androidx.cardview.widget.CardView>
 
-
             <androidx.cardview.widget.CardView
+                android:id="@+id/consult_doctor_cardView"
                 style="@style/vedant"
                 android:elevation="10dp"
                 app:cardElevation="10dp"
@@ -198,7 +197,188 @@
 
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/diary_cardView"
+                style="@style/vedant"
+                android:elevation="10dp"
+                app:cardElevation="10dp"
+                android:padding="5dp"
+                app:cardCornerRadius="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
+                <ImageView
+                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/diary_event_card" />
+
+                <androidx.cardview.widget.CardView
+                    android:elevation="10dp"
+                    app:cardElevation="10dp"
+                    android:padding="5dp"
+                    app:cardCornerRadius="8dp"
+                    android:alpha="0.9"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginTop="8dp"
+                        android:textColor="#122641"
+                        android:layout_marginStart="8dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="start"
+                        android:text="Daily Gratitude Journal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textColor="@color/gray"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="start|bottom"
+                        android:text="Express your Emotions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:layout_gravity="end"
+                        android:src="@drawable/play_button"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/daily_challenge_cardView"
+                style="@style/vedant"
+                android:elevation="10dp"
+                app:cardElevation="10dp"
+                android:padding="5dp"
+                app:cardCornerRadius="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/challenge" />
+
+                <androidx.cardview.widget.CardView
+                    android:elevation="10dp"
+                    app:cardElevation="10dp"
+                    android:padding="5dp"
+                    app:cardCornerRadius="8dp"
+                    android:alpha="0.9"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginTop="8dp"
+                        android:textColor="#122641"
+                        android:layout_marginStart="8dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="start"
+                        android:text="Daily Challenge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textColor="@color/gray"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="start|bottom"
+                        android:text="Complete Daily Challenge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:layout_gravity="end"
+                        android:src="@drawable/play_button"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/good_habit_cardView"
+                style="@style/vedant"
+                android:elevation="10dp"
+                app:cardElevation="10dp"
+                android:padding="5dp"
+                app:cardCornerRadius="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/image_height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:layout_margin="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/healthy_lifestyle" />
+
+                <androidx.cardview.widget.CardView
+                    android:elevation="10dp"
+                    app:cardElevation="10dp"
+                    android:padding="5dp"
+                    app:cardCornerRadius="8dp"
+                    android:alpha="0.9"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="bottom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginTop="8dp"
+                        android:textColor="#122641"
+                        android:layout_marginStart="8dp"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="start"
+                        android:text="Good Habits"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textColor="@color/gray"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_gravity="start|bottom"
+                        android:text="Follow Healthy Lifestyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:layout_margin="5dp"
+                        android:layout_gravity="end"
+                        android:src="@drawable/play_button"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp" />
+                </androidx.cardview.widget.CardView>
+
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
 

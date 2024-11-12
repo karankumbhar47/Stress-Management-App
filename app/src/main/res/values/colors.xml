@@ -14,6 +14,7 @@
 
     <color name="background_color">#F4F4F4</color>
     <color name="blue">#00BCD4</color>
+    <color name="gray_100">#FFf8faf8</color>
 
     <color name="gray">#808080</color>
     <color name="gray_faint">#B2AFAF</color>
@@ -34,5 +35,22 @@
 
     <color name="user_message_light">#DCF8C6</color>
     <color name="user_message_dark">#1F2C34</color>
+
+    <color name="modelMessageColor">#4CAF50</color>
+    <color name="userMessageColor">#2196F3</color>
+
+    <color name="model_message_color">#FFBB86FC</color>
+    <color name="user_message_color">#FF6200EE</color>
+
+    <color name="karan_primary_color">#30617f</color>"
+    <color name="karan_background_color">#9AE3F7</color>"
+
+
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="orange_500">#FFFF9F9E</color>
+    <color name="transparent">#00000000</color>
+    <color name="green_505">#558AA771</color>
+    <color name="green_700">#FF60794a</color>
 
 </resources>

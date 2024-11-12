@@ -16,6 +16,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField(
+            "String",
+            "API_KEY",
+            "\"${project.findProperty("API_KEY")}\""
+        )
     }
 
     buildTypes {
@@ -31,6 +36,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -41,6 +49,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
+    implementation(libs.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
@@ -52,4 +61,7 @@ dependencies {
     implementation(libs.google.firebase.database)
     implementation(libs.glide)
     implementation(libs.gson)
+    implementation(libs.generativeai)
+    implementation(libs.core)
+    implementation(libs.markwon.core)
 }

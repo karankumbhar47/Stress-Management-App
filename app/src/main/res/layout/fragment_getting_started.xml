@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragments.GettingStartedFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:padding="5dp"
+        android:background="#f3f4f6">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/rounded_background"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            android:paddingTop="5dp"
+            android:layout_margin="16dp">
+
+
+            <!-- Welcome Text -->
+            <TextView
+                android:id="@+id/welcomeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                android:textColor="#333333"
+                android:paddingBottom="16dp"
+                android:textStyle="bold"
+                android:text="Welcome To Our Stress APP"
+                android:gravity="center" />
+
+
+            <!-- Divider Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="#CCCCCC" />
+
+
+            <!-- Stress Meter Section -->
+            <TextView
+                android:id="@+id/stressMeterText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stress Meter: Measure your stress level with our tool."
+                android:textSize="16sp"
+                android:textColor="#555555"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:gravity="center" />
+
+
+            <Button
+                android:id="@+id/stressMeterButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Open Stress Meter"
+                android:backgroundTint="#4CAF50"
+                android:textColor="#FFFFFF"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_button" />
+
+
+            <!-- Divider Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="#CCCCCC" />
+
+
+            <!-- Exercise Section -->
+            <TextView
+                android:id="@+id/exerciseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exercise: Follow our guidelines for a healthier mind and body."
+                android:textSize="16sp"
+                android:textColor="#555555"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:gravity="center" />
+
+
+            <Button
+                android:id="@+id/exerciseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Go to Exercise"
+                android:backgroundTint="#FF9800"
+                android:textColor="#FFFFFF"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_button" />
+
+
+            <!-- Divider Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="#CCCCCC" />
+
+
+            <!-- Diary Section -->
+            <TextView
+                android:id="@+id/diaryText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diary Reading: Explore readings to calm your mind."
+                android:textSize="16sp"
+                android:textColor="#555555"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:gravity="center" />
+
+
+            <Button
+                android:id="@+id/diaryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Open Diary"
+                android:backgroundTint="#3F51B5"
+                android:textColor="#FFFFFF"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_button" />
+
+
+            <!-- Divider Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="#CCCCCC" />
+
+
+            <!-- Music Section -->
+            <TextView
+                android:id="@+id/musicSectionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Relaxing Music: Let soothing sounds calm your mind."
+                android:textSize="16sp"
+                android:textColor="#555555"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:gravity="center" />
+
+
+            <Button
+                android:id="@+id/musicButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play Relaxing Music"
+                android:backgroundTint="#2196F3"
+                android:textColor="#FFFFFF"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_button" />
+
+
+            <!-- Divider Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="#CCCCCC" />
+
+
+            <!-- Breathing Exercise Section -->
+            <TextView
+                android:id="@+id/breathingExerciseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Breathing Exercises: Use this technique to relieve stress."
+                android:textSize="16sp"
+                android:textColor="#555555"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:gravity="center" />
+
+
+            <Button
+                android:id="@+id/breathingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start Breathing Exercise"
+                android:backgroundTint="#FF5722"
+                android:textColor="#FFFFFF"
+                android:padding="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/rounded_button" />
+
+
+            <!-- Divider Line -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:background="#CCCCCC" />
+
+
+            <!-- Quote (Moved to the end) -->
+            <TextView
+                android:id="@+id/quoteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#777777"
+                android:paddingBottom="16dp"
+                android:gravity="center"
+                android:text="“Taking time to recharge your mind can boost productivity and happiness.”" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>
+
+

@@ -3,8 +3,6 @@ package com.example.stressApp.MainFragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,11 +14,6 @@ import android.view.ViewGroup;
 
 import com.example.stressApp.Adapter.ActivityAdapter;
 import com.example.stressApp.Model.ActivityModel;
-import com.example.stressApp.OthersFragments.ActivityDetails;
-import com.example.stressApp.OthersFragments.MusicPlayer;
-import com.example.stressApp.OthersFragments.StressMeter;
-import com.example.stressApp.Utils.AppConstants;
-import com.example.stressApp.MainPage;
 import com.example.stressApp.R;
 import com.example.stressApp.Utils.JsonHelper;
 import com.example.stressApp.Utils.LoadingDialog;
@@ -58,7 +51,7 @@ public class OtherFragment extends Fragment {
 
     private void setAdapter(){
         loadingDialog.show();
-        JsonHelper.getActivityModels(requireContext(), new JsonHelper.Callback<List<ActivityModel>, String>() {
+        JsonHelper.getActivityModels(requireContext(), new JsonHelper.Callback<List<ActivityModel >, String>() {
             @Override
             public void onSuccess(String customMessage, List<ActivityModel> result) {
                 activityModelList = result;
@@ -82,11 +75,15 @@ public class OtherFragment extends Fragment {
             case 0:
                 navController.navigate(R.id.action_otherFragment_to_stressMeter);
                 break;
+            case 1:
+                navController.navigate(OtherFragmentDirections
+                        .actionOtherFragmentToFidgetSpinner(activityModelList.get(position).getActivityInfo()));
+                break;
             case 2:
                 navController.navigate(R.id.action_otherFragment_to_musicPlayer);
                 break;
             default:
-                navController.navigate(R.id.action_otherFragment_to_activityDetails);
+                navController.navigate(R.id.action_otherFragment_to_learnFragment);
         }
     }
 }

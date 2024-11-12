@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.StressManagementApp" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="actionOverflowButtonStyle">@style/ThreeDotsStyle</item>
@@ -74,4 +74,10 @@
         <item name="android:textSize">20sp</item> <!-- Adjust size as needed -->
         <item name="android:textStyle">normal</item> <!-- Adjust size as needed -->
     </style>
-    </resources>
+
+    <style name="ThemeOverlay.MeditationApp.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_600</item>
+        <item name="fullscreenTextColor">@color/light_blue_A200</item>
+    </style>
+
+</resources>
