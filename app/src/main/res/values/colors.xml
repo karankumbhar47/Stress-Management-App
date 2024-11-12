@@ -24,5 +24,15 @@
     <color name="colorUnselected">#6C757D</color>
     <color name="button_color">#DADEF8</color>
     <color name="custom_blue">#4a7adb</color>
+    <color name="karan_primary_color">#30617f</color>"
+    <color name="karan_background_color">#9AE3F7</color>"
+
+
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="orange_500">#FFFF9F9E</color>
+    <color name="transparent">#00000000</color>
+    <color name="green_505">#558AA771</color>
+    <color name="green_700">#FF60794a</color>
 
 </resources>

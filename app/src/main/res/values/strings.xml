@@ -28,4 +28,6 @@
     <string name="yoga_icon_image">Yoga Icon Image</string>
     <string name="video_description">Video Description</string>
     <string name="activity_info">Activity Info</string>
+    <string name="str_start">Start</string>
+    <string name="str_end">Stop</string>
 </resources>

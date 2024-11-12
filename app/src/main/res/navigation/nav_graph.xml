@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_diaryFragment"
             app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_breathActivityFragment"
+            app:destination="@id/breathActivityFragment" />
     </fragment>
     <fragment
         android:id="@+id/yogaFragment"
@@ -198,4 +201,8 @@
             app:nullable="false"
             app:argType="string"/>
     </fragment>
+    <fragment
+        android:id="@+id/breathActivityFragment"
+        android:name="com.example.stressApp.HomeFragments.BreathActivityFragment"
+        android:label="BreathActivityFragment" />
 </navigation>
