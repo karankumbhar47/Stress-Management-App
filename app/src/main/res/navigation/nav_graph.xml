@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_breathActivityFragment"
             app:destination="@id/breathActivityFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_gettingStartedFragment"
+            app:destination="@id/gettingStartedFragment" />
     </fragment>
     <fragment
         android:id="@+id/yogaFragment"
@@ -205,4 +208,22 @@
         android:id="@+id/breathActivityFragment"
         android:name="com.example.stressApp.HomeFragments.BreathActivityFragment"
         android:label="BreathActivityFragment" />
+    <fragment
+        android:id="@+id/gettingStartedFragment"
+        android:name="com.example.stressApp.HomeFragments.GettingStartedFragment"
+        android:label="fragment_getting_started"
+        tools:layout="@layout/fragment_getting_started" >
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_stressMeter"
+            app:destination="@id/stressMeter" />
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_diaryFragment"
+            app:destination="@id/diaryFragment" />
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_musicPlayer"
+            app:destination="@id/musicPlayer" />
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_yogaFragment"
+            app:destination="@id/yogaFragment" />
+    </fragment>
 </navigation>
