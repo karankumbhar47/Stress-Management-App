@@ -8,11 +8,14 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.stressApp.MainFragments.YogaFragment;
 import com.example.stressApp.MainPage;
 import com.example.stressApp.Model.YogaModel;
@@ -31,6 +34,7 @@ public class YogaDetails extends Fragment {
     private TextView info_streches, title_help, info_help;
     private TextView title_how_to_do, info_how_to_do, title_tips;
     private TextView yoga_pose_name, info_name;
+    private ImageView picImage;
 
     public YogaDetails() {
     }
@@ -60,6 +64,7 @@ public class YogaDetails extends Fragment {
     private void init(View view){
         name = view.findViewById(R.id.name);
         info = view.findViewById(R.id.info);
+        picImage = view.findViewById(R.id.yoga_pic);
         info_name = view.findViewById(R.id.name_info);
         title_tips = view.findViewById(R.id.title_tips);
         info_tips = view.findViewById(R.id.info_tips);
@@ -109,6 +114,13 @@ public class YogaDetails extends Fragment {
             tips.append(" •  ").append(step).append("\n\n");
         }
         info_tips.setText(tips.toString());
+
+
+        Integer drawableId = AppConstants.drawableMap.get(yogaModel.getPath());
+        if (drawableId != null) {
+            Glide.with(requireContext()).load(drawableId).into(picImage);
+            Log.d(AppConstants.LOG_YOGA, "onBindViewHolder: drawable id " + drawableId);
+        }
     }
 
 }

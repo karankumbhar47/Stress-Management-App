@@ -58,4 +58,42 @@ This app uses a structured navigation flow, making it easy to switch between fra
 
 ## Screenshots
 
-(Screenshots of each fragment will be included here)
+
+### Home Fragment
+<div style="display: flex; justify-content: space-between; width: 90%; margin-bottom: 20px;">
+    <img src="screenshots/fragment_home.jpg" width="30%"/>
+    <img src="screenshots/fragment_getting_started.jpg" width="30%"/>
+    <img src="screenshots/fragment_breathing_exercise.jpg" width="30%"/>
+</div>
+
+<div style="display: flex; justify-content: space-between; width: 90%; margin-bottom: 40px;">
+  <img src="screenshots/fragment_ai_chatbot.jpg" width="30%" />
+  <img src="screenshots/fragment_gratitude_journal.jpg" width="30%" />
+  <img src="screenshots/fragment_good_habits.jpg" width="30%" />
+</div>
+
+### Yoga Fragment
+<div style="display: flex; justify-content: space-between; width: 90%; margin-bottom: 40px;">
+  <img src="screenshots/fragment_yoga.jpg" width="30%" />
+  <img src="screenshots/fragment_yoga_details.jpg" width="30%" />
+</div>
+
+### Others Fragment
+<div style="display: flex; justify-content: space-between; width: 90%; margin-bottom: 20px;">
+  <img src="screenshots/fragment_other_activity.jpg" width="30%" />
+  <img src="screenshots/fragment_stress_meter.jpg" width="30%" />
+  <img src="screenshots/fragment_figetting.jpg" width="30%" />
+</div>
+
+<div style="display: flex; justify-content: space-between; width: 90%; margin-bottom: 40px;">
+  <img src="screenshots/fragment_music_player.jpg" width="30%" />
+  <img src="screenshots/fragment_learn_meditation.jpg" width="30%" />
+  <img src="screenshots/fragment_tutorial.jpg" width="30%" />
+</div>
+
+### Settings Fragment
+<div style="display: flex; justify-content: space-between; width: 90%; margin-bottom: 20px;">
+  <img src="screenshots/fragment_setting.jpg" width="30%" />
+  <img src="screenshots/fragment_support.jpg" width="30%" />
+  <img src="screenshots/fragment_about_us.jpg" width="30%" />
+</div>

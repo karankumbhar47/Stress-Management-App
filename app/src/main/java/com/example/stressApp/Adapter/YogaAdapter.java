@@ -70,9 +70,9 @@ public class YogaAdapter extends RecyclerView.Adapter<YogaAdapter.viewHolder> {
         Log.d(AppConstants.LOG_YOGA, "onBindViewHolder: model name "+yogaModel.getName());
         Log.d(AppConstants.LOG_YOGA, "onBindViewHolder: model path "+yogaModel.getPath());
         Integer drawableId = AppConstants.drawableMap.get(yogaModel.getPath());
-        if (drawableId != null){
-            Glide.with(context) .load(drawableId) .into(holder.picImage);
-            Log.d(AppConstants.LOG_YOGA, "onBindViewHolder: drawable id "+drawableId);
+        if (drawableId != null) {
+            Glide.with(context).load(drawableId).into(holder.picImage);
+            Log.d(AppConstants.LOG_YOGA, "onBindViewHolder: drawable id " + drawableId);
         }
 
 
