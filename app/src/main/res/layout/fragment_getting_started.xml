@@ -60,18 +60,26 @@
                 android:gravity="center" />
 
 
-            <Button
+<!--            <Button-->
+<!--                android:id="@+id/stressMeterButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Open Stress Meter"-->
+<!--                android:padding="12dp"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                android:background="@drawable/rounded_button" />-->
+            <TextView
                 android:id="@+id/stressMeterButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Open Stress Meter"
-                android:backgroundTint="#4CAF50"
+                android:backgroundTint="@color/karan_primary_color"
+                android:background="@drawable/rounded_button"
                 android:textColor="#FFFFFF"
                 android:padding="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/rounded_button" />
-
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <!-- Divider Line -->
             <View
@@ -94,18 +102,17 @@
                 android:gravity="center" />
 
 
-            <Button
+            <TextView
                 android:id="@+id/exerciseButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Go to Exercise"
-                android:backgroundTint="#FF9800"
+                android:backgroundTint="@color/karan_primary_color"
+                android:background="@drawable/rounded_button"
                 android:textColor="#FFFFFF"
                 android:padding="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/rounded_button" />
-
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <!-- Divider Line -->
             <View
@@ -127,18 +134,17 @@
                 android:paddingBottom="8dp"
                 android:gravity="center" />
 
-
-            <Button
+            <TextView
                 android:id="@+id/diaryButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Open Diary"
-                android:backgroundTint="#3F51B5"
+                android:backgroundTint="@color/karan_primary_color"
+                android:background="@drawable/rounded_button"
                 android:textColor="#FFFFFF"
                 android:padding="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/rounded_button" />
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
             <!-- Divider Line -->
@@ -161,18 +167,17 @@
                 android:paddingBottom="8dp"
                 android:gravity="center" />
 
-
-            <Button
+            <TextView
                 android:id="@+id/musicButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Play Relaxing Music"
-                android:backgroundTint="#2196F3"
+                android:backgroundTint="@color/karan_primary_color"
+                android:background="@drawable/rounded_button"
                 android:textColor="#FFFFFF"
                 android:padding="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/rounded_button" />
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
             <!-- Divider Line -->
@@ -196,18 +201,18 @@
                 android:gravity="center" />
 
 
-            <Button
+
+            <TextView
                 android:id="@+id/breathingButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="Start Breathing Exercise"
-                android:backgroundTint="#FF5722"
+                android:backgroundTint="@color/karan_primary_color"
+                android:background="@drawable/rounded_button"
                 android:textColor="#FFFFFF"
                 android:padding="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/rounded_button" />
-
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <!-- Divider Line -->
             <View

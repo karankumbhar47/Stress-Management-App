@@ -1,54 +1,61 @@
-## Bottom Navigation Bar 
-- Fragment 1: Home 
-- Fragment 2: Other Activities
-- Fragment 3: Yoga/Excercise
-- Fragment 4: Setting 
+# Stress Management App
 
+A mobile app designed to help users manage stress through a variety of interactive tools and activities. This app offers features like yoga practices, breathing exercises, daily challenges, and other stress-relief activities.
 
+## Features
 
-### Home Fragment 
-- consist of Images and text for the user. 
-- focused around the healthy activities like consuming dairy products, eating bananas, leafy vegetables and other healthy activities
+The Stress Management app is built around four main sections, each providing unique tools and resources to reduce stress and enhance well-being.
 
-### Yoga/Excercise Fragment 
-- when opening it. it will give a list of all the stored Excercise. 
-- taping the name of the Excercise will  open that Excercise.
+### Home Fragment
 
-### Other Activities Fragment
-- Stress Meter
-- Fidgeting
-- Concentration Music
+The **Home Fragment** serves as the central hub of the app. From here, users can access:
+- **Getting Started**: Guidance on how to use the app and adopt a progressive approach to stress management.
+- **Breathing Exercise**: Offers structured breathing exercises to calm the mind and body.
+- **Consult AI Doctor**: A chat-based feature to consult with an AI-based doctor for stress-related queries.
+- **Gratitude Journal**: Allows users to reflect on their day by writing in a journal. Users can view and edit past entries as well.
 
-#### Fidgeting Activity 
-- Tap/Tap 
-- Random Tap 
+Additional sections within the Home Fragment include:
+- **Daily Challenge**: Provides a new activity each day, helping users engage in stress-relieving practices regularly.
+- **Good Habits**: Lists healthy habits that can improve mental and physical well-being over time.
 
- 
-#### Concentration music Activity
-- will give a list of pre-installed relaxing music
+### Yoga Fragment
 
-#### Stress Meter Activity 
-- will take a quiz of the user and give a number on the scale of 10 (sgpa)
-- next quiz will update the sgpa into csgpa
+The **Yoga Fragment** introduces users to a selection of yoga poses designed to relieve stress. Key features include:
+- **Yoga Poses**: A range of poses with detailed descriptions and images to guide users in practicing each pose.
+- **Yoga Details**: Detailed information on each selected yoga pose, including the benefits and proper technique for stress relief.
 
+### Others Fragment
 
-### User Setting Fragment 
-- record a local history of the user (reward point monitor)
+The **Others Fragment** offers a range of creative and soothing activities, such as:
+- **Music Player**: A curated playlist of calming tracks to help users relax and focus.
+- **Stress Meter**: An interactive tool that lets users check their current stress levels by answering a set of questions.
+- **Fidget Spinner**: A virtual fidget spinner to help users manage anxiety through sensory engagement.
+- **Learn Meditation**: A section with tutorials and videos on meditation techniques. Users can watch guided meditation videos to relax and focus.
 
-#### Schedules/activities
-- Drink Water periodically
-- wake up alarm 
-- sleep reminder 
-- Caffeine limiter 
+### Settings Fragment
 
-#### Tips:
-Random tips popuping in the app. reminding the user of the ....
+The **Settings Fragment** provides customization options for a personalized app experience. Key sections include:
+- **Profile**: Manage personal details and preferences.
+- **Language Setting**: Select the app's language for a more comfortable experience.
+- **About Us**: Information about the development team and the purpose behind the app.
+- **Support**: Get assistance with app features or report issues.
+- **Help (FAQ)**: Frequently Asked Questions to guide users through common queries.
 
-### App Progress
+---
 
-<div style="display: flex; justify-content: center; gap: 20px;">
-  <img src="./src/images/p1.jpeg" alt="First Image" style="width:30%;"/>
-  <img src="./images/p2.jpeg" alt="Second Image" style="width:30%;"/>
-  <img src="./images/p3.jpeg" alt="Third Image" style="width:30%;"/>
-</div>
+## Permissions
 
+This app requires the following permissions:
+- **Internet**: For downloading yoga and meditation resources.
+- **Vibration**: Enables tactile feedback during activities.
+- **Read External Storage**: Allows users to upload media for journaling or profile customization.
+
+---
+
+## Navigation Flow
+
+This app uses a structured navigation flow, making it easy to switch between fragments. Each fragment is interconnected for a seamless user experience, providing both variety and accessibility.
+
+## Screenshots
+
+(Screenshots of each fragment will be included here)

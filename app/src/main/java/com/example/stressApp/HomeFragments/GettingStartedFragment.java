@@ -25,7 +25,7 @@ public class GettingStartedFragment extends Fragment {
     }
 
     private TextView welcomeText, stressMeterText, exerciseText, diaryText, quoteText;
-    private Button stressMeterButton, exerciseButton, diaryButton, musicButton, breathingButton;
+    private TextView stressMeterButton, exerciseButton, diaryButton, musicButton, breathingButton;
     private NavController controller;
 
     @Override
