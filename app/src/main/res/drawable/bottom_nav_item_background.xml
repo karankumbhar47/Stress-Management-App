@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="false" android:drawable="@color/karan_unselected_item_color" />
+</selector>
+    <!--<item android:state_checked="true" android:drawable="@color/karan_selected_item_color" />-->

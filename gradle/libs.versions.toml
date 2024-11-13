@@ -5,6 +5,7 @@ constraintLayoutVersion = "2.0.4"
 core = "12.1.1"
 coreVersion = "4.6.2"
 espressoCoreVersion = "3.0.2"
+fancyaccordionview = "1.0.1"
 firebaseBom = "33.2.0"
 generativeai = "0.9.0"
 glide = "4.15.1"
@@ -30,6 +31,7 @@ appcompat-v7 = { module = "com.android.support:appcompat-v7", version.ref = "app
 constraint-layout = { module = "com.android.support.constraint:constraint-layout", version.ref = "constraintLayoutVersion" }
 core = { module = "com.pierfrancescosoffritti.androidyoutubeplayer:core", version.ref = "core" }
 design = { module = "com.android.support:design", version.ref = "appcompatV7" }
+fancyaccordionview = { module = "it.sysdata.mobile:fancyaccordionview", version.ref = "fancyaccordionview" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-auth = { module = "com.google.firebase:firebase-auth" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }

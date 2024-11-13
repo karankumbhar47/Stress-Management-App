@@ -43,7 +43,14 @@
     <color name="user_message_color">#FF6200EE</color>
 
     <color name="karan_primary_color">#30617f</color>"
+    <color name="karan_nav_background_color">#658DA5</color>"
     <color name="karan_background_color">#9AE3F7</color>"
+    <color name="karan_selected_item_color">#4e839c</color>
+    <color name="karan_unselected_item_color">#b0bec5</color>
+    <color name="karan_icon_tint_color">#ffffff</color>
+    <color name="karan_text_color">#ffffff</color>
+    <color name="karan_selected_icon_color">#000000</color>
+    <color name="karan_unselected_icon_color">#ffffff</color>
 
 
     <color name="light_blue_600">#FF039BE5</color>

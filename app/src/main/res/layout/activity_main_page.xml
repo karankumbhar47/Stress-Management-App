@@ -49,9 +49,16 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigationBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
         android:layout_marginStart="0dp"
+        android:padding="0dp"
         android:layout_marginEnd="0dp"
-        android:background="?android:attr/windowBackground"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemActiveIndicatorStyle="@color/transparent"
+        app:itemBackground="@drawable/bottom_nav_item_background"
+        app:itemIconTint="@drawable/item_icon_tint"
         app:menu="@menu/menu"/>
+
+<!--    app:itemIconTint="@drawble/item_icon_tint"-->
+<!--    app:itemBackground="@drawable/bottom_nav_item_background"-->
 </LinearLayout>

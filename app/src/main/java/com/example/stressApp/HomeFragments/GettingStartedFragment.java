@@ -76,7 +76,7 @@ public class GettingStartedFragment extends Fragment {
 
         breathingButton.setOnClickListener(v ->{
                 Toast.makeText(requireContext(), "Starting Breathing Exercises...", Toast.LENGTH_SHORT).show();
-                controller.navigate(R.id.action_gettingStartedFragment_to_musicPlayer);
+                controller.navigate(R.id.action_gettingStartedFragment_to_breathActivityFragment);
         });
         return view;
     }

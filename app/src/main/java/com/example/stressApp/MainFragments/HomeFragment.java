@@ -20,7 +20,9 @@ import com.example.stressApp.R;
 
 
 public class HomeFragment extends Fragment {
-    private CardView diary_cardView, getting_started_cardView, consult_doctor_cardView;
+    private CardView breathing_activity_cardView, habits_cardView;
+    private CardView diary_cardView, getting_started_cardView;
+    private CardView consult_doctor_cardView, daily_challenge_cardView;
     private NavController navController;
 
     public HomeFragment() {
@@ -34,6 +36,9 @@ public class HomeFragment extends Fragment {
         consult_doctor_cardView = view.findViewById(R.id.consult_doctor_cardView);
         diary_cardView = view.findViewById(R.id.diary_cardView);
         getting_started_cardView = view.findViewById(R.id.getting_started_card);
+        breathing_activity_cardView = view.findViewById(R.id.breathing_activity_cardView);
+        daily_challenge_cardView = view.findViewById(R.id.daily_challenge_cardView);
+        habits_cardView = view.findViewById(R.id.good_habit_cardView);
         navController = NavHostFragment.findNavController(this);
 
         consult_doctor_cardView.setOnClickListener(v -> navController
@@ -45,6 +50,14 @@ public class HomeFragment extends Fragment {
         getting_started_cardView.setOnClickListener(v -> navController
                 .navigate(HomeFragmentDirections.actionHomeFragmentToGettingStartedFragment()));
 
+        breathing_activity_cardView.setOnClickListener(v -> navController
+                .navigate(HomeFragmentDirections.actionHomeFragmentToBreathActivityFragment()));
+
+        daily_challenge_cardView.setOnClickListener(v -> navController
+                .navigate(HomeFragmentDirections.actionHomeFragmentToDailyChallangeFragment()));
+
+        habits_cardView.setOnClickListener(v -> navController
+                .navigate(HomeFragmentDirections.actionHomeFragmentToHabitsFragment()));
         // Access the toolbar and set the title and color
         MaterialToolbar toolbar = getActivity().findViewById(R.id.toolbar);
         if (toolbar != null) {

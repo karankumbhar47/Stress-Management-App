@@ -12,6 +12,7 @@ import com.example.stressApp.Model.DiaryEventModel;
 import com.example.stressApp.Model.YogaModel;
 import com.example.stressApp.SettingFragments.ProfileFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -259,7 +260,8 @@ public class FirebaseUtils {
                     }
                     else
                         callback.onFailure("No User Found", new Exception("User Not Found"), mobile);
-                });
+                })
+                .addOnFailureListener(e -> callback.onFailure("No User Found", new Exception("User Not Found"), mobile));
     }
 
     public static void updateDiaryEvent(String mobile,DiaryEventModel model, Callback<String,String> callback) {

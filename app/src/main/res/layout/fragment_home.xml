@@ -77,6 +77,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/breathing_activity_cardView"
                 style="@style/vedant"
                 android:elevation="10dp"
                 app:cardElevation="10dp"

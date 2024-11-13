@@ -1,0 +1,127 @@
+{
+    "Morning Habits": [
+        {
+            "habit": "Morning Stretching or Yoga",
+            "description": "Do a few simple stretches or yoga poses to release tension and boost circulation. Example: Cat-Cow stretch, Downward Dog, or Sun Salutations.",
+            "duration": "5-10 minutes"
+        },
+        {
+            "habit": "Deep Breathing or Meditation",
+            "description": "Practice deep breathing or mindfulness meditation to center yourself for the day ahead. Example: Box breathing (inhale 4 seconds, hold 4 seconds, exhale 4 seconds).",
+            "duration": "5-10 minutes"
+        },
+        {
+            "habit": "Drink a Glass of Water",
+            "description": "Rehydrate after a night’s rest to kick-start your metabolism and brain function. Consider adding lemon or ginger to aid digestion.",
+            "duration": "1 minute"
+        },
+        {
+            "habit": "Positive Affirmations",
+            "description": "Start the day with positive self-talk or gratitude journaling. Example: 'I am capable and strong.'",
+            "duration": "5 minutes"
+        },
+        {
+            "habit": "Healthy Breakfast",
+            "description": "Opt for a balanced meal that includes protein, fiber, and healthy fats. Example: Oatmeal, whole grain toast with avocado, or a smoothie with greens.",
+            "duration": "10-15 minutes"
+        }
+    ],
+    "Mid-Day Habits": [
+        {
+            "habit": "Take Short Breaks",
+            "description": "Every 1-2 hours, take a 5-10 minute break to stand up, stretch, or take a short walk.",
+            "duration": "5-10 minutes"
+        },
+        {
+            "habit": "Mindful Eating",
+            "description": "Eat slowly and savor every bite, focusing on your meal. Avoid multitasking during meals.",
+            "duration": "15-20 minutes"
+        },
+        {
+            "habit": "Stay Hydrated",
+            "description": "Drink water throughout the day to keep your body functioning optimally and reduce stress.",
+            "duration": "Throughout the day"
+        },
+        {
+            "habit": "Practice Gratitude",
+            "description": "Reflect on three things you are grateful for in the middle of the day.",
+            "duration": "5 minutes"
+        },
+        {
+            "habit": "Power Nap (Optional)",
+            "description": "Take a short 10-20 minute nap to recharge your energy and improve mood.",
+            "duration": "10-20 minutes"
+        }
+    ],
+    "Evening Habits": [
+        {
+            "habit": "Exercise or Physical Activity",
+            "description": "Engage in some form of exercise (walk, jog, yoga, dance, etc.). Exercise releases endorphins which act as natural stress relievers.",
+            "duration": "30 minutes"
+        },
+        {
+            "habit": "Journaling",
+            "description": "Write down your thoughts, stressors, or successes of the day to reflect on what went well.",
+            "duration": "10 minutes"
+        },
+        {
+            "habit": "Digital Detox",
+            "description": "Avoid screens (phones, computers, etc.) at least an hour before bed to improve sleep quality.",
+            "duration": "1 hour before bed"
+        },
+        {
+            "habit": "Gentle Breathing or Meditation",
+            "description": "Slow your body down for sleep with deep breathing or guided relaxation. Example: 4-7-8 breathing technique.",
+            "duration": "10 minutes"
+        },
+        {
+            "habit": "Prepare for the Next Day",
+            "description": "Set a to-do list or a plan for tomorrow to ease your mind and reduce anxiety before sleep.",
+            "duration": "5-10 minutes"
+        }
+    ],
+    "Night Habits": [
+        {
+            "habit": "Gratitude Practice",
+            "description": "Reflect on three things you're grateful for before bed to shift your mindset positively.",
+            "duration": "5 minutes"
+        },
+        {
+            "habit": "Warm Bath or Shower",
+            "description": "A warm bath with Epsom salts or a relaxing shower can reduce muscle tension and promote relaxation.",
+            "duration": "15-20 minutes"
+        },
+        {
+            "habit": "Calming Herbal Tea",
+            "description": "Drink caffeine-free herbal teas like chamomile, peppermint, or lavender to calm the mind before sleep.",
+            "duration": "5-10 minutes"
+        },
+        {
+            "habit": "Progressive Muscle Relaxation",
+            "description": "Gently tense and relax each muscle group in your body to reduce physical tension.",
+            "duration": "10 minutes"
+        },
+        {
+            "habit": "Create a Relaxing Sleep Environment",
+            "description": "Ensure your bedroom is cool, dark, and quiet to create a restful sleep environment.",
+            "duration": "5 minutes"
+        }
+    ],
+    "General Habits": [
+        {
+            "habit": "Focus on One Task at a Time",
+            "description": "Avoid multitasking to reduce stress and improve productivity.",
+            "duration": "Throughout the day"
+        },
+        {
+            "habit": "Stay Organized",
+            "description": "Declutter your workspace or living area to reduce mental stress.",
+            "duration": "Throughout the day"
+        },
+        {
+            "habit": "Laugh and Smile",
+            "description": "Watch a funny video, talk to a friend, or engage in something that brings joy to lighten the mood.",
+            "duration": "Throughout the day"
+        }
+    ]
+}

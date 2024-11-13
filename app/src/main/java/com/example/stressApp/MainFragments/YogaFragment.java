@@ -55,6 +55,11 @@ public class YogaFragment extends Fragment {
     private void setAdapter() {
         loadingDialog.show();
 
+        if (!Utils.isNetworkAvailable(requireContext())) {
+            loadingDialog.dismiss();
+            Utils.showToastOnMainThread(requireContext(), "No internet connection");
+            return;
+        }
         FirebaseUtils.fetchYogaData(new FirebaseUtils.Callback<List<YogaModel>, String>() {
             @Override
             public void onSuccess(String customMessage, List<YogaModel> result) {

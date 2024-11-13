@@ -1,9 +1,11 @@
 package com.example.stressApp.Utils;
 
 import android.content.Context;
+import android.telecom.Call;
 import android.util.Log;
 
 import com.example.stressApp.Model.ActivityModel;
+import com.example.stressApp.Model.ChallengeModel;
 import com.example.stressApp.Model.FAQModel;
 import com.example.stressApp.Model.Question;
 import com.example.stressApp.Model.StudentModel;
@@ -16,6 +18,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -155,6 +159,63 @@ public class JsonHelper {
             Log.e("JsonUtils", "Error reading JSON file", e);
             callback.onFailure(e.getMessage(), e, "student");
         }
+
     }
+
+    public static void getChallengesFromJson(Context context, Callback<List<ChallengeModel>, String> callback) {
+        List<ChallengeModel> list = new ArrayList<>();
+        try {
+            InputStream is = context.getAssets().open("jsonData/challenges.json");
+
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+
+            String jsonFileString = new String(buffer, StandardCharsets.UTF_8);
+            JSONObject jsonObject = new JSONObject(jsonFileString);
+            JSONArray challengeInfoList = jsonObject.getJSONArray("challenges");
+
+            for (int i = 0; i < challengeInfoList.length(); i++) {
+                JSONObject challengeObject = challengeInfoList.getJSONObject(i);
+
+                String name = challengeObject.getString("name");
+                //String shortDescription = challengeObject.getString("shortDescription");
+                String description = challengeObject.getString("description");
+
+                List<String> steps = new ArrayList<>();
+                JSONArray challengeArray = challengeObject.getJSONArray("steps");
+                for (int j = 0; j < challengeArray.length(); j++) {
+                    steps.add(challengeArray.getString(j));
+                }
+
+                List<String> tips = new ArrayList<>();
+                JSONArray tipsArray = challengeObject.getJSONArray("tips");
+                for (int j = 0; j < tipsArray.length(); j++) {
+                    tips.add(tipsArray.getString(j));
+                }
+
+                String duration = challengeObject.getString("duration");
+                String difficultyLevel = challengeObject.getString("difficultyLevel");
+                String category = challengeObject.getString("category");
+                String completionCriteria = challengeObject.getString("completionCriteria");
+                String motivationalQuote = challengeObject.getString("motivationalQuote");
+
+                ChallengeModel challengeModel = new ChallengeModel(
+                        name, description, steps, tips, duration, difficultyLevel, category, completionCriteria, motivationalQuote
+                );
+                list.add(challengeModel);
+            }
+
+            // Calling onSuccess with list as the first parameter
+            callback.onSuccess("Successfully Loaded",list);
+
+        } catch (IOException | JSONException e) {
+            Log.e("JsonUtils", "Error reading JSON file", e);
+            callback.onFailure("Failed to load JSON", e, "challenge");
+        }
+    }
+
+
 }
 

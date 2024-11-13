@@ -1,5 +1,7 @@
 package com.example.stressApp.HomeFragments;
 
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,14 +9,18 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+
+import java.io.IOException;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
@@ -23,24 +29,31 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.stressApp.R;
+import com.example.stressApp.Utils.MyMediaPlayer;
+import com.example.stressApp.Utils.Utils;
+
+import org.w3c.dom.Text;
 
 public class BreathActivityFragment extends Fragment {
     private TextView textIndicator;
     private CountDownTimer timer;
     private boolean isRunning = false;
+    private boolean isMusicRunning = false;
     private long minutes = 3L;
     private TextToSpeech tts;
     private SharedPreferences sharedPreferences;
+    private MediaPlayer mediaPlayer;
 
     private static final String PREF_NAME = "BreathPrefs";
     private static final String BREATHE_COUNT = "breathe_count";
     private static final String BREATHE_MINUTES = "breathe_minutes";
 
     public BreathActivityFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -53,9 +66,11 @@ public class BreathActivityFragment extends Fragment {
         textIndicator = view.findViewById(R.id.indicator);
         timer = createTimer();
 
-        view.findViewById(R.id.start).setOnClickListener(v -> toggle());
-        view.findViewById(R.id.close).setOnClickListener(v -> showDialog(requireContext()));
+        playMusic();
 
+        ((TextView)view.findViewById(R.id.music)).setText("Pause Music");
+        view.findViewById(R.id.start).setOnClickListener(v -> toggle());
+        view.findViewById(R.id.music).setOnClickListener(v -> playPauseMusic(view));
         return view;
     }
 
@@ -96,27 +111,19 @@ public class BreathActivityFragment extends Fragment {
         timer.cancel();
     }
 
-    private void showDialog(Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage("Do you want to stop breathing exercise?")
-                .setCancelable(true)
-                .setPositiveButton("Yes", (dialog, which) -> requireActivity().finish())
-                .setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
-
-        AlertDialog alert = builder.create();
-        alert.setTitle("Are you sure");
-        alert.show();
-    }
-
     @Override
     public void onStop() {
         super.onStop();
 
         updateBreatheStats((int) (3L - minutes), 1);
         timer.cancel();
+        if (mediaPlayer != null) {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 
-    // Utility method for updating SharedPreferences
+
     private void updateBreatheStats(int minutes, int count) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(BREATHE_MINUTES, sharedPreferences.getInt(BREATHE_MINUTES, 0) + minutes);
@@ -137,4 +144,30 @@ public class BreathActivityFragment extends Fragment {
         }
     }
 
+    private void playMusic() {
+        try {
+            mediaPlayer = new MediaPlayer();
+            AssetFileDescriptor afd = requireContext().getAssets().openFd("music/Best Piano Beats.mp3");
+            mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+            afd.close();
+            mediaPlayer.prepare();
+            mediaPlayer.setLooping(true);
+            mediaPlayer.start();
+        } catch (IOException e) {
+            Log.e("Error", e.getMessage(), e);
+            Utils.showToastOnMainThread(requireContext(), "Error playing music");
+        }
+    }
+
+    private void playPauseMusic(View view) {
+        TextView musicButton = view.findViewById(R.id.music);
+        if (mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+            musicButton.setText("Play Music");
+        }
+        else{
+            mediaPlayer.start();
+            musicButton.setText("Pause Music");
+        }
+    }
 }

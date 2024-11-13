@@ -114,6 +114,13 @@ public class DiaryEventFragment extends Fragment {
     public void setRecyclerView() {
         String mobileNumber = prefCredentials.getString(AppConstants.KEY_MOBILE_NUMBER,"");
         loadingDialog.show();
+
+        if (!Utils.isNetworkAvailable(requireContext())) {
+            loadingDialog.dismiss();
+            Utils.showToastOnMainThread(requireContext(), "No internet connection");
+            return;
+        }
+
         FirebaseUtils.fetchDiaryEvent(mobileNumber, new FirebaseUtils.Callback<List<DiaryEventModel>, String>() {
             @Override
             public void onSuccess(String customMessage, List<DiaryEventModel> result) {
@@ -138,6 +145,6 @@ public class DiaryEventFragment extends Fragment {
                 loadingDialog.dismiss();
             }
         });
-
     }
+
 }

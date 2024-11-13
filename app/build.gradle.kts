@@ -64,4 +64,5 @@ dependencies {
     implementation(libs.generativeai)
     implementation(libs.core)
     implementation(libs.markwon.core)
+//    implementation(libs.fancyaccordionview)
 }

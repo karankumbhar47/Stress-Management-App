@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:text="Stress Management Habits"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <ExpandableListView
+        android:id="@+id/expandableListView"
+        android:layout_weight="1"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp"
+        android:childDivider="@android:color/darker_gray"
+        android:groupIndicator="@android:color/darker_gray"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" />
+</LinearLayout>

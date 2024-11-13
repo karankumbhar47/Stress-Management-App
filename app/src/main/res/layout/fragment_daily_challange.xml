@@ -1,0 +1,115 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/background_card"
+        android:elevation="4dp"
+        android:layout_margin="8dp"
+        android:backgroundTint="?attr/colorSurface">
+
+        <!-- Challenge Name -->
+        <TextView
+            android:id="@+id/tvChallengeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Challenge Name"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/karan_primary_color"
+            android:paddingBottom="8dp"/>
+
+        <!-- Short Description -->
+        <TextView
+            android:id="@+id/tvShortDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Short description of the challenge."
+            android:textSize="16sp"
+            android:paddingBottom="12dp"/>
+
+        <!-- Duration and Difficulty Level -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="12dp">
+
+            <TextView
+                android:id="@+id/tvDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Duration: 10 minutes"
+                android:textSize="14sp"
+                android:textColor="?attr/colorSecondary"
+                android:paddingEnd="16dp"/>
+
+            <TextView
+                android:layout_weight="1"
+                android:textAlignment="viewEnd"
+                android:id="@+id/tvDifficultyLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Difficulty: Easy"
+                android:textSize="14sp"
+                android:textColor="?attr/colorSecondary"/>
+        </LinearLayout>
+
+        <!-- Steps Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Steps"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"
+            android:textColor="@color/karan_primary_color"/>
+
+        <!-- Steps List -->
+        <LinearLayout
+            android:id="@+id/stepsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+            <!-- Steps will be dynamically added here -->
+        </LinearLayout>
+
+        <!-- Tips Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tips"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:paddingBottom="8dp"
+            android:textColor="@color/karan_primary_color"/>
+
+        <!-- Tips List -->
+        <LinearLayout
+            android:id="@+id/tipsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+            <!-- Tips will be dynamically added here -->
+        </LinearLayout>
+
+        <!-- Motivational Quote -->
+        <TextView
+            android:id="@+id/tvMotivationalQuote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Motivational Quote"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            android:paddingBottom="8dp"
+            android:textColor="?attr/colorSecondaryVariant"/>
+    </LinearLayout>
+</ScrollView>

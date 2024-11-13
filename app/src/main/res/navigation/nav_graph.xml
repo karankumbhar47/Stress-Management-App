@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_homeFragment_to_gettingStartedFragment"
             app:destination="@id/gettingStartedFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_dailyChallangeFragment"
+            app:destination="@id/dailyChallangeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_habitsFragment"
+            app:destination="@id/habitsFragment" />
     </fragment>
     <fragment
         android:id="@+id/yogaFragment"
@@ -214,7 +220,7 @@
     <fragment
         android:id="@+id/breathActivityFragment"
         android:name="com.example.stressApp.HomeFragments.BreathActivityFragment"
-        android:label="BreathActivityFragment" />
+        android:label="Breathing Exercise" />
     <fragment
         android:id="@+id/gettingStartedFragment"
         android:name="com.example.stressApp.HomeFragments.GettingStartedFragment"
@@ -232,5 +238,16 @@
         <action
             android:id="@+id/action_gettingStartedFragment_to_yogaFragment"
             app:destination="@id/yogaFragment" />
+        <action
+            android:id="@+id/action_gettingStartedFragment_to_breathActivityFragment"
+            app:destination="@id/breathActivityFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/dailyChallangeFragment"
+        android:name="com.example.stressApp.HomeFragments.DailyChallangeFragment"
+        android:label="Daily Challange" />
+    <fragment
+        android:id="@+id/habitsFragment"
+        android:name="com.example.stressApp.HomeFragments.HabitsFragment"
+        android:label="Good Habits" />
 </navigation>
