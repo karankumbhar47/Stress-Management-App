@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textAlignment="center"
+        android:textColor="@color/charcoal_gray"
         android:text="Stress Management Habits"
         android:textSize="20sp"
         android:textStyle="bold"

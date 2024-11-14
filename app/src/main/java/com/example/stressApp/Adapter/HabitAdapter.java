@@ -80,9 +80,9 @@ public class HabitAdapter extends BaseExpandableListAdapter {
 
         ImageView arrowIcon = convertView.findViewById(R.id.arrowIcon);
         if (isExpanded)
-            arrowIcon.setImageResource(android.R.drawable.arrow_up_float);
+            arrowIcon.setImageResource(R.drawable.up_arrow);
         else
-            arrowIcon.setImageResource(android.R.drawable.arrow_down_float);
+            arrowIcon.setImageResource(R.drawable.down_arrow);
         return convertView;
     }
 
