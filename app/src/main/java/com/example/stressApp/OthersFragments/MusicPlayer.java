@@ -3,6 +3,7 @@ package com.example.stressApp.OthersFragments;
 import android.content.pm.PackageManager;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -39,9 +40,9 @@ public class MusicPlayer extends Fragment {
     private NavController navController;
     ArrayList<AudioModel> songsList = new ArrayList<>();
     private static final int PERMISSION_REQUEST_CODE = 123;
+    private static final String TAG = "Music";
 
-    public MusicPlayer() {
-    }
+    public MusicPlayer(){}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,15 +52,15 @@ public class MusicPlayer extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view);
         noMusicTextView = view.findViewById(R.id.no_songs_text);
 
-        if (checkPermission()) {
-            loadMusicFiles();
-        } else {
-            requestPermission();
-        }
+        boolean perm = checkPermission();
+        Log.d("Music", "onCreateView: permission "+perm);
+        if (perm) loadMusicFiles();
+         else requestPermission();
         return view;
     }
 
     private void loadMusicFiles() {
+        Log.d("Music", "loadMusicFiles: loading music");
         String[] musicFiles = null;
         try {
             musicFiles = requireContext().getAssets().list("music");
@@ -103,18 +104,19 @@ public class MusicPlayer extends Fragment {
                 TimeUnit.MILLISECONDS.toSeconds(millis) % TimeUnit.MINUTES.toSeconds(1));
     }
 
-    private boolean checkPermission() {
-        int result = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_AUDIO);
-        return result == PackageManager.PERMISSION_GRANTED;
-    }
+//    private boolean checkPermission() {
+//        int result = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_AUDIO);
+//        return result == PackageManager.PERMISSION_GRANTED;
+//    }
 
-    private void requestPermission() {
-        if (shouldShowRequestPermissionRationale(Manifest.permission.READ_MEDIA_AUDIO)) {
-            Utils.showToastOnMainThread(requireContext(), "READ PERMISSION IS REQUIRED, PLEASE ALLOW FROM SETTINGS");
-        } else {
-            requestPermissions(new String[]{Manifest.permission.READ_MEDIA_AUDIO}, PERMISSION_REQUEST_CODE);
-        }
-    }
+//    private void requestPermission() {
+//        Log.d(TAG, "requestPermission: reqest ");
+//        if (shouldShowRequestPermissionRationale(Manifest.permission.READ_MEDIA_AUDIO)) {
+//            Utils.showToastOnMainThread(requireContext(), "READ PERMISSION IS REQUIRED, PLEASE ALLOW FROM SETTINGS");
+//        } else {
+//            requestPermissions(new String[]{Manifest.permission.READ_MEDIA_AUDIO}, PERMISSION_REQUEST_CODE);
+//        }
+//    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -134,6 +136,28 @@ public class MusicPlayer extends Fragment {
         super.onResume();
         if (recyclerView != null) {
             recyclerView.setAdapter(new MusicListAdapter(requireActivity().getApplicationContext(),navController));
+        }
+    }
+
+
+    private boolean checkPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // Android 13 and above
+            int result = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_AUDIO);
+            return result == PackageManager.PERMISSION_GRANTED;
+        }
+        // For Android 11 and 12, return true since permission may not be required for assets
+        return true;
+    }
+
+    private void requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) { // Android 13 and above
+            if (shouldShowRequestPermissionRationale(Manifest.permission.READ_MEDIA_AUDIO)) {
+                Utils.showToastOnMainThread(requireContext(), "READ PERMISSION IS REQUIRED, PLEASE ALLOW FROM SETTINGS");
+            } else {
+                requestPermissions(new String[]{Manifest.permission.READ_MEDIA_AUDIO}, PERMISSION_REQUEST_CODE);
+            }
+        } else {
+            loadMusicFiles();
         }
     }
 }

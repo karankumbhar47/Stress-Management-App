@@ -21,6 +21,7 @@ public class FidgetSpinner extends Fragment {
     private Vibrator vibrator;
     private ImageView ivFidget;
     private TextView activityInfo;
+    private float speedFactor = 1.0f;
 
     public FidgetSpinner() {
     }
@@ -44,12 +45,14 @@ public class FidgetSpinner extends Fragment {
 
     private RotateAnimation getSpinAnimation() {
         RotateAnimation spin = new RotateAnimation(
-                0f, 1000000f,
+                0f,1000000f,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f
         );
+//        1000000f
 
         spin.setDuration(Math.abs(Animation.INFINITE));
+//        spin.setDuration((long) (1000/speedFactor));
         spin.setRepeatCount(Animation.INFINITE);
         spin.setInterpolator(new LinearOutSlowInInterpolator());
         spin.setFillAfter(false);
@@ -72,6 +75,7 @@ public class FidgetSpinner extends Fragment {
     private boolean onTouch(View v, MotionEvent event) {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                //speedFactor += 0.5f ;
                 ivFidget.startAnimation(getSpinAnimation());
                 startVibration();
                 break;
