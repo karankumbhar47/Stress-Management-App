@@ -6,15 +6,15 @@
         android:enabled="true"
         android:id="@+id/homeFragment" />
     <item
-        android:icon="@drawable/application"
-        android:title="@string/others"
-        android:enabled="true"
-        android:id="@+id/otherFragment" />
-    <item
         android:icon="@drawable/buddhist_yoga_pose"
         android:enabled="true"
         android:title="@string/yoga"
         android:id="@+id/yogaFragment" />
+    <item
+        android:icon="@drawable/application"
+        android:title="@string/others"
+        android:enabled="true"
+        android:id="@+id/otherFragment" />
     <item
         android:enabled="true"
         android:icon="@drawable/baseline_settings_24"

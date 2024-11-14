@@ -22,7 +22,7 @@
             android:text="Challenge Name"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@color/karan_primary_color"
+            android:textColor="@color/black"
             android:paddingBottom="8dp"/>
 
         <!-- Short Description -->
@@ -31,6 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Short description of the challenge."
+            android:textColor="@color/mid_dark_blue"
             android:textSize="16sp"
             android:paddingBottom="12dp"/>
 
@@ -47,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="Duration: 10 minutes"
                 android:textSize="14sp"
-                android:textColor="?attr/colorSecondary"
+                android:textColor="@color/charcoal_gray"
                 android:paddingEnd="16dp"/>
 
             <TextView
@@ -58,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:text="Difficulty: Easy"
                 android:textSize="14sp"
-                android:textColor="?attr/colorSecondary"/>
+                android:textColor="@color/charcoal_gray"/>
         </LinearLayout>
 
         <!-- Steps Header -->
@@ -69,7 +70,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:paddingBottom="8dp"
-            android:textColor="@color/karan_primary_color"/>
+            android:textColor="@color/charcoal_gray"/>
 
         <!-- Steps List -->
         <LinearLayout
@@ -89,7 +90,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:paddingBottom="8dp"
-            android:textColor="@color/karan_primary_color"/>
+            android:textColor="@color/charcoal_gray"/>
 
         <!-- Tips List -->
         <LinearLayout
@@ -110,6 +111,6 @@
             android:textSize="16sp"
             android:textStyle="italic"
             android:paddingBottom="8dp"
-            android:textColor="?attr/colorSecondaryVariant"/>
+            android:textColor="@color/soft_blue_green"/>
     </LinearLayout>
 </ScrollView>

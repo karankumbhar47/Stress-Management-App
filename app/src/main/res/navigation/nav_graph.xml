@@ -245,7 +245,7 @@
     <fragment
         android:id="@+id/dailyChallangeFragment"
         android:name="com.example.stressApp.HomeFragments.DailyChallangeFragment"
-        android:label="Daily Challange" />
+        android:label="Daily Challenge" />
     <fragment
         android:id="@+id/habitsFragment"
         android:name="com.example.stressApp.HomeFragments.HabitsFragment"

@@ -62,7 +62,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginStart="8dp"
                         android:layout_gravity="start|bottom"
-                        android:text="Introduction, Stress Assessment"
+                        android:text="Let's Get Started"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -114,7 +114,7 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:layout_gravity="start"
-                        android:text="Turning Off Auto Pilot"
+                        android:text="Deep Breathing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -123,7 +123,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginStart="8dp"
                         android:layout_gravity="start|bottom"
-                        android:text="Body Shaming, Mindful Eating"
+                        android:text="Breathe For Better Life"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -175,7 +175,7 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:layout_gravity="start"
-                        android:text="Consult Doctor"
+                        android:text="Consult AI ChatBot"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -184,7 +184,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginStart="8dp"
                         android:layout_gravity="start|bottom"
-                        android:text="Introduction, Stress Assessment"
+                        android:text="Talk to a Friend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -245,7 +245,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginStart="8dp"
                         android:layout_gravity="start|bottom"
-                        android:text="Express your Emotions"
+                        android:text="Express your Thoughts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -306,7 +306,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginStart="8dp"
                         android:layout_gravity="start|bottom"
-                        android:text="Complete Daily Challenge"
+                        android:text="Stress Less, Thrive More!"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -367,7 +367,7 @@
                         android:layout_marginBottom="10dp"
                         android:layout_marginStart="8dp"
                         android:layout_gravity="start|bottom"
-                        android:text="Follow Healthy Lifestyle"
+                        android:text="Small Habits, Big Change!"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 

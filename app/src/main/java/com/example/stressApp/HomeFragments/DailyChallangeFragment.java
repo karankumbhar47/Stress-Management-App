@@ -63,6 +63,7 @@ public class DailyChallangeFragment extends Fragment {
             TextView stepTextView = new TextView(requireContext());
             stepTextView.setText("• " + step);
             stepTextView.setTextSize(16);
+            stepTextView.setTextColor(getResources().getColor(R.color.mid_dark_blue));
             stepTextView.setPadding(0, 4, 0, 4);
             stepsContainer.addView(stepTextView);
         }
@@ -74,6 +75,7 @@ public class DailyChallangeFragment extends Fragment {
             TextView tipTextView = new TextView(requireContext());
             tipTextView.setText("• " + tip);
             tipTextView.setTextSize(16);
+            tipTextView.setTextColor(getResources().getColor(R.color.mid_dark_blue));
             tipTextView.setPadding(0, 4, 0, 4);
             tipsContainer.addView(tipTextView);
         }

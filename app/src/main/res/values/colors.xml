@@ -29,10 +29,6 @@
     <color name="whisper_white_bright">#F7F7F7</color>
     <color name="soft_blue_green">#A3BFC9</color>
 
-    <!--colors for ai chatbot-->
-    <!--for ai generated text, use whisper_white_bright color for background-->
-    <!--let text color be mid_dark_blue-->
-
     <color name="user_message_light">#DCF8C6</color>
     <color name="user_message_dark">#1F2C34</color>
 
