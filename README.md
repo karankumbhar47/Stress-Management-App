@@ -97,3 +97,4 @@ This app uses a structured navigation flow, making it easy to switch between fra
   <img src="screenshots/fragment_support.jpg" width="30%" />
   <img src="screenshots/fragment_about_us.jpg" width="30%" />
 </div>
+</d>

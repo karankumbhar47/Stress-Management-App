@@ -5,6 +5,7 @@ import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,8 @@ import android.widget.TextView;
 
 import com.example.stressApp.Adapter.MusicListAdapter;
 import android.Manifest;
+import android.widget.Toast;
+
 import com.example.stressApp.Model.AudioModel;
 import com.example.stressApp.R;
 import com.example.stressApp.Utils.MyMediaPlayer;
@@ -32,8 +36,9 @@ import java.util.concurrent.TimeUnit;
 public class MusicPlayer extends Fragment {
     RecyclerView recyclerView;
     TextView noMusicTextView;
-    ArrayList<AudioModel> songsList = new ArrayList<>();
     private NavController navController;
+    ArrayList<AudioModel> songsList = new ArrayList<>();
+    private static final int PERMISSION_REQUEST_CODE = 123;
 
     public MusicPlayer() {
     }
@@ -46,16 +51,21 @@ public class MusicPlayer extends Fragment {
         recyclerView = view.findViewById(R.id.recycler_view);
         noMusicTextView = view.findViewById(R.id.no_songs_text);
 
-        if (!checkPermission()) {
+        if (checkPermission()) {
+            loadMusicFiles();
+        } else {
             requestPermission();
-            return view;
         }
+        return view;
+    }
 
+    private void loadMusicFiles() {
         String[] musicFiles = null;
         try {
             musicFiles = requireContext().getAssets().list("music");
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e("Music", "loadMusicFiles: Error while loading Music",e);
+            Utils.showToastOnMainThread(requireContext(),"Error while loading Music");
         }
 
         if (musicFiles != null) {
@@ -70,22 +80,21 @@ public class MusicPlayer extends Fragment {
                     AudioModel songData = new AudioModel(fileName, fileName, duration);
                     songsList.add(songData);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    Log.e("Music", "loadMusicFiles: Error while fetching music",e);
+                    Utils.showToastOnMainThread(requireContext(),"Error while fetching music");
                 } finally {
                     mp.release();
                 }
             }
         }
 
-
         if (songsList.isEmpty()) {
             noMusicTextView.setVisibility(View.VISIBLE);
         } else {
             MyMediaPlayer.songList = songsList;
             recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-            recyclerView.setAdapter(new MusicListAdapter( requireContext(), navController));
+            recyclerView.setAdapter(new MusicListAdapter(requireContext(), navController));
         }
-        return view;
     }
 
     public static String convertToMMSS(long millis) {
@@ -94,16 +103,29 @@ public class MusicPlayer extends Fragment {
                 TimeUnit.MILLISECONDS.toSeconds(millis) % TimeUnit.MINUTES.toSeconds(1));
     }
 
-    boolean checkPermission() {
-        int result = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE);
+    private boolean checkPermission() {
+        int result = ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_MEDIA_AUDIO);
         return result == PackageManager.PERMISSION_GRANTED;
     }
 
-    void requestPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
+    private void requestPermission() {
+        if (shouldShowRequestPermissionRationale(Manifest.permission.READ_MEDIA_AUDIO)) {
             Utils.showToastOnMainThread(requireContext(), "READ PERMISSION IS REQUIRED, PLEASE ALLOW FROM SETTINGS");
         } else {
-            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 123);
+            requestPermissions(new String[]{Manifest.permission.READ_MEDIA_AUDIO}, PERMISSION_REQUEST_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                loadMusicFiles();
+            } else {
+                noMusicTextView.setVisibility(View.VISIBLE);
+                noMusicTextView.setText("Permission not granted to access music files.");
+            }
         }
     }
 

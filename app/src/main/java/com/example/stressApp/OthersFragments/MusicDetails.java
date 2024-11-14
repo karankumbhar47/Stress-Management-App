@@ -7,16 +7,20 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.stressApp.Model.AudioModel;
 import com.example.stressApp.R;
+import com.example.stressApp.Utils.LoadingDialog;
 import com.example.stressApp.Utils.MyMediaPlayer;
+import com.example.stressApp.Utils.Utils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +31,7 @@ public class MusicDetails extends Fragment {
     SeekBar seekBar;
     AudioModel currentSong;
     ArrayList<AudioModel> songsList;
+    private LoadingDialog loadingDialog;
     TextView titleTv,currentTimeTv,totalTimeTv;
     ImageView pause_button,nextBtn,previousBtn,musicIcon;
     MediaPlayer mediaPlayer = MyMediaPlayer.getInstance();
@@ -48,10 +53,10 @@ public class MusicDetails extends Fragment {
         nextBtn = view.findViewById(R.id.next);
         previousBtn = view.findViewById(R.id.previous);
         musicIcon = view.findViewById(R.id.music_icon_big);
+        loadingDialog = new LoadingDialog(requireActivity());
         titleTv.setSelected(true);
 
         setResourcesWithMusic();
-
         requireActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -71,25 +76,20 @@ public class MusicDetails extends Fragment {
                 new Handler().postDelayed(this,100);
             }
         });
-
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if(mediaPlayer!=null && fromUser){
+                if(mediaPlayer!=null && fromUser)
                     mediaPlayer.seekTo(progress);
-                }
             }
 
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStartTrackingTouch(SeekBar seekBar) {}
 
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
+
         return view;
     }
 
@@ -115,7 +115,8 @@ public class MusicDetails extends Fragment {
             seekBar.setProgress(0);
             seekBar.setMax(mediaPlayer.getDuration());
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.e("Music", "playMusic: error while fetching music ",e);
+            Utils.showToastOnMainThread(requireContext(),"Error while fetching music");
         }
     }
 
